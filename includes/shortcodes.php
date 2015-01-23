@@ -15,7 +15,7 @@ function dwr_donate_form_shortcode()
     if (!$confirmation_page_url) {
         $form = __('cannot_operate', DWR_PLUGIN_NAME); // "Not all required fields are filled in admin panel. This plugin cannot operate."
     } else {
-        $action_url = $_SERVER['SERVER_NAME'] . "/" . $confirmation_page_url;
+        $action_url = "/" . $confirmation_page_url;
 
         $form .= '<div>' . __(get_option('dwr_text_before_donate_form'), DWR_PLUGIN_NAME) . '</div>';
 
@@ -24,7 +24,7 @@ function dwr_donate_form_shortcode()
         $form .= '<select name="IncCurrLabel">';
         $form .= '<option>WMZM</option>'; // TODO: request robokassa for currency options
         $form .= '</select>';
-        $form .= '<input type="submit" value="' . __('donate', DWR_PLUGIN_NAME) . '"';
+        $form .= '<input type="submit" value="' . __('donate', DWR_PLUGIN_NAME) . '" />';
         $form .= '</form>';
     }
 
