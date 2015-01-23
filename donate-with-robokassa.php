@@ -61,13 +61,7 @@ function init_plugin()
     }
 }
 
-function admin_init_plugin()
-{
-    // Init plugin options in admin panel
-    register_setting('dwr_plugin_options', 'dwr_plugin_options', 'dwr_plugin_options_validator');
-    add_settings_section('dwr_plugin_main', __('plugin_main_settings', DWR_PLUGIN_NAME), 'display_plugin_text', DWR_PLUGIN_NAME);
-    add_settings_field('dwr_plugin_text_string', 'Plugin Text Input', 'display_plugin_setting_string', DWR_PLUGIN_NAME, 'dwr_plugin_main');
-}
+
 
 /**
  * This shortcode displays donation form, and should be placed on donation page or in some widget
@@ -174,7 +168,15 @@ function dwr_confirm_form_shortcode()
 ########################
 ### OPTIONS ### START ##
 ########################
+function admin_init_plugin()
+{
+    // Init plugin options in admin panel
+    register_setting('dwr_plugin_options', 'dwr_result_url');
+    register_setting('dwr_plugin_options', 'dwr_result_url_method');
 
+//    add_settings_section('dwr_plugin_main', __('plugin_main_settings', DWR_PLUGIN_NAME), 'display_plugin_text', DWR_PLUGIN_NAME);
+//    add_settings_field('dwr_plugin_text_string', 'Plugin Text Input', 'display_plugin_setting_string', DWR_PLUGIN_NAME, 'dwr_plugin_main');
+}
 
 /**
  * Add plugin menu item in admin panel
@@ -186,7 +188,7 @@ function dwr_add_options_page()
         __('dwr_plugin_menu_title', DWR_PLUGIN_NAME),
         'manage_options',
         DWR_PLUGIN_NAME,
-        'dwr_plugin_options_page'
+        'display_plugin_options_page'
     );
 //    add_options_page('Custom Plugin Page', 'Custom Plugin Menu', 'manage_options', DWR_PLUGIN_NAME, 'dwr_plugin_options_page');
 }
@@ -194,35 +196,42 @@ function dwr_add_options_page()
 /**
  * Display the admin options page
  */
-function dwr_plugin_options_page()
+function display_plugin_options_page()
 {
     echo "<div>";
     echo "<h2>" . __('dwr_plugin_page_title', DWR_PLUGIN_NAME) . "</h2>";
+
     echo '<form action="options.php" method="POST">';
 
     settings_fields('dwr_plugin_options');
     do_settings_sections(DWR_PLUGIN_NAME);
 
-    echo '<input name="' . __('submit', DWR_PLUGIN_NAME) . '" type="submit" value="' . __('save', DWR_PLUGIN_NAME) . '" />';
+    $dwr_result_url = get_option('dwr_result_url');
+    $dwr_result_url_method = get_option('dwr_result_url_method');
+
+    echo "<input name='dwr_result_url' size='40' type='text' value='" . $dwr_result_url . "' />";
+    echo "<input name='dwr_result_url_method' size='40' type='text' value='" . $dwr_result_url_method .  "' />";
+
+    submit_button();
     echo '</form></div>';
 
 }
 
-function dwr_plugin_options_validator()
-{
+//function dwr_plugin_options_validator()
+//{
+//
+//}
 
-}
-
-function display_plugin_text()
-{
-    echo '<p>Main description of this section here.</p>'; // TODO: localization
-}
-
-function display_plugin_setting_string()
-{
-    $options = get_option('plugin_options');
-    echo "<input id='dwr_plugin_text_string' name='dwr_plugin_options[text_string]' size='40' type='text' value='{$options['text_string']}' />";
-}
+//function display_plugin_text()
+//{
+//    echo '<p>Main description of this section here.</p>'; // TODO: localization
+//}
+//
+//function display_plugin_setting_string()
+//{
+//    $options = get_option('plugin_options');
+//    echo "<input id='dwr_plugin_text_string' name='dwr_plugin_options[text_string]' size='40' type='text' value='{$options['text_string']}' />";
+//}
 
 ########################
 ### OPTIONS ### END ####
