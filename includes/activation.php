@@ -34,11 +34,13 @@ function dwr_activate_plugin()
     add_option('dwr_result_url', 'robokassa_result');
     add_option('dwr_result_url_method', 'POST');
     add_option('dwr_confirm_page_url', '');
+
     add_option('dwr_merchant_login', '');
-    add_option('dwr_text_before_donate_form', '');
-    add_option('dwr_operation_description', '');
     add_option('dwr_merchant_pass_one', '');
     add_option('dwr_merchant_pass_two', '');
+
+    add_option('dwr_text_before_donate_form', '');
+    add_option('dwr_operation_description', '');
 }
 
 function dwr_deactivate_plugin()

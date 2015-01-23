@@ -48,4 +48,12 @@ function admin_init_plugin()
     // Register plugin options in admin panel
     register_setting('dwr_plugin_options', 'dwr_result_url');
     register_setting('dwr_plugin_options', 'dwr_result_url_method');// TODO: Add validation, check for possible values (GET AND POST)
+    register_setting('dwr_plugin_options', 'dwr_confirm_page_url');
+
+    register_setting('dwr_plugin_options', 'dwr_merchant_login');
+    register_setting('dwr_plugin_options', 'dwr_merchant_pass_one');
+    register_setting('dwr_plugin_options', 'dwr_merchant_pass_two');
+
+    register_setting('dwr_plugin_options', 'dwr_text_before_donate_form');
+    register_setting('dwr_plugin_options', 'dwr_operation_description');
 }

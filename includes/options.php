@@ -36,9 +36,40 @@ function display_plugin_options_page()
 
     $dwr_result_url = get_option('dwr_result_url');
     $dwr_result_url_method = get_option('dwr_result_url_method');
+    $dwr_confirm_page_url = get_option('dwr_confirm_page_url');
 
-    echo "<input name='dwr_result_url' size='40' type='text' value='" . $dwr_result_url . "' />";
-    echo "<input name='dwr_result_url_method' size='40' type='text' value='" . $dwr_result_url_method .  "' />";
+    $dwr_merchant_login = get_option('dwr_merchant_login');
+    $dwr_merchant_pass_one = get_option('dwr_merchant_pass_one');
+    $dwr_merchant_pass_two = get_option('dwr_merchant_pass_two');
+
+    $dwr_text_before_donate_form = get_option('dwr_text_before_donate_form');
+    $dwr_operation_description = get_option('dwr_operation_description');
+
+    echo "<table><tr>";
+    echo "  <td>" . __('result_url', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_result_url' size='40' type='text' value='" . $dwr_result_url . "' /></td>";
+    echo "</tr><tr>";
+    echo "  <td>" . __('result_url_method', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_result_url_method' size='40' type='text' value='" . $dwr_result_url_method .  "' /></td>";
+    echo "</tr><tr>";
+    echo "  <td>" . __('confirm_page_url', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_confirm_page_url' size='40' type='text' value='" . $dwr_confirm_page_url .  "' /></td>";
+    echo "</tr><tr>";
+
+    echo "<td>&nbsp;</td><td>&nbsp;</td>";
+
+    echo "</tr><tr>";
+    echo "  <td>" . __('merchant_login', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_merchant_login' size='40' type='text' value='" . $dwr_merchant_login .  "' /></td>";
+    echo "</tr><tr>";
+    echo "  <td>" . __('merchant_pass_one', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_merchant_pass_one' size='40' type='text' value='" . $dwr_merchant_pass_one .  "' /></td>";
+    echo "</tr><tr>";
+    echo "  <td>" . __('merchant_pass_two', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_merchant_pass_two' size='40' type='text' value='" . $dwr_merchant_pass_two .  "' /></td>";
+    echo "</tr><tr>";
+
+    echo "<td>&nbsp;</td><td>&nbsp;</td>";
+
+    echo "</tr><tr>";
+    echo "  <td>" . __('text_before_donate_form', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_text_before_donate_form' size='40' type='text' value='" . $dwr_text_before_donate_form .  "' /></td>";
+    echo "</tr><tr>";
+    echo "  <td>" . __('operation_description', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_operation_description' size='40' type='text' value='" . $dwr_operation_description .  "' /></td>";
+    echo "</tr></table>";
 
     submit_button();
     echo '</form></div>';
