@@ -58,14 +58,16 @@ class RobokassaService
             die("Internal error");
         }
 
-        $mySignatureValue = md5("{$transaction->amount}:$invId:$merchant_pass_two");
+        $mySignatureValue = strtolower(md5("{$transaction->amount}:$invId:$merchant_pass_two"));
+        $signatureValue = strtolower($signatureValue);
 
         if ($signatureValue === $mySignatureValue) {
             echo "OK$invId";
             // TODO: implement mail delivery if required
             // wp_mail("malgin05@gmail.com", "Domation arrived", "Details");
         } else {
-            echo "Signatures don't match, something went wrong";
+            error_log("Signatures don't match, something went wrong. Their: $signatureValue, ours: $mySignatureValue");
+            echo "Signatures don't match, something went wrong.";
         }
 
         exit();
