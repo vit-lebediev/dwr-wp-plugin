@@ -26,19 +26,20 @@ function dwr_donate_form_shortcode()
 
             $form .= '<div>' . __(get_option('dwr_text_before_donate_form'), DWR_PLUGIN_NAME) . '</div>';
 
-            $form .= '<form action="' . $action_url . '" method="GET">';
+            $form .= '<form action="' . $action_url . '" method="GET" id="dwr_donation_form">';
             $form .= '<input type="text" name="OutSum" />';
-            $form .= '<select name="IncCurrLabel">';
+            $form .= '<select name="IncCurrLabelAndName">';
 
             foreach ($currenciesListAsXML->Groups->Group as $group) {
                 $form .= '<option disabled>' . $group['Description'] . '</option>';
                 foreach ($group->Items->Currency as $currency)
                 {
-                    $form .= '<option value="' . $currency['Label'] . '">&nbsp;&nbsp;&nbsp;' . $currency['Name'] . '</option>';
+                    $form .= '<option value="' . $currency['Label'] . ':' . $currency['Name'] . '">&nbsp;&nbsp;&nbsp;' . $currency['Name'] . '</option>';
                 }
             }
 
             $form .= '</select>';
+            $form .= '<textarea name="UserMessage" maxlength="65536" form="dwr_donation_form" placeholder="' . __('leave_us_a_message', DWR_PLUGIN_NAME) . '"></textarea>';
             $form .= '<input type="submit" value="' . __('donate', DWR_PLUGIN_NAME) . '" />';
             $form .= '</form>';
         }
@@ -58,7 +59,10 @@ function dwr_confirm_form_shortcode()
     global $wpdb;
 
     $amount = $_GET['OutSum'];
-    $currency = $_GET['IncCurrLabel'];
+    $currencyLabelAndName = $_GET['IncCurrLabelAndName'];
+    $currencyLabel = array_shift(explode(":", $currencyLabelAndName));
+    $currencyName = array_pop(explode(":", $currencyLabelAndName));
+    $userMessage = $_GET['UserMessage'];
 
     $merchant_login = get_option('dwr_merchant_login');
 
@@ -77,11 +81,15 @@ function dwr_confirm_form_shortcode()
             $table_donations,
             array(
                 'amount' => $amount,
-                'currency' => $currency,
+                'currencyLabel' => $currencyLabel,
+                'currencyName' => $currencyName,
                 'start_date' => current_time('mysql', 1),
+                'message' => $userMessage
             ),
             array(
                 '%f',
+                '%s',
+                '%s',
                 '%s',
                 '%s'
             )
@@ -98,7 +106,7 @@ function dwr_confirm_form_shortcode()
 
         $form .= '<div>';
         $form .= '<div>' . __('amount', DWR_PLUGIN_NAME) . ': <strong>' . $amount . '</strong></div>';
-        $form .= '<div>' . __('currency', DWR_PLUGIN_NAME) . ': <strong>' . $currency . '</strong></div>';
+        $form .= '<div>' . __('currency', DWR_PLUGIN_NAME) . ': <strong>' . $currencyName . '</strong></div>';
         $form .= '</div>';
 
         $form .= '<form action="' . DWR_ROBOKASSA_ACTION_URL . '" method="POST">';

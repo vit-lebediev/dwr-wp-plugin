@@ -17,10 +17,12 @@ function dwr_activate_plugin()
             CREATE TABLE IF NOT EXISTS `" . $table_donations . "` (
                 `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
                 `amount` FLOAT UNSIGNED NOT NULL,
-                `currency` VARCHAR(255) NOT NULL,
+                `currencyLabel` VARCHAR(255) NOT NULL,
+                `currencyName` VARCHAR(255) NOT NULL,
+                `message` TEXT DEFAULT NULL,
                 `start_date` DATETIME NOT NULL,
                 `finish_date` DATETIME DEFAULT NULL,
-                `accomplished` BOOL NOT NULL DEFAULT 0,
+                `accomplished` BOOL DEFAULT 0,
                 PRIMARY KEY (`id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8
         ";
