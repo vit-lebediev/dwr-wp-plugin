@@ -24,11 +24,19 @@ function dwr_donate_form_shortcode()
         } else {
             $action_url = "/" . $confirmation_page_url;
 
-            $form .= '<div>' . __(get_option('dwr_text_before_donate_form'), DWR_PLUGIN_NAME) . '</div>';
+            $form .= '<div class="dwr_donation_form_wrapper">';
+            $form .= '<div class="dwr_text_before_donation_form">' . __(get_option('dwr_text_before_donation_form'), DWR_PLUGIN_NAME) . '</div>';
 
             $form .= '<form action="' . $action_url . '" method="GET" id="dwr_donation_form">';
-            $form .= '<input type="text" name="OutSum" />';
-            $form .= '<select name="IncCurrLabelAndName">';
+            $form .= '<table><tr>';
+            $form .= '<td>';
+            $form .= __('donation_sum', DWR_PLUGIN_NAME);
+            $form .= '</td><td>';
+            $form .= '<input type="text" name="OutSum" class="dwr_input_outsum" />';
+            $form .= '</td></tr><tr><td>';
+            $form .= __('donation_currency', DWR_PLUGIN_NAME);
+            $form .= '</td><td>';
+            $form .= '<select name="IncCurrLabelAndName" class="dwr_select_inccurr">';
 
             foreach ($currenciesListAsXML->Groups->Group as $group) {
                 $form .= '<option disabled>' . $group['Description'] . '</option>';
@@ -39,9 +47,15 @@ function dwr_donate_form_shortcode()
             }
 
             $form .= '</select>';
-            $form .= '<textarea name="UserMessage" maxlength="65536" form="dwr_donation_form" placeholder="' . __('leave_us_a_message', DWR_PLUGIN_NAME) . '"></textarea>';
-            $form .= '<input type="submit" value="' . __('donate', DWR_PLUGIN_NAME) . '" />';
+            $form .= '</td></tr><tr><td>';
+            $form .= __('user_message', DWR_PLUGIN_NAME);
+            $form .= '</td><td>';
+            $form .= '<textarea name="UserMessage" maxlength="65536" form="dwr_donation_form" placeholder="' . __('leave_us_a_message', DWR_PLUGIN_NAME) . '" class="dwr_textarea_usermessage"></textarea>';
+            $form .= '</td></tr><tr><td>&nbsp;</td><td>';
+            $form .= '<input type="submit" value="' . __('donate', DWR_PLUGIN_NAME) . '" class="dwr_submit" />';
+            $form .= '</td></tr></table>';
             $form .= '</form>';
+            $form .= '</div>';
         }
     }
 
