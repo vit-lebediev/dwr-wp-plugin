@@ -128,7 +128,7 @@ function dwr_confirm_form_shortcode()
         $form .= '<input type="hidden" name="OutSum" value="' . $amount . '" />';
         $form .= '<input type="hidden" name="InvId" value="' . $transaction_id . '" />';
         $form .= '<input type="hidden" name="Desc" value="' . $operation_description . '" />';
-        $form .= '<input type="hidden" name="IncCurrLabel" value="' . $currency . '" />';
+        $form .= '<input type="hidden" name="IncCurrLabel" value="' . $currencyLabel . '" />';
         $form .= '<input type="hidden" name="Culture" value="ru" />'; // TODO: think about it
         $form .= '<input type="hidden" name="Encoding" value="utf-8" />';
         $form .= '<input type="hidden" name="SignatureValue" value="' . $signature_value . '" />';
