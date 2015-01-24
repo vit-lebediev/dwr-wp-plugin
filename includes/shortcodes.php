@@ -118,11 +118,12 @@ function dwr_confirm_form_shortcode()
 
         // TODO: Display payment info for user
 
-        $form .= '<div>';
-        $form .= '<div>' . __('amount', DWR_PLUGIN_NAME) . ': <strong>' . $amount . '</strong></div>';
-        $form .= '<div>' . __('currency', DWR_PLUGIN_NAME) . ': <strong>' . $currencyName . '</strong></div>';
-        $form .= '</div>';
+        $form .= '<div class="dwr_confirmation_form_wrapper">';
+        $form .= '<div class="dwr_amount">' . __('amount', DWR_PLUGIN_NAME) . ': <strong>' . $amount . '</strong></div>';
+        $form .= '<div class="dwr_currency">' . __('currency', DWR_PLUGIN_NAME) . ': <strong>' . $currencyName . '</strong></div>';
+        $form .= '<div class="dwr_usermessage">' . __('usermessage', DWR_PLUGIN_NAME) . ':<strong>' . $userMessage . '</strong></div>';
 
+        $form .= '<div class="dwr_form">';
         $form .= '<form action="' . DWR_ROBOKASSA_ACTION_URL . '" method="POST">';
         $form .= '<input type="hidden" name="MrchLogin" value="' . $merchant_login . '" />';
         $form .= '<input type="hidden" name="OutSum" value="' . $amount . '" />';
@@ -132,9 +133,10 @@ function dwr_confirm_form_shortcode()
         $form .= '<input type="hidden" name="Culture" value="ru" />'; // TODO: think about it
         $form .= '<input type="hidden" name="Encoding" value="utf-8" />';
         $form .= '<input type="hidden" name="SignatureValue" value="' . $signature_value . '" />';
-        $form .= '<input type="submit" value="' . __('donate', DWR_PLUGIN_NAME) . '" />';
-        $form .= '<input type="button" value="' . __('cancel', DWR_PLUGIN_NAME) . '" />';
+        $form .= '<input type="submit" value="' . __('donate', DWR_PLUGIN_NAME) . '" class="dwr_submit_button" />';
+        $form .= '<input type="button" value="' . __('cancel', DWR_PLUGIN_NAME) . '" class="dwr_cancel_button" />';
         $form .= '</form>';
+        $form .= '</div></div>';
     }
 
     return $form;
