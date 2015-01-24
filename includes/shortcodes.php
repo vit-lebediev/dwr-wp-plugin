@@ -35,7 +35,7 @@ function dwr_donate_form_shortcode()
             $form .= '<option disabled>' . $group['Description'] . '</option>';
             foreach ($group->Items->Currency as $currency)
             {
-                $form .= '<option value="' . $currency['Label'] . '">' . $currency['Name'] . '</option>';
+                $form .= '<option value="' . $currency['Label'] . '">&nbsp;&nbsp;&nbsp;' . $currency['Name'] . '</option>';
             }
         }
 
