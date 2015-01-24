@@ -17,7 +17,7 @@ function dwr_activate_plugin()
             CREATE TABLE IF NOT EXISTS `" . $table_donations . "` (
                 `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
                 `amount` FLOAT UNSIGNED NOT NULL,
-                `currency` VARCHAR(10) NOT NULL,
+                `currency` VARCHAR(255) NOT NULL,
                 `start_date` DATETIME NOT NULL,
                 `finish_date` DATETIME DEFAULT NULL,
                 `accomplished` BOOL NOT NULL DEFAULT 0,
