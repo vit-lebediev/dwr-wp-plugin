@@ -37,39 +37,6 @@ class RobokassaService
         } else {
             return new \SimpleXMLElement($result);
         }
-
-//        echo "Merchant login: '" . $this->merchantLogin . "'";
-//        echo "Language: " . $this->responseLanguage;
-//
-//        $merchantLoginParam = new \SoapParam($this->merchantLogin, 'MerchantLogin');
-//        $languageParam = new \SoapParam($this->responseLanguage, 'Language');
-//
-//        echo '<pre>';
-//        print_r($merchantLoginParam);
-//        print_r($languageParam);
-//        echo '</pre>';
-//
-//        $result = $this->soapClient->GetCurrencies(
-//            $merchantLoginParam,
-//            $merchantLoginParam,
-//            $languageParam
-//        );
-//        echo '<pre>';
-//        print_r($result);
-//        print_r($this->soapClient->__getLastRequestHeaders());
-//        echo "<hr>";
-//        print_r(htmlentities($this->soapClient->__getLastRequest()));
-//        echo "<hr>";
-//        print_r($this->soapClient->__getLastResponseHeaders());
-//        echo "<hr>";
-//        print_r(htmlentities($this->soapClient->__getLastResponse()));
-//        echo '</pre>';
-//        echo "<hr>";
-//        if (is_object($result) && $result->GetCurrenciesResult->Result->Code != 0) {
-//            echo "Error occured while requesting available merchant currencies: " . $result->GetCurrenciesResult->Result->Description;
-//        } else {
-//            return new \SimpleXMLElement($result);
-//        }
     }
 
     private $merchantLogin = null;
