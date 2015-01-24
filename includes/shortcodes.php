@@ -5,16 +5,24 @@
  * @param $attr
  * @return string
  */
+
+include realpath(dirname(__FILE__)) . '/RobokassaService.php';
+
 function dwr_donate_form_shortcode()
 {
     // form generated right here
     $form = '';
 
     $confirmation_page_url = get_option('dwr_confirm_page_url');
+    $merchant_login = get_option('dwr_merchant_login');
 
-    if (!$confirmation_page_url) {
+    if (!$confirmation_page_url OR !$merchant_login) {
         $form = __('cannot_operate', DWR_PLUGIN_NAME); // "Not all required fields are filled in admin panel. This plugin cannot operate."
     } else {
+        // Load currencies from robokassa
+        $robokassaService = new RobokassaService($merchant_login, 'ru');
+        $currenciesListAsXML = $robokassaService->getAvailableCurrencies();
+
         $action_url = "/" . $confirmation_page_url;
 
         $form .= '<div>' . __(get_option('dwr_text_before_donate_form'), DWR_PLUGIN_NAME) . '</div>';
@@ -22,7 +30,15 @@ function dwr_donate_form_shortcode()
         $form .= '<form action="' . $action_url . '" method="GET">';
         $form .= '<input type="text" name="OutSum" />';
         $form .= '<select name="IncCurrLabel">';
-        $form .= '<option>WMZM</option>'; // TODO: request robokassa for currency options
+
+        foreach ($currenciesListAsXML->Groups->Group as $group) {
+            $form .= '<option disabled>' . $group['Description'] . '</option>';
+            foreach ($group->Items->Currency as $currency)
+            {
+                $form .= '<option value="' . $currency['Label'] . '">' . $currency['Name'] . '</option>';
+            }
+        }
+
         $form .= '</select>';
         $form .= '<input type="submit" value="' . __('donate', DWR_PLUGIN_NAME) . '" />';
         $form .= '</form>';
@@ -84,7 +100,7 @@ function dwr_confirm_form_shortcode()
         $form .= '<div>' . __('currency', DWR_PLUGIN_NAME) . ': <strong>' . $currency . '</strong></div>';
         $form .= '</div>';
 
-        $form .= '<form action="' . DWR_ROBOKASSA_ACTION_URL . '" method="GET">';
+        $form .= '<form action="' . DWR_ROBOKASSA_ACTION_URL . '" method="POST">';
         $form .= '<input type="hidden" name="MrchLogin" value="' . $merchant_login . '" />';
         $form .= '<input type="hidden" name="OutSum" value="' . $amount . '" />';
         $form .= '<input type="hidden" name="InvId" value="' . $transaction_id . '" />';

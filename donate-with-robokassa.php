@@ -20,9 +20,21 @@
  *
 **/
 
+/**
+ * Define MySQL constants
+ */
 define('DWR_DONATIONS_TABLE_NAME', 'dwr_donations');
-define('DWR_PLUGIN_NAME', 'donate-with-robokassa');
+
+/**
+ * Define URL constants
+ */
 define('DWR_ROBOKASSA_ACTION_URL', 'http://test.robokassa.ru/Index.aspx');
+define('DWR_ROBOKASSA_GET_CURRENCIES_URL', 'http://test.robokassa.ru/Webservice/Service.asmx/GetCurrencies');
+
+/**
+ * Define other constants
+ */
+define('DWR_PLUGIN_NAME', 'donate-with-robokassa');
 
 include realpath(dirname(__FILE__)) . '/includes/activation.php';
 include realpath(dirname(__FILE__)) . '/includes/initialization.php';
