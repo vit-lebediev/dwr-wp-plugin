@@ -13,52 +13,65 @@
  */
 class RobokassaService
 {
-    const ROBOKASSA_WSDL_URL = 'http://test.robokassa.ru/Webservice/Service.asmx?WSDL';
+    const ROBOKASSA_GET_CURRENCIES_URL = 'http://test.robokassa.ru/Webservice/Service.asmx/GetCurrencies';
 
     public function __construct($merchantLogin, $responseLanguage)
     {
-        $this->soapClient = new \SoapClient(self::ROBOKASSA_WSDL_URL, array('trace' => true));
         $this->merchantLogin = $merchantLogin;
         $this->responseLanguage = $responseLanguage;
     }
 
     public function getAvailableCurrencies()
     {
-        echo "Merchant login: '" . $this->merchantLogin . "'";
-        echo "Language: " . $this->responseLanguage;
+        $curl = curl_init();
 
-        $merchantLoginParam = new \SoapParam($this->merchantLogin, 'MerchantLogin');
-        $languageParam = new \SoapParam($this->responseLanguage, 'Language');
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_URL, self::ROBOKASSA_GET_CURRENCIES_URL . '?MerchantLogin=' . $this->merchantLogin . '&Language=' . $this->responseLanguage);
 
-        echo '<pre>';
-        print_r($merchantLoginParam);
-        print_r($languageParam);
-        echo '</pre>';
+        $result = curl_exec($curl);
 
-        $result = $this->soapClient->GetCurrencies(
-            $merchantLoginParam,
-            $merchantLoginParam,
-            $languageParam
-        );
-        echo '<pre>';
-        print_r($result);
-        print_r($this->soapClient->__getLastRequestHeaders());
-        echo "<hr>";
-        print_r(htmlentities($this->soapClient->__getLastRequest()));
-        echo "<hr>";
-        print_r($this->soapClient->__getLastResponseHeaders());
-        echo "<hr>";
-        print_r(htmlentities($this->soapClient->__getLastResponse()));
-        echo '</pre>';
-        echo "<hr>";
+        curl_close($curl);
+
         if (is_object($result) && $result->GetCurrenciesResult->Result->Code != 0) {
             echo "Error occured while requesting available merchant currencies: " . $result->GetCurrenciesResult->Result->Description;
         } else {
             return new \SimpleXMLElement($result);
         }
+
+//        echo "Merchant login: '" . $this->merchantLogin . "'";
+//        echo "Language: " . $this->responseLanguage;
+//
+//        $merchantLoginParam = new \SoapParam($this->merchantLogin, 'MerchantLogin');
+//        $languageParam = new \SoapParam($this->responseLanguage, 'Language');
+//
+//        echo '<pre>';
+//        print_r($merchantLoginParam);
+//        print_r($languageParam);
+//        echo '</pre>';
+//
+//        $result = $this->soapClient->GetCurrencies(
+//            $merchantLoginParam,
+//            $merchantLoginParam,
+//            $languageParam
+//        );
+//        echo '<pre>';
+//        print_r($result);
+//        print_r($this->soapClient->__getLastRequestHeaders());
+//        echo "<hr>";
+//        print_r(htmlentities($this->soapClient->__getLastRequest()));
+//        echo "<hr>";
+//        print_r($this->soapClient->__getLastResponseHeaders());
+//        echo "<hr>";
+//        print_r(htmlentities($this->soapClient->__getLastResponse()));
+//        echo '</pre>';
+//        echo "<hr>";
+//        if (is_object($result) && $result->GetCurrenciesResult->Result->Code != 0) {
+//            echo "Error occured while requesting available merchant currencies: " . $result->GetCurrenciesResult->Result->Description;
+//        } else {
+//            return new \SimpleXMLElement($result);
+//        }
     }
 
-    private $soapClient = null;
     private $merchantLogin = null;
     private $responseLanguage = null;
 }
