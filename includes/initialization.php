@@ -17,7 +17,7 @@ function init_plugin()
     $result_url = get_option('dwr_result_url');
 
     $merchant_login = get_option('dwr_merchant_login');
-    $robokassaService = new RobokassaService($merchant_login, 'ru'); // TODO replace language with dynamic var
+    $robokassaService = new DWRRobokassaService($merchant_login, dwr_get_blog_language_for_robokassa());
 
     // Get current URI part
     $real_url = $_SERVER['REQUEST_URI'];

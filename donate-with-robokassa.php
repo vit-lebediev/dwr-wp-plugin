@@ -36,11 +36,13 @@ define('DWR_ROBOKASSA_GET_CURRENCIES_URL', 'http://test.robokassa.ru/Webservice/
  */
 define('DWR_PLUGIN_NAME', 'donate-with-robokassa');
 
+include realpath(dirname(__FILE__)) . '/includes/utils.php';
+
 include realpath(dirname(__FILE__)) . '/includes/activation.php';
 include realpath(dirname(__FILE__)) . '/includes/initialization.php';
 include realpath(dirname(__FILE__)) . '/includes/shortcodes.php';
 include realpath(dirname(__FILE__)) . '/includes/options.php';
-include realpath(dirname(__FILE__)) . '/includes/RobokassaService.php';
+include realpath(dirname(__FILE__)) . '/includes/DWRRobokassaService.php';
 
 /**
  * Activation

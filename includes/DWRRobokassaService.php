@@ -7,11 +7,11 @@
  */
 
 /**
- * Class RobokassaService
+ * Class DWRRobokassaService
  *
  * Use to access robokassa data
  */
-class RobokassaService
+class DWRRobokassaService
 {
     public function __construct($merchantLogin, $responseLanguage)
     {

@@ -18,7 +18,7 @@ function dwr_donate_form_shortcode()
         $form = __('cannot_operate', DWR_PLUGIN_NAME); // "Not all required fields are filled in admin panel. This plugin cannot operate."
     } else {
         // Load currencies from robokassa
-        $robokassaService = new RobokassaService($merchant_login, 'ru'); // TODO replace language with dynamic var
+        $robokassaService = new DWRRobokassaService($merchant_login, dwr_get_blog_language_for_robokassa());
         if (!$currenciesListAsXML = $robokassaService->getAvailableCurrencies()) {
             $form .= __('error_during_currency_request', DWR_PLUGIN_NAME); // "Error occured during request for available currencies. Please contact website administration."
         } else {
@@ -130,7 +130,7 @@ function dwr_confirm_form_shortcode()
         $form .= '<input type="hidden" name="InvId" value="' . $transaction_id . '" />';
         $form .= '<input type="hidden" name="Desc" value="' . $operation_description . '" />';
         $form .= '<input type="hidden" name="IncCurrLabel" value="' . $currencyLabel . '" />';
-        $form .= '<input type="hidden" name="Culture" value="ru" />'; // TODO: think about it
+        $form .= '<input type="hidden" name="Culture" value="' . dwr_get_blog_language_for_robokassa() . '" />';
         $form .= '<input type="hidden" name="Encoding" value="utf-8" />';
         $form .= '<input type="hidden" name="SignatureValue" value="' . $signature_value . '" />';
         $form .= '<input type="submit" value="' . __('donate', DWR_PLUGIN_NAME) . '" class="dwr_submit_button" />';
