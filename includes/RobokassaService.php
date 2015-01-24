@@ -64,6 +64,15 @@ class RobokassaService
             echo "OK$invId";
             // TODO: implement mail delivery if required
             // wp_mail("malgin05@gmail.com", "Domation arrived", "Details");
+
+            // update transaction in the db
+            $wpdb->update(
+                $table_donations,
+                array('accomplished' => 1, 'finish_date' => current_time('mysql', 1)),
+                array('id' => $invId),
+                array('%d', '%s'),
+                array('%d')
+            );
         } else {
             error_log("Signatures don't match, something went wrong. Their: $signatureValue, ours: $mySignatureValue");
             echo "Signatures don't match, something went wrong.";
