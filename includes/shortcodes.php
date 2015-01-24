@@ -65,6 +65,7 @@ function dwr_confirm_form_shortcode()
     $form = '';
 
     // TODO: check data
+    // TODO: check for more than 2 numbers after coma
     // TODO: check if amout is not negative
     if (!$merchant_login) {
         $form = __('cannot_operate', 'donate-with-robokassa'); // Not all required fields are filled in admin panel. This plugin cannot operate.

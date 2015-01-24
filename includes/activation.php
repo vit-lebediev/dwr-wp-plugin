@@ -46,17 +46,23 @@ function dwr_activate_plugin()
 
     add_option('dwr_text_before_donate_form', '');
     add_option('dwr_operation_description', '');
+
+    add_option('dwr_force_delete_tables', '');
 }
 
 function dwr_deactivate_plugin()
 {
     global $wpdb;
 
-    $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
+    $forceDeleteTables = get_option('dwr_force_delete_tables');
 
-    $sql = "DROP TABLE `" . $table_donations . "`";
+    if ($forceDeleteTables) {
+        $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
 
-    $wpdb->query($sql);
+        $sql = "DROP TABLE `" . $table_donations . "`";
+
+        $wpdb->query($sql);
+    }
 
     delete_option('dwr_confirm_page_url');
 
@@ -73,4 +79,6 @@ function dwr_deactivate_plugin()
 
     delete_option('dwr_text_before_donate_form');
     delete_option('dwr_operation_description');
+
+    delete_option('dwr_force_delete_tables');
 }
