@@ -13,8 +13,6 @@
  */
 class RobokassaService
 {
-    const ROBOKASSA_GET_CURRENCIES_URL = 'http://test.robokassa.ru/Webservice/Service.asmx/GetCurrencies';
-
     public function __construct($merchantLogin, $responseLanguage)
     {
         $this->merchantLogin = $merchantLogin;
@@ -26,14 +24,15 @@ class RobokassaService
         $curl = curl_init();
 
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_URL, self::ROBOKASSA_GET_CURRENCIES_URL . '?MerchantLogin=' . $this->merchantLogin . '&Language=' . $this->responseLanguage);
+        curl_setopt($curl, CURLOPT_URL, DWR_ROBOKASSA_GET_CURRENCIES_URL . '?MerchantLogin=' . $this->merchantLogin . '&Language=' . $this->responseLanguage);
 
         $result = curl_exec($curl);
 
         curl_close($curl);
 
         if (is_object($result) && $result->GetCurrenciesResult->Result->Code != 0) {
-            echo "Error occured while requesting available merchant currencies: " . $result->GetCurrenciesResult->Result->Description;
+            error_log("Error occured while requesting available merchant currencies: " . $result->GetCurrenciesResult->Result->Description);
+            return false;
         } else {
             return new \SimpleXMLElement($result);
         }

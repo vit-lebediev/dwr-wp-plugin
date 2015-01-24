@@ -19,27 +19,29 @@ function dwr_donate_form_shortcode()
     } else {
         // Load currencies from robokassa
         $robokassaService = new RobokassaService($merchant_login, 'ru'); // TODO replace language with dynamic var
-        $currenciesListAsXML = $robokassaService->getAvailableCurrencies();
+        if (!$currenciesListAsXML = $robokassaService->getAvailableCurrencies()) {
+            $form .= __('error_during_currency_request', DWR_PLUGIN_NAME); // "Error occured during request for available currencies. Please contact website administration."
+        } else {
+            $action_url = "/" . $confirmation_page_url;
 
-        $action_url = "/" . $confirmation_page_url;
+            $form .= '<div>' . __(get_option('dwr_text_before_donate_form'), DWR_PLUGIN_NAME) . '</div>';
 
-        $form .= '<div>' . __(get_option('dwr_text_before_donate_form'), DWR_PLUGIN_NAME) . '</div>';
+            $form .= '<form action="' . $action_url . '" method="GET">';
+            $form .= '<input type="text" name="OutSum" />';
+            $form .= '<select name="IncCurrLabel">';
 
-        $form .= '<form action="' . $action_url . '" method="GET">';
-        $form .= '<input type="text" name="OutSum" />';
-        $form .= '<select name="IncCurrLabel">';
-
-        foreach ($currenciesListAsXML->Groups->Group as $group) {
-            $form .= '<option disabled>' . $group['Description'] . '</option>';
-            foreach ($group->Items->Currency as $currency)
-            {
-                $form .= '<option value="' . $currency['Label'] . '">&nbsp;&nbsp;&nbsp;' . $currency['Name'] . '</option>';
+            foreach ($currenciesListAsXML->Groups->Group as $group) {
+                $form .= '<option disabled>' . $group['Description'] . '</option>';
+                foreach ($group->Items->Currency as $currency)
+                {
+                    $form .= '<option value="' . $currency['Label'] . '">&nbsp;&nbsp;&nbsp;' . $currency['Name'] . '</option>';
+                }
             }
-        }
 
-        $form .= '</select>';
-        $form .= '<input type="submit" value="' . __('donate', DWR_PLUGIN_NAME) . '" />';
-        $form .= '</form>';
+            $form .= '</select>';
+            $form .= '<input type="submit" value="' . __('donate', DWR_PLUGIN_NAME) . '" />';
+            $form .= '</form>';
+        }
     }
 
     return $form;
