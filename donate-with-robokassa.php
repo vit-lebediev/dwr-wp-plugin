@@ -40,11 +40,7 @@ include realpath(dirname(__FILE__)) . '/includes/activation.php';
 include realpath(dirname(__FILE__)) . '/includes/initialization.php';
 include realpath(dirname(__FILE__)) . '/includes/shortcodes.php';
 include realpath(dirname(__FILE__)) . '/includes/options.php';
-
-function process_robokassa()
-{
-
-}
+include realpath(dirname(__FILE__)) . '/includes/RobokassaService.php';
 
 /**
  * Activation

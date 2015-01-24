@@ -16,26 +16,29 @@ function init_plugin()
     // Get saved part of URL which serves as result URL
     $result_url = get_option('dwr_result_url');
 
+    $merchant_login = get_option('dwr_merchant_login');
+    $robokassaService = new RobokassaService($merchant_login, 'ru'); // TODO replace language with dynamic var
+
     // Get current URI part
     $real_url = $_SERVER['REQUEST_URI'];
     preg_match('/^\/([^\?]*)(\?.+)?$/i', $real_url, $real_matches);
 
     // Check if current URI is the same as result
-    if ($real_matches[1] == $result_url) {
+    if ($real_matches[1] === $result_url) {
         $result_url_method = get_option('dwr_result_url_method');
         switch ($result_url_method) {
             case 'POST':
                 if (isset($_POST['SignatureValue'])) {
                     $InvId = $_POST["InvId"];
                     $SignatureValue = $_POST["SignatureValue"];
-                    process_robokassa($InvId, $SignatureValue);
+                    $robokassaService->processResult($InvId, $SignatureValue);
                 }
                 break;
             case 'GET':
                 if (isset($_GET['SignatureValue'])) {
                     $InvId = $_GET["InvId"];
                     $SignatureValue = $_GET["SignatureValue"];
-                    process_robokassa($InvId, $SignatureValue);
+                    $robokassaService->processResult($InvId, $SignatureValue);
                 }
                 break;
             default: break;

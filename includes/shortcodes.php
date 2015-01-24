@@ -6,8 +6,6 @@
  * @return string
  */
 
-include realpath(dirname(__FILE__)) . '/RobokassaService.php';
-
 function dwr_donate_form_shortcode()
 {
     // form generated right here
@@ -20,7 +18,7 @@ function dwr_donate_form_shortcode()
         $form = __('cannot_operate', DWR_PLUGIN_NAME); // "Not all required fields are filled in admin panel. This plugin cannot operate."
     } else {
         // Load currencies from robokassa
-        $robokassaService = new RobokassaService($merchant_login, 'ru');
+        $robokassaService = new RobokassaService($merchant_login, 'ru'); // TODO replace language with dynamic var
         $currenciesListAsXML = $robokassaService->getAvailableCurrencies();
 
         $action_url = "/" . $confirmation_page_url;

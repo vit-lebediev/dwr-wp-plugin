@@ -39,6 +39,38 @@ class RobokassaService
         }
     }
 
+    public function processResult($invId, $signatureValue)
+    {
+        global $wpdb;
+
+        if (!$invId OR !$signatureValue) {
+            error_log("No $invId or $signatureValue provided.");
+            die("No $invId or $signatureValue provided.");
+        }
+
+        $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
+        $transaction = $wpdb->get_row($wpdb->prepare("SELECT * FROM `" . $table_donations . "` WHERE `id` = %d", $invId));
+
+        $merchant_pass_two = get_option('dwr_merchant_pass_two');
+
+        if (!$merchant_pass_two) {
+            error_log("Merchant Pass #2 is not set in admin panel.");
+            die("Internal error");
+        }
+
+        $mySignatureValue = md5("{$transaction->amount}:$invId:$merchant_pass_two");
+
+        if ($signatureValue === $mySignatureValue) {
+            echo "OK$invId";
+            // TODO: implement mail delivery if required
+            // wp_mail("malgin05@gmail.com", "Domation arrived", "Details");
+        } else {
+            echo "Signatures don't match, something went wrong";
+        }
+
+        exit();
+    }
+
     private $merchantLogin = null;
     private $responseLanguage = null;
 }
