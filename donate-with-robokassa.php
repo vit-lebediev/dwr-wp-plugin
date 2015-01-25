@@ -66,3 +66,8 @@ add_shortcode('dwr_confirm_form', 'dwr_confirm_form_shortcode');
  * Options
  */
 add_action('admin_menu', 'dwr_add_options_page');
+
+/**
+ * Filters
+ */
+add_filter('widget_text', 'do_shortcode'); // enable shortcodes in widgets
