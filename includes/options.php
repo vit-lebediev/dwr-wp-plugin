@@ -20,8 +20,8 @@ function dwr_add_options_page()
     );
 
     add_options_page(
-        __('dwr_plugin_statistics_page', DWR_PLUGIN_NAME . '-statistics'),
-        __('dwr_plugin_statistics_menu_title', DWR_PLUGIN_NAME . '-statistics'),
+        __('dwr_plugin_statistics_page', DWR_PLUGIN_NAME),
+        __('dwr_plugin_statistics_menu_title', DWR_PLUGIN_NAME),
         'manage_options',
         DWR_PLUGIN_NAME . '-statistics',
         'display_plugin_statistics_page'
@@ -162,7 +162,7 @@ function display_plugin_statistics_page() {
         echo "<h2>" . __("last_hundred_transactions_detailed", DWR_PLUGIN_NAME) . "</h2>";
         echo "<table style='width: 100%'>";
         echo "<tr>";
-        echo "<th>" . __("transaction_id") . "</th><th>" . __("donation_sum", DWR_PLUGIN_NAME) . "</th><th>" . __("payment_method", DWR_PLUGIN_NAME) . "</th><th>" . __("transaction_date", DWR_PLUGIN_NAME) . "</th><th>" . __("transactin_user_message", DWR_PLUGIN_NAME) . "</th>";
+        echo "<th>" . __("transaction_id") . "</th><th>" . __("donation_sum", DWR_PLUGIN_NAME) . "</th><th>" . __("payment_method", DWR_PLUGIN_NAME) . "</th><th>" . __("transaction_date", DWR_PLUGIN_NAME) . "</th><th>" . __("transaction_user_message", DWR_PLUGIN_NAME) . "</th>";
         echo "</tr>";
         foreach ($last100transactions as $transaction) {
             echo "<tr style='background-color: " . (($transaction->accomplished) ? '#D4FFD4' : '#FFD4D4') . "'>";
