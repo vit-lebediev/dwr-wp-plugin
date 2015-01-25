@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Donate With Robokassa\n"
+"POT-Creation-Date: 2015-01-24 19:55+0200\n"
+"PO-Revision-Date: 2015-01-25 05:56+0200\n"
+"Last-Translator: \n"
+"Language-Team: Malgin <malgin05@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.3\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"Language: en\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../includes/options.php:15
+msgid "dwr_plugin_page"
+msgstr "Donate With Robokassa plugin page"
+
+#: ../includes/options.php:16
+msgid "dwr_plugin_menu_title"
+msgstr "Donate With Robokassa"
+
+#: ../includes/options.php:30
+msgid "dwr_plugin_page_title"
+msgstr "Donate With Robokassa Settings"
+
+#: ../includes/options.php:56
+msgid "confirm_page_url"
+msgstr "Confirm page URL"
+
+#: ../includes/options.php:62
+msgid "result_url"
+msgstr "Robokassa Result URL"
+
+#: ../includes/options.php:64
+msgid "result_url_method"
+msgstr "Robokassa Result URL Method"
+
+#: ../includes/options.php:66
+msgid "success_url"
+msgstr "Robokassa Success URL"
+
+#: ../includes/options.php:68
+msgid "success_url_method"
+msgstr "Robokassa Success URL Method"
+
+#: ../includes/options.php:70
+msgid "fail_url"
+msgstr "Robokassa Fail URL"
+
+#: ../includes/options.php:72
+msgid "fail_url_method"
+msgstr "Robokassa Fail URL Method"
+
+#: ../includes/options.php:78
+msgid "merchant_login"
+msgstr "Merchant Login"
+
+#: ../includes/options.php:80
+msgid "merchant_pass_one"
+msgstr "Merchant Password #1"
+
+#: ../includes/options.php:82
+msgid "merchant_pass_two"
+msgstr "Merchant Password #2"
+
+#: ../includes/options.php:88
+msgid "text_before_donate_form"
+msgstr "Text to put before donation form"
+
+#: ../includes/options.php:90
+msgid "operation_description"
+msgstr "Robokassa transaction description"
+
+#: ../includes/options.php:96
+msgid "force_delete_tables"
+msgstr "Force delete tables (!!!)"
+
+#: ../includes/shortcodes.php:18 ../includes/shortcodes.php:89
+msgid "not_all_settings_are_set"
+msgstr "Not all required fields are filled in admin panel. This plugin cannot operate."
+
+#: ../includes/shortcodes.php:23
+msgid "error_during_currency_request"
+msgstr "Error occured during request for available currencies. Please contact website administration."
+
+#: ../includes/shortcodes.php:33
+msgid "donation_sum"
+msgstr "Donation amount"
+
+#: ../includes/shortcodes.php:37 ../includes/shortcodes.php:123
+msgid "donation_currency"
+msgstr "Donation payment method"
+
+#: ../includes/shortcodes.php:51
+msgid "user_message"
+msgstr "You can leave us some kind words."
+
+#: ../includes/shortcodes.php:53
+msgid "leave_us_a_message"
+msgstr "Leave us a few nice words!"
+
+#: ../includes/shortcodes.php:55 ../includes/shortcodes.php:136
+msgid "donate"
+msgstr "Donate"
+
+#: ../includes/shortcodes.php:122
+msgid "amount"
+msgstr "Amount"
+
+#: ../includes/shortcodes.php:124
+msgid "usermessage"
+msgstr "Your message to us:"
+
+#: ../includes/shortcodes.php:137
+msgid "cancel"
+msgstr "Cancel"
+
+msgid "currency"
+msgstr "Payment Method"

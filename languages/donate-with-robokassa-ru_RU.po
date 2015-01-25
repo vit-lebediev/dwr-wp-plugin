@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: donate-with-robokassa\n"
+"POT-Creation-Date: 2015-01-25 06:15+0200\n"
+"PO-Revision-Date: 2015-01-25 06:41+0200\n"
+"Last-Translator: \n"
+"Language-Team: Malgin <malgin05@gmail.com>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.3\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../includes/options.php:15
+msgid "dwr_plugin_page"
+msgstr "Страница плагина Donate With Robokassa"
+
+#: ../includes/options.php:16
+msgid "dwr_plugin_menu_title"
+msgstr "Donate With Robokassa"
+
+#: ../includes/options.php:30
+msgid "dwr_plugin_page_title"
+msgstr "Настройки плагина Donate With Robokassa"
+
+#: ../includes/options.php:56
+msgid "confirm_page_url"
+msgstr "URL страницы подтверждения оплаты"
+
+#: ../includes/options.php:62
+msgid "result_url"
+msgstr "<b>Result URL</b> для Робокассы"
+
+#: ../includes/options.php:64
+msgid "result_url_method"
+msgstr "HTTP метод для Result URL"
+
+#: ../includes/options.php:66
+msgid "success_url"
+msgstr "<b>Success URL</b> для Робокассы"
+
+#: ../includes/options.php:68
+msgid "success_url_method"
+msgstr "HTTP метод для Success URL"
+
+#: ../includes/options.php:70
+msgid "fail_url"
+msgstr "<b>Fail URL</b> для Робокассы"
+
+#: ../includes/options.php:72
+msgid "fail_url_method"
+msgstr "HTTP метод для Fail URL"
+
+#: ../includes/options.php:78
+msgid "merchant_login"
+msgstr "Идентификатор магазина"
+
+#: ../includes/options.php:80
+msgid "merchant_pass_one"
+msgstr "Пароль #1"
+
+#: ../includes/options.php:82
+msgid "merchant_pass_two"
+msgstr "Пароль #2"
+
+#: ../includes/options.php:88
+msgid "text_before_donate_form"
+msgstr "Текст перед формой пожертвования"
+
+#: ../includes/options.php:90
+msgid "operation_description"
+msgstr "Описание транзакции Robokassa"
+
+#: ../includes/options.php:96
+msgid "force_delete_tables"
+msgstr "Принудительное удаление таблиц плагина (!!!)"
+
+#: ../includes/shortcodes.php:18 ../includes/shortcodes.php:89
+msgid "not_all_settings_are_set"
+msgstr ""
+"Не все обязательные поля заполнены в админ панели. Плагин не "
+"работоспособен."
+
+#: ../includes/shortcodes.php:23
+msgid "error_during_currency_request"
+msgstr ""
+"При запросе доступных способов оплаты возникла ошибка. Напишите "
+"пожалуйста администрации сайта."
+
+#: ../includes/shortcodes.php:33
+msgid "donation_sum"
+msgstr "Сумма пожертвования"
+
+#: ../includes/shortcodes.php:37 ../includes/shortcodes.php:123
+msgid "donation_currency"
+msgstr "Способ оплаты"
+
+#: ../includes/shortcodes.php:51
+msgid "user_message"
+msgstr ""
+"Если хотите, вы можете оставить нам несколько хороший слов или пожелание."
+
+#: ../includes/shortcodes.php:53
+msgid "leave_us_a_message"
+msgstr "Оставьте нам пожелание!"
+
+#: ../includes/shortcodes.php:55 ../includes/shortcodes.php:136
+msgid "donate"
+msgstr "Поддержать"
+
+#: ../includes/shortcodes.php:122
+msgid "amount"
+msgstr "Сумма"
+
+#: ../includes/shortcodes.php:124
+msgid "usermessage"
+msgstr "Ваше сообщение нам"
+
+#: ../includes/shortcodes.php:137
+msgid "cancel"
+msgstr "Отмена"
+
+#~ msgid "currency"
+#~ msgstr "Payment Method"

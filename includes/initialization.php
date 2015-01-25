@@ -9,7 +9,7 @@
 function init_plugin()
 {
     // Localization
-    load_plugin_textdomain(DWR_PLUGIN_NAME, false, realpath(dirname(__FILE__) . '/../languages'));
+    load_plugin_textdomain(DWR_PLUGIN_NAME, false, dirname( plugin_basename( __FILE__ ) ) . '/../languages');
 
     // Check for proper POST or GET variables and process Robokassa request if it is present
 
@@ -48,9 +48,6 @@ function init_plugin()
 
 function admin_init_plugin()
 {
-    // Localization
-    load_plugin_textdomain(DWR_PLUGIN_NAME, false, realpath(dirname(__FILE__) . '/../languages'));
-
     // Register plugin options in admin panel
     register_setting('dwr_plugin_options', 'dwr_confirm_page_url');
 
