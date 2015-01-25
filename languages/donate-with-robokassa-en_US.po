@@ -1,10 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Donate With Robokassa\n"
-"POT-Creation-Date: 2015-01-24 19:55+0200\n"
-"PO-Revision-Date: 2015-01-25 05:56+0200\n"
+"POT-Creation-Date: 2015-01-25 08:30+0200\n"
+"PO-Revision-Date: 2015-01-25 08:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: Malgin <malgin05@gmail.com>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,7 +13,6 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"Language: en\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
@@ -28,97 +28,112 @@ msgstr "Donate With Robokassa"
 msgid "dwr_plugin_page_title"
 msgstr "Donate With Robokassa Settings"
 
-#: ../includes/options.php:56
+#: ../includes/options.php:52
 msgid "confirm_page_url"
 msgstr "Confirm page URL"
 
-#: ../includes/options.php:62
+#: ../includes/options.php:58
 msgid "result_url"
 msgstr "Robokassa Result URL"
 
-#: ../includes/options.php:64
+#: ../includes/options.php:60
 msgid "result_url_method"
 msgstr "Robokassa Result URL Method"
 
-#: ../includes/options.php:66
-msgid "success_url"
-msgstr "Robokassa Success URL"
-
-#: ../includes/options.php:68
-msgid "success_url_method"
-msgstr "Robokassa Success URL Method"
-
 #: ../includes/options.php:70
-msgid "fail_url"
-msgstr "Robokassa Fail URL"
-
-#: ../includes/options.php:72
-msgid "fail_url_method"
-msgstr "Robokassa Fail URL Method"
-
-#: ../includes/options.php:78
 msgid "merchant_login"
 msgstr "Merchant Login"
 
-#: ../includes/options.php:80
+#: ../includes/options.php:72
 msgid "merchant_pass_one"
 msgstr "Merchant Password #1"
 
-#: ../includes/options.php:82
+#: ../includes/options.php:74
 msgid "merchant_pass_two"
 msgstr "Merchant Password #2"
 
-#: ../includes/options.php:88
+#: ../includes/options.php:80
 msgid "text_before_donate_form"
 msgstr "Text to put before donation form"
 
-#: ../includes/options.php:90
+#: ../includes/options.php:82
 msgid "operation_description"
 msgstr "Robokassa transaction description"
 
-#: ../includes/options.php:96
+#: ../includes/options.php:88
 msgid "force_delete_tables"
 msgstr "Force delete tables (!!!)"
 
-#: ../includes/shortcodes.php:18 ../includes/shortcodes.php:89
+#: ../includes/shortcodes.php:33 ../includes/shortcodes.php:120
 msgid "not_all_settings_are_set"
-msgstr "Not all required fields are filled in admin panel. This plugin cannot operate."
+msgstr ""
+"Not all required fields are filled in admin panel. This plugin cannot "
+"operate."
 
-#: ../includes/shortcodes.php:23
+#: ../includes/shortcodes.php:38
 msgid "error_during_currency_request"
-msgstr "Error occured during request for available currencies. Please contact website administration."
+msgstr ""
+"Error occured during request for available currencies. Please contact "
+"website administration."
 
-#: ../includes/shortcodes.php:33
+#: ../includes/shortcodes.php:51
 msgid "donation_sum"
 msgstr "Donation amount"
 
-#: ../includes/shortcodes.php:37 ../includes/shortcodes.php:123
+#: ../includes/shortcodes.php:55 ../includes/shortcodes.php:155
 msgid "donation_currency"
 msgstr "Donation payment method"
 
-#: ../includes/shortcodes.php:51
+#: ../includes/shortcodes.php:72
 msgid "user_message"
 msgstr "You can leave us some kind words."
 
-#: ../includes/shortcodes.php:53
+#: ../includes/shortcodes.php:74
 msgid "leave_us_a_message"
 msgstr "Leave us a few nice words!"
 
-#: ../includes/shortcodes.php:55 ../includes/shortcodes.php:136
+#: ../includes/shortcodes.php:79 ../includes/shortcodes.php:170
 msgid "donate"
 msgstr "Donate"
 
-#: ../includes/shortcodes.php:122
+#: ../includes/shortcodes.php:111
+msgid "error_provided_currency_incorrect"
+msgstr ""
+"Payment method passed incorrectly. Please try go back and fill the "
+"form again."
+
+#: ../includes/shortcodes.php:114
+msgid "error_amount_should_be_numeric"
+msgstr "Amount should be numeric"
+
+#: ../includes/shortcodes.php:117
+#, php-format
+msgid "error_amount_cannot_be_below_zero_you_specified %1$.2f"
+msgstr "Amout cannot be zero or below zero. You've specified %1$.2f."
+
+#: ../includes/shortcodes.php:154
 msgid "amount"
 msgstr "Amount"
 
-#: ../includes/shortcodes.php:124
+#: ../includes/shortcodes.php:157
 msgid "usermessage"
 msgstr "Your message to us:"
 
-#: ../includes/shortcodes.php:137
+#: ../includes/shortcodes.php:171
 msgid "cancel"
 msgstr "Cancel"
 
-msgid "currency"
-msgstr "Payment Method"
+#~ msgid "success_url"
+#~ msgstr "Robokassa Success URL"
+
+#~ msgid "success_url_method"
+#~ msgstr "Robokassa Success URL Method"
+
+#~ msgid "fail_url"
+#~ msgstr "Robokassa Fail URL"
+
+#~ msgid "fail_url_method"
+#~ msgstr "Robokassa Fail URL Method"
+
+#~ msgid "currency"
+#~ msgstr "Payment Method"
