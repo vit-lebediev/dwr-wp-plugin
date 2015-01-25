@@ -46,7 +46,6 @@
 .dwr_transactions_table tr th.dwr_message_col,
 .dwr_transactions_table tr td.dwr_message_col {
     width: 250px;
-    /*text-align: center;*/
 }
 
 
