@@ -18,7 +18,14 @@ function dwr_add_options_page()
         DWR_PLUGIN_NAME,
         'display_plugin_options_page'
     );
-//    add_options_page('Custom Plugin Page', 'Custom Plugin Menu', 'manage_options', DWR_PLUGIN_NAME, 'dwr_plugin_options_page');
+
+    add_options_page(
+        __('dwr_plugin_statistics_page', DWR_PLUGIN_NAME . '-statistics'),
+        __('dwr_plugin_statistics_menu_title', DWR_PLUGIN_NAME . '-statistics'),
+        'manage_options',
+        DWR_PLUGIN_NAME . '-statistics',
+        'display_plugin_statistics_page'
+    );
 }
 
 /**
@@ -90,5 +97,33 @@ function display_plugin_options_page()
 
     submit_button();
     echo '</form></div>';
+}
 
+/**
+ * Display the admin options page
+ */
+function display_plugin_statistics_page() {
+    global $wpdb;
+
+    $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
+
+    $last100transactions = $wpdb->get_results("SELECT * FROM `" . $table_donations . "` ORDER BY start_date DESC LIMIT 100");
+
+    echo "<div>";
+    echo "<h2>" . __('dwr_plugin_statistics_page_title', DWR_PLUGIN_NAME) . "</h2>";
+    if ($last100transactions) {
+        echo __("total_amout_transactions", DWR_PLUGIN_NAME) . ": {$wpdb->num_rows}";
+        echo "<table style='width: 100%'>";
+        echo "<tr>";
+        echo "<th>" . __("transaction_id") . "</th><th>" . __("donation_sum", DWR_PLUGIN_NAME) . "</th><th>" . __("payment_method", DWR_PLUGIN_NAME) . "</th><th>" . __("transaction_date", DWR_PLUGIN_NAME) . "</th><th>" . __("transactin_user_message", DWR_PLUGIN_NAME) . "</th>";
+        echo "</tr>";
+        foreach ($last100transactions as $transaction) {
+            echo "<tr style='background-color: " . (($transaction->accomplished) ? '#AAFFAA' : '#FF7F7F') . "'>";
+            echo "<td>{$transaction->id}</td><td>{$transaction->amount}</td><td>{$transaction->currencyName}</td><td>" . date('F j, Y, g:i a', strtotime($transaction->start_date)) . "</td><td>{$transaction->message}</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
+
+    echo "</div>";
 }
