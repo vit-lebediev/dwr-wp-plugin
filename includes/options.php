@@ -49,15 +49,15 @@ function display_plugin_options_page()
     $dwr_force_delete_tables = (int)get_option('dwr_force_delete_tables');
 
     echo "<table><tr>";
-    echo "  <td>" . __('confirm_page_url', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_confirm_page_url' size='40' type='text' value='" . $dwr_confirm_page_url .  "' /></td>";
+    echo "  <td>" . __('confirm_page_url', DWR_PLUGIN_NAME) . "&nbsp;<span class='dwr_required' style='color: red'>*</span></td><td><input name='dwr_confirm_page_url' size='40' type='text' value='" . $dwr_confirm_page_url .  "' /></td>";
     echo "</tr><tr>";
 
     echo "<td>&nbsp;</td><td>&nbsp;</td>";
 
     echo "</tr><tr>";
-    echo "  <td>" . __('result_url', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_result_url' size='40' type='text' value='" . $dwr_result_url . "' /></td>";
+    echo "  <td>" . __('result_url', DWR_PLUGIN_NAME) . "&nbsp;<span class='dwr_required' style='color: red'>*</span></td><td><input name='dwr_result_url' size='40' type='text' value='" . $dwr_result_url . "' /></td>";
     echo "</tr><tr>";
-    echo "  <td>" . __('result_url_method', DWR_PLUGIN_NAME) . "</td><td>";
+    echo "  <td>" . __('result_url_method', DWR_PLUGIN_NAME) . "&nbsp;<span class='dwr_required' style='color: red'>*</span></td><td>";
     echo "<select name='dwr_result_url_method'>";
     echo "  <option value='POST' " . selected($dwr_result_url_method, 'POST', false) . ">POST</option>";
     echo "  <option value='GET' " . selected($dwr_result_url_method, 'GET', false) . ">GET</option>";
@@ -67,11 +67,11 @@ function display_plugin_options_page()
     echo "<td>&nbsp;</td><td>&nbsp;</td>";
 
     echo "</tr><tr>";
-    echo "  <td>" . __('merchant_login', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_merchant_login' size='40' type='text' value='" . $dwr_merchant_login .  "' /></td>";
+    echo "  <td>" . __('merchant_login', DWR_PLUGIN_NAME) . "&nbsp;<span class='dwr_required' style='color: red'>*</span></td><td><input name='dwr_merchant_login' size='40' type='text' value='" . $dwr_merchant_login .  "' /></td>";
     echo "</tr><tr>";
-    echo "  <td>" . __('merchant_pass_one', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_merchant_pass_one' size='40' type='text' value='" . $dwr_merchant_pass_one .  "' /></td>";
+    echo "  <td>" . __('merchant_pass_one', DWR_PLUGIN_NAME) . "&nbsp;<span class='dwr_required' style='color: red'>*</span></td><td><input name='dwr_merchant_pass_one' size='40' type='text' value='" . $dwr_merchant_pass_one .  "' /></td>";
     echo "</tr><tr>";
-    echo "  <td>" . __('merchant_pass_two', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_merchant_pass_two' size='40' type='text' value='" . $dwr_merchant_pass_two .  "' /></td>";
+    echo "  <td>" . __('merchant_pass_two', DWR_PLUGIN_NAME) . "&nbsp;<span class='dwr_required' style='color: red'>*</span></td><td><input name='dwr_merchant_pass_two' size='40' type='text' value='" . $dwr_merchant_pass_two .  "' /></td>";
     echo "</tr><tr>";
 
     echo "<td>&nbsp;</td><td>&nbsp;</td>";
