@@ -11,7 +11,9 @@ function init_plugin()
     // Localization
     load_plugin_textdomain(DWR_PLUGIN_NAME, false, dirname( plugin_basename( __FILE__ ) ) . '/../languages');
 
-    // Check for proper POST or GET variables and process Robokassa request if it is present
+    if (!dwr_required_fields_are_set()) {
+        return; // can't do much without settings properly set
+    }
 
     // Get saved part of URL which serves as result URL
     $result_url = get_option('dwr_result_url');
