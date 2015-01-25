@@ -36,6 +36,9 @@ define('DWR_ROBOKASSA_GET_CURRENCIES_URL', 'http://test.robokassa.ru/Webservice/
  */
 define('DWR_PLUGIN_NAME', 'donate-with-robokassa');
 
+include realpath(dirname(__FILE__)) . '/includes/styles.php';
+include realpath(dirname(__FILE__)) . '/includes/scripts.php';
+
 include realpath(dirname(__FILE__)) . '/includes/utils.php';
 
 include realpath(dirname(__FILE__)) . '/includes/activation.php';
@@ -71,3 +74,13 @@ add_action('admin_menu', 'dwr_add_options_page');
  * Filters
  */
 add_filter('widget_text', 'do_shortcode'); // enable shortcodes in widgets
+
+/**
+ * Scripts
+ */
+add_action('wp_enqueue_scripts', 'dwr_enqueue_styles');
+//add_action('wp_enqueue_scripts', 'dwr_enqueue_scripts');
+
+if (is_admin()) {
+    add_action('admin_enqueue_scripts', 'dwr_enqueue_admin_styles');
+}

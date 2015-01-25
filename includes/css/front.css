@@ -1,0 +1,25 @@
+.dwr_submit {
+    cursor: pointer;
+}
+
+.dwr_donation_form_wrapper .dwr_text_before_donation_form {
+    padding: 5px 0px 8px 2px;
+}
+
+.dwr_donation_form_wrapper table tr td {
+    padding: 4px;
+}
+
+.dwr_donation_form_wrapper .dwr_textarea_usermessage {
+    width: 275px;
+    height: 60px;
+}
+
+.dwr_confirmation_form {
+    margin: 10px 5px;
+}
+
+.dwr_submit_button, .dwr_cancel_button {
+    cursor: pointer;
+    margin: 2px 4px;
+}

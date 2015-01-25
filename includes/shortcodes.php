@@ -157,7 +157,7 @@ function dwr_confirm_form_shortcode()
             $form .= '<div class="dwr_usermessage">' . __('usermessage', DWR_PLUGIN_NAME) . ': <strong>' . $userMessage . '</strong></div>';
         }
 
-        $form .= '<div class="dwr_form">';
+        $form .= '<div class="dwr_confirmation_form">';
         $form .= '<form action="' . DWR_ROBOKASSA_ACTION_URL . '" method="POST">';
         $form .= '<input type="hidden" name="MrchLogin" value="' . $merchant_login . '" />';
         $form .= '<input type="hidden" name="OutSum" value="' . $amount . '" />';
