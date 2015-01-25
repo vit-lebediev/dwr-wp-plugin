@@ -37,10 +37,6 @@ function dwr_activate_plugin()
 
     add_option('dwr_result_url', 'robokassa_result');
     add_option('dwr_result_url_method', 'POST');
-    add_option('dwr_success_url', 'robokassa_success');
-    add_option('dwr_success_url_method', 'GET');
-    add_option('dwr_fail_url', 'robokassa_fail');
-    add_option('dwr_fail_url_method', 'GET');
 
     add_option('dwr_merchant_login', '');
     add_option('dwr_merchant_pass_one', '');
@@ -70,10 +66,6 @@ function dwr_deactivate_plugin()
 
     delete_option('dwr_result_url');
     delete_option('dwr_result_url_method');
-    delete_option('dwr_success_url');
-    delete_option('dwr_success_url_method');
-    delete_option('dwr_fail_url');
-    delete_option('dwr_fail_url_method');
 
     delete_option('dwr_merchant_login');
     delete_option('dwr_merchant_pass_one');
