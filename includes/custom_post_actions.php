@@ -13,7 +13,5 @@ function dwr_delete_uncompleted_transactions() {
 
     $wpdb->query("DELETE FROM $table_donations WHERE accomplished='0'");
 
-    status_header(200);
-    die("All unfinished transactions has been deleted");
-    die("Server received '{$_REQUEST['data']}' from your browser.");
+    wp_redirect($_POST['return_url']);
 }

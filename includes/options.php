@@ -161,10 +161,9 @@ function display_plugin_statistics_page() {
 
         echo "<h2>" . __("last_hundred_transactions_detailed", DWR_PLUGIN_NAME) . "</h2>";
 
-        echo $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
         echo '<form action="/wp-admin/admin-post.php" method="post">';
         echo '<input type="hidden" name="action" value="dwr_delete_uncompleted_transactions">';
-        echo '<input type="hidden" name="return_url" value="' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . '">';
+        echo '<input type="hidden" name="return_url" value="' . ($_SERVER['HTTPS']?"https://":"http://") . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . '">';
         echo '<input type="submit" value="Delete">';
         echo '</form>';
 
