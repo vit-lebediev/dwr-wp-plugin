@@ -28,8 +28,11 @@ define('DWR_DONATIONS_TABLE_NAME', 'dwr_donations');
 /**
  * Define URL constants
  */
-define('DWR_ROBOKASSA_ACTION_URL', 'http://test.robokassa.ru/Index.aspx');
-define('DWR_ROBOKASSA_GET_CURRENCIES_URL', 'http://test.robokassa.ru/Webservice/Service.asmx/GetCurrencies');
+//define('DWR_ROBOKASSA_ACTION_URL', 'http://test.robokassa.ru/Index.aspx');
+//define('DWR_ROBOKASSA_GET_CURRENCIES_URL', 'http://test.robokassa.ru/Webservice/Service.asmx/GetCurrencies');
+
+define('DWR_ROBOKASSA_ACTION_URL', 'https://auth.robokassa.ru/Merchant/Index.aspx');
+define('DWR_ROBOKASSA_GET_CURRENCIES_URL', 'https://auth.robokassa.ru/Merchant/WebService/Service.asmx/GetCurrencies');
 
 /**
  * Define other constants
