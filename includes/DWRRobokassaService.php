@@ -30,7 +30,7 @@ class DWRRobokassaService
 
         curl_close($curl);
 
-        if (is_object($result) && $result->GetCurrenciesResult->Result->Code != 0) {
+        if ((is_object($result) AND $result->GetCurrenciesResult->Result->Code != 0) OR !$result) {
             error_log("Error occured while requesting available merchant currencies: " . $result->GetCurrenciesResult->Result->Description);
             return false;
         } else {
