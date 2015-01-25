@@ -160,6 +160,14 @@ function display_plugin_statistics_page() {
         $last100transactions = $wpdb->get_results("SELECT * FROM `" . $table_donations . "` ORDER BY start_date DESC LIMIT 100");
 
         echo "<h2>" . __("last_hundred_transactions_detailed", DWR_PLUGIN_NAME) . "</h2>";
+
+        echo $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+        echo '<form action="/wp-admin/admin-post.php" method="post">';
+        echo '<input type="hidden" name="action" value="dwr_delete_uncompleted_transactions">';
+        echo '<input type="hidden" name="return_url" value="' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . '">';
+        echo '<input type="submit" value="Delete">';
+        echo '</form>';
+
         echo "<table class='dwr_transactions_table'>";
         echo "<tr>";
         echo "<th class='dwr_id_col'>" . __("transaction_id", DWR_PLUGIN_NAME) . "</th><th class='dwr_sum_col'>" . __("donation_sum", DWR_PLUGIN_NAME) . "</th><th class='dwr_payment_col'>" . __("payment_method", DWR_PLUGIN_NAME) . "</th><th class='dwr_date_col'>" . __("transaction_date", DWR_PLUGIN_NAME) . "</th><th class='dwr_message_col'>" . __("transaction_user_message", DWR_PLUGIN_NAME) . "</th>";

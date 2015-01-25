@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Donate With Robokassa (DWR)
- * Plugin URI: ??? TO ADD
+ * Plugin URI: https://github.com/Malgin/dwr-wp-plugin
  * Description:
  *     A plugin which will help you integrate robokassa into your website to accept donations.
  *
@@ -47,6 +47,8 @@ include realpath(dirname(__FILE__)) . '/includes/shortcodes.php';
 include realpath(dirname(__FILE__)) . '/includes/options.php';
 include realpath(dirname(__FILE__)) . '/includes/DWRRobokassaService.php';
 
+include realpath(dirname(__FILE__)) . '/includes/custom_post_actions.php';
+
 /**
  * Activation
  */
@@ -57,18 +59,12 @@ register_deactivation_hook( __FILE__, 'dwr_deactivate_plugin');
  * Initialization
  */
 add_action('init', 'init_plugin');
-add_action('admin_init', 'admin_init_plugin');
 
 /**
  * Shortcodes
  */
 add_shortcode('dwr_donate_form', 'dwr_donate_form_shortcode');
 add_shortcode('dwr_confirm_form', 'dwr_confirm_form_shortcode');
-
-/**
- * Options
- */
-add_action('admin_menu', 'dwr_add_options_page');
 
 /**
  * Filters
@@ -83,4 +79,19 @@ add_action('wp_enqueue_scripts', 'dwr_enqueue_styles');
 
 if (is_admin()) {
     add_action('admin_enqueue_scripts', 'dwr_enqueue_admin_styles');
+
+    /**
+     * Initialization
+     */
+    add_action('admin_init', 'admin_init_plugin');
+
+    /**
+     * Options
+     */
+    add_action('admin_menu', 'dwr_add_options_page');
+
+    /**
+     * Custom POST requests
+     */
+    add_action('admin_post_dwr_delete_uncompleted_transactions', 'dwr_delete_uncompleted_transactions');
 }
