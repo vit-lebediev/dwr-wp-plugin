@@ -8,19 +8,18 @@
 
 function dwr_donate_form_shortcode()
 {
-    // form generated right here
     $form = '';
 
     $confirmation_page_url = get_option('dwr_confirm_page_url');
     $merchant_login = get_option('dwr_merchant_login');
 
-    if (!$confirmation_page_url OR !$merchant_login) {
-        $form = __('not_all_settings_are_set', DWR_PLUGIN_NAME); // "Not all required fields are filled in admin panel. This plugin cannot operate."
+    if (!dwr_required_fields_are_set()) {
+        $form = __('not_all_settings_are_set', DWR_PLUGIN_NAME);
     } else {
         // Load currencies from robokassa
         $robokassaService = new DWRRobokassaService($merchant_login, dwr_get_blog_language_for_robokassa());
         if (!$currenciesListAsXML = $robokassaService->getAvailableCurrencies()) {
-            $form .= __('error_during_currency_request', DWR_PLUGIN_NAME); // "Error occured during request for available currencies. Please contact website administration."
+            $form .= __('error_during_currency_request', DWR_PLUGIN_NAME);
         } else {
             $action_url = "/" . $confirmation_page_url;
 
@@ -83,11 +82,19 @@ function dwr_confirm_form_shortcode()
     $form = '';
 
     // TODO: check data
-    // TODO: check for more than 2 numbers after coma
-    // TODO: check if amout is not negative
-    if (!$merchant_login) {
-        $form = __('not_all_settings_are_set', DWR_PLUGIN_NAME); // Not all required fields are filled in admin panel. This plugin cannot operate.
+    if (count(explode(":", $currencyLabelAndName)) != 2) {
+        $form = __('error_provided_currency_incorrect', DWR_PLUGIN_NAME);
+    }
+    elseif (!is_numeric($amount)) {
+        $form = __('error_amount_should_be_numeric', DWR_PLUGIN_NAME);
+    }
+    elseif ($amount <= 0) {
+        $form = sprintf(__('error_amount_cannot_be_below_zero_you_specified %1$.2f', DWR_PLUGIN_NAME), $amount);
+    }
+    elseif (!dwr_required_fields_are_set()) {
+        $form = __('not_all_settings_are_set', DWR_PLUGIN_NAME);
     } else {
+        // At this point all checks has been passed successfully
         $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
 
         // create a new donate entry in DB
