@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Donate With Robokassa\n"
 "POT-Creation-Date: 2015-01-25 19:40+0200\n"
-"PO-Revision-Date: 2015-01-25 19:46+0200\n"
+"PO-Revision-Date: 2015-01-25 19:49+0200\n"
 "Last-Translator: \n"
 "Language-Team: Malgin <malgin05@gmail.com>\n"
 "Language: en\n"
@@ -82,43 +82,43 @@ msgstr "General statistics"
 
 #: ../includes/options.php:121
 msgid "transactions_today"
-msgstr "Donations made today"
+msgstr "Donations made <b>today</b>"
 
 #: ../includes/options.php:123
 msgid "total_donation_amount_today"
-msgstr "Total donation amount accepted today"
+msgstr "Total donation amount accepted <b>today</b>"
 
 #: ../includes/options.php:130
 msgid "transactions_this_week"
-msgstr "Donations made this week"
+msgstr "Donations made <b>this week</b>"
 
 #: ../includes/options.php:132
 msgid "total_donation_amount_this_week"
-msgstr "Total donation amount accepted this week"
+msgstr "Total donation amount accepted <b>this week</b>"
 
 #: ../includes/options.php:139
 msgid "transactions_this_month"
-msgstr "Donations made this month"
+msgstr "Donations made <b>this month</b>"
 
 #: ../includes/options.php:141
 msgid "total_donation_amount_this_month"
-msgstr "Total donation amount accepted this month"
+msgstr "Total donation amount accepted <b>this month</b>"
 
 #: ../includes/options.php:148
 msgid "transactions_this_year"
-msgstr "Donations made this year"
+msgstr "Donations made <b>this year</b>"
 
 #: ../includes/options.php:150
 msgid "total_donation_amount_this_year"
-msgstr "Total donation amount accepted this year"
+msgstr "Total donation amount accepted <b>this year</b>"
 
 #: ../includes/options.php:155
 msgid "transactions_total"
-msgstr "Donations made for all time"
+msgstr "Donations made <b>for all time</b>"
 
 #: ../includes/options.php:157
 msgid "total_donation_amount"
-msgstr "Total donation amount for all time"
+msgstr "Total donation amount <b>for all time</b>"
 
 #: ../includes/options.php:162
 msgid "last_hundred_transactions_detailed"

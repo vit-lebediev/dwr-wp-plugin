@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donate-with-robokassa\n"
 "POT-Creation-Date: 2015-01-25 19:41+0200\n"
-"PO-Revision-Date: 2015-01-25 19:46+0200\n"
+"PO-Revision-Date: 2015-01-25 19:51+0200\n"
 "Last-Translator: \n"
 "Language-Team: Malgin <malgin05@gmail.com>\n"
 "Language: ru\n"
@@ -83,43 +83,43 @@ msgstr "Общая статистика"
 
 #: ../includes/options.php:121
 msgid "transactions_today"
-msgstr "Количество пожертвований за сегодня"
+msgstr "Количество <b>за сегодня</b>"
 
 #: ../includes/options.php:123
 msgid "total_donation_amount_today"
-msgstr "Общая сумма пожертвований за сегодня"
+msgstr "Общая сумма <b>за сегодня</b>"
 
 #: ../includes/options.php:130
 msgid "transactions_this_week"
-msgstr "Количество пожертвований за эту неделю"
+msgstr "Количество <b>за эту неделю</b>"
 
 #: ../includes/options.php:132
 msgid "total_donation_amount_this_week"
-msgstr "Общая сумма пожертвований за эту неделю"
+msgstr "Общая сумма <b>за эту неделю</b>"
 
 #: ../includes/options.php:139
 msgid "transactions_this_month"
-msgstr "Количество пожертвований за этот месяц"
+msgstr "Количество <b>за этот месяц</b>"
 
 #: ../includes/options.php:141
 msgid "total_donation_amount_this_month"
-msgstr "Общая сумма пожертвований за этот месяц"
+msgstr "Общая сумма <b>за этот месяц</b>"
 
 #: ../includes/options.php:148
 msgid "transactions_this_year"
-msgstr "Количество пожертвований за этот год"
+msgstr "Количество <b>за этот год</b>"
 
 #: ../includes/options.php:150
 msgid "total_donation_amount_this_year"
-msgstr "Общая сумма пожертвований за этот год"
+msgstr "Общая сумма <b>за этот год</b>"
 
 #: ../includes/options.php:155
 msgid "transactions_total"
-msgstr "Количество пожертвований за все время"
+msgstr "Количество <b>за все время</b>"
 
 #: ../includes/options.php:157
 msgid "total_donation_amount"
-msgstr "Общая сумма пожертвований за все время"
+msgstr "Общая сумма <b>за все время</b>"
 
 #: ../includes/options.php:162
 msgid "last_hundred_transactions_detailed"
