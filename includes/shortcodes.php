@@ -8,27 +8,24 @@
 
 function dwr_donate_form_shortcode($attributes)
 {
-    $atts = shortcode_atts(array(
-        'hidetextbeforeform' => 'false',
-        'hideusermessage' => 'false'
-    ), $attributes);
+    $hide_text_before_form = false;
+    $hide_user_message = false;
+
+    foreach ($attributes as $attribute) {
+        switch ($attribute) {
+            case 'hidetextbeforeform':
+                $hide_text_before_form = true;
+                break;
+            case 'hideusermessage';
+                $hide_user_message = true;
+                break;
+        }
+    }
 
     $form = '';
 
     $confirmation_page_url = get_option('dwr_confirm_page_url');
     $merchant_login = get_option('dwr_merchant_login');
-
-    $hide_text_before_form = $atts['hidetextbeforeform'];
-    $hide_user_message = $atts['hideusermessage'];
-
-    $allowed_values_for_atts = array('true', 'false');
-
-    if (!in_array($hide_text_before_form, $allowed_values_for_atts)) {
-        $hide_text_before_form = 'false';
-    }
-    if (!in_array($hide_user_message, $allowed_values_for_atts)) {
-        $hide_user_message = 'false';
-    }
 
     if (!dwr_required_fields_are_set()) {
         $form = __('not_all_settings_are_set', DWR_PLUGIN_NAME);
@@ -42,8 +39,8 @@ function dwr_donate_form_shortcode($attributes)
 
             $form .= '<div class="dwr_donation_form_wrapper">';
 
-            if ($hide_text_before_form === 'false') {
-                $form .= '<div class="dwr_text_before_donation_form">' . __(get_option('dwr_text_before_donation_form'), DWR_PLUGIN_NAME) . '</div>';
+            if (!$hide_text_before_form) {
+                $form .= '<div class="dwr_text_before_donation_form">' . get_option('dwr_text_before_donate_form') . '</div>';
             }
 
             $form .= '<form action="' . $action_url . '" method="GET" id="dwr_donation_form">';
@@ -68,7 +65,7 @@ function dwr_donate_form_shortcode($attributes)
             $form .= '</select>';
             $form .= '</td></tr>';
 
-            if ($hide_user_message === 'false') {
+            if (!$hide_user_message) {
                 $form .= '<tr><td>';
                 $form .= __('user_message', DWR_PLUGIN_NAME);
                 $form .= '</td><td>';
