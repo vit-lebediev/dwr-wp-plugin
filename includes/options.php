@@ -84,7 +84,7 @@ function display_plugin_options_page()
     echo "<td>&nbsp;</td><td>&nbsp;</td>";
 
     echo "</tr><tr>";
-    echo "  <td>" . __('text_before_donate_form', DWR_PLUGIN_NAME) . "</td><td><textarea name='dwr_text_before_donate_form' maxlength='65536' placeholder='" . __('text_before_donate_form', DWR_PLUGIN_NAME) . "'>" . $dwr_text_before_donate_form .  "</textarea></td>";
+    echo "  <td>" . __('text_before_donate_form', DWR_PLUGIN_NAME) . "</td><td><textarea name='dwr_text_before_donate_form' maxlength='65536' placeholder='" . __('text_before_donate_form', DWR_PLUGIN_NAME) . "' class='dwr_text_before_donate_form'>" . $dwr_text_before_donate_form .  "</textarea></td>";
     echo "</tr><tr>";
     echo "  <td>" . __('operation_description', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_operation_description' size='40' type='text' value='" . $dwr_operation_description .  "' /></td>";
     echo "</tr><tr>";

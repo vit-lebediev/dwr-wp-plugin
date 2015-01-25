@@ -58,3 +58,8 @@
 .dwr_transactions_table tr.transaction_not_accomplished {
     background-color: #FFD4D4;
 }
+
+textarea.dwr_text_before_donate_form {
+    width: 235px;
+    height: 60px;
+}

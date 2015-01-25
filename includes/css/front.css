@@ -10,7 +10,7 @@
     padding: 4px;
 }
 
-.dwr_donation_form_wrapper .dwr_textarea_usermessage {
+.dwr_donation_form_wrapper textarea.dwr_textarea_usermessage {
     width: 275px;
     height: 60px;
 }
