@@ -15,7 +15,7 @@ function dwr_donate_form_shortcode()
     $merchant_login = get_option('dwr_merchant_login');
 
     if (!$confirmation_page_url OR !$merchant_login) {
-        $form = __('cannot_operate', DWR_PLUGIN_NAME); // "Not all required fields are filled in admin panel. This plugin cannot operate."
+        $form = __('not_all_settings_are_set', DWR_PLUGIN_NAME); // "Not all required fields are filled in admin panel. This plugin cannot operate."
     } else {
         // Load currencies from robokassa
         $robokassaService = new DWRRobokassaService($merchant_login, dwr_get_blog_language_for_robokassa());
@@ -86,7 +86,7 @@ function dwr_confirm_form_shortcode()
     // TODO: check for more than 2 numbers after coma
     // TODO: check if amout is not negative
     if (!$merchant_login) {
-        $form = __('cannot_operate', 'donate-with-robokassa'); // Not all required fields are filled in admin panel. This plugin cannot operate.
+        $form = __('not_all_settings_are_set', DWR_PLUGIN_NAME); // Not all required fields are filled in admin panel. This plugin cannot operate.
     } else {
         $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
 
@@ -120,7 +120,7 @@ function dwr_confirm_form_shortcode()
 
         $form .= '<div class="dwr_confirmation_form_wrapper">';
         $form .= '<div class="dwr_amount">' . __('amount', DWR_PLUGIN_NAME) . ': <strong>' . $amount . '</strong></div>';
-        $form .= '<div class="dwr_currency">' . __('currency', DWR_PLUGIN_NAME) . ': <strong>' . $currencyName . '</strong></div>';
+        $form .= '<div class="dwr_currency">' . __('donation_currency', DWR_PLUGIN_NAME) . ': <strong>' . $currencyName . '</strong></div>';
         $form .= '<div class="dwr_usermessage">' . __('usermessage', DWR_PLUGIN_NAME) . ':<strong>' . $userMessage . '</strong></div>';
 
         $form .= '<div class="dwr_form">';
