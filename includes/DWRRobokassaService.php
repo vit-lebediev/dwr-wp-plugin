@@ -50,6 +50,11 @@ class DWRRobokassaService
         $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
         $transaction = $wpdb->get_row($wpdb->prepare("SELECT * FROM `" . $table_donations . "` WHERE `id` = %d", $invId));
 
+        if ($transaction === null) {
+            error_log("Transaction with id $invId was not found in database");
+            die("Internal error");
+        }
+
         $merchant_pass_two = get_option('dwr_merchant_pass_two');
 
         if (!$merchant_pass_two) {
