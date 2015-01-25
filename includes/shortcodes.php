@@ -6,12 +6,29 @@
  * @return string
  */
 
-function dwr_donate_form_shortcode()
+function dwr_donate_form_shortcode($attributes)
 {
+    $atts = shortcode_atts(array(
+        'hidetextbeforeform' => 'false',
+        'hideusermessage' => 'false'
+    ), $attributes);
+
     $form = '';
 
     $confirmation_page_url = get_option('dwr_confirm_page_url');
     $merchant_login = get_option('dwr_merchant_login');
+
+    $hide_text_before_form = $atts['hidetextbeforeform'];
+    $hide_user_message = $atts['hideusermessage'];
+
+    $allowed_values_for_atts = array('true', 'false');
+
+    if (!in_array($hide_text_before_form, $allowed_values_for_atts)) {
+        $hide_text_before_form = 'false';
+    }
+    if (!in_array($hide_user_message, $allowed_values_for_atts)) {
+        $hide_user_message = 'false';
+    }
 
     if (!dwr_required_fields_are_set()) {
         $form = __('not_all_settings_are_set', DWR_PLUGIN_NAME);
@@ -24,7 +41,10 @@ function dwr_donate_form_shortcode()
             $action_url = "/" . $confirmation_page_url;
 
             $form .= '<div class="dwr_donation_form_wrapper">';
-            $form .= '<div class="dwr_text_before_donation_form">' . __(get_option('dwr_text_before_donation_form'), DWR_PLUGIN_NAME) . '</div>';
+
+            if ($hide_text_before_form === 'false') {
+                $form .= '<div class="dwr_text_before_donation_form">' . __(get_option('dwr_text_before_donation_form'), DWR_PLUGIN_NAME) . '</div>';
+            }
 
             $form .= '<form action="' . $action_url . '" method="GET" id="dwr_donation_form">';
             $form .= '<table><tr>';
@@ -46,11 +66,17 @@ function dwr_donate_form_shortcode()
             }
 
             $form .= '</select>';
-            $form .= '</td></tr><tr><td>';
-            $form .= __('user_message', DWR_PLUGIN_NAME);
-            $form .= '</td><td>';
-            $form .= '<textarea name="UserMessage" maxlength="65536" form="dwr_donation_form" placeholder="' . __('leave_us_a_message', DWR_PLUGIN_NAME) . '" class="dwr_textarea_usermessage"></textarea>';
-            $form .= '</td></tr><tr><td>&nbsp;</td><td>';
+            $form .= '</td></tr>';
+
+            if ($hide_user_message === 'false') {
+                $form .= '<tr><td>';
+                $form .= __('user_message', DWR_PLUGIN_NAME);
+                $form .= '</td><td>';
+                $form .= '<textarea name="UserMessage" maxlength="65536" form="dwr_donation_form" placeholder="' . __('leave_us_a_message', DWR_PLUGIN_NAME) . '" class="dwr_textarea_usermessage"></textarea>';
+                $form .= '</td></tr>';
+            }
+
+            $form .= '<tr><td>&nbsp;</td><td>';
             $form .= '<input type="submit" value="' . __('donate', DWR_PLUGIN_NAME) . '" class="dwr_submit" />';
             $form .= '</td></tr></table>';
             $form .= '</form>';
