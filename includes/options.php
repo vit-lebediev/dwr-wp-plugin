@@ -118,7 +118,7 @@ function display_plugin_statistics_page() {
         echo "<th>" . __("transaction_id") . "</th><th>" . __("donation_sum", DWR_PLUGIN_NAME) . "</th><th>" . __("payment_method", DWR_PLUGIN_NAME) . "</th><th>" . __("transaction_date", DWR_PLUGIN_NAME) . "</th><th>" . __("transactin_user_message", DWR_PLUGIN_NAME) . "</th>";
         echo "</tr>";
         foreach ($last100transactions as $transaction) {
-            echo "<tr style='background-color: " . (($transaction->accomplished) ? '#AAFFAA' : '#FF7F7F') . "'>";
+            echo "<tr style='background-color: " . (($transaction->accomplished) ? '#D4FFD4' : '#FFD4D4') . "'>";
             echo "<td>{$transaction->id}</td><td>{$transaction->amount}</td><td>{$transaction->currencyName}</td><td>" . date('F j, Y, g:i a', strtotime($transaction->start_date)) . "</td><td>{$transaction->message}</td>";
             echo "</tr>";
         }
