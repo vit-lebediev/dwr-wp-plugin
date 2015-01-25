@@ -107,12 +107,59 @@ function display_plugin_statistics_page() {
 
     $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
 
-    $last100transactions = $wpdb->get_results("SELECT * FROM `" . $table_donations . "` ORDER BY start_date DESC LIMIT 100");
+    $total_transactions = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations");
 
     echo "<div>";
-    echo "<h2>" . __('dwr_plugin_statistics_page_title', DWR_PLUGIN_NAME) . "</h2>";
-    if ($last100transactions) {
-        echo __("total_amout_transactions", DWR_PLUGIN_NAME) . ": {$wpdb->num_rows}";
+    echo "<h1>" . __('dwr_plugin_statistics_page_title', DWR_PLUGIN_NAME) . "</h1>";
+    if ($total_transactions > 0) {
+        echo "<h2>" . __("general_statistics", DWR_PLUGIN_NAME) . "</h2>";
+
+        // transactions and total donations amount today
+        $transactions_today = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE DATE(start_date) = DATE(NOW())");
+        $amount_today = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE DATE(start_date) = DATE(NOW())");
+        echo "<div style='margin-bottom: 10px'>";
+        echo __("transactions_today", DWR_PLUGIN_NAME) . ": $transactions_today";
+        echo "<br />";
+        echo __("total_donation_amount_today", DWR_PLUGIN_NAME) . ": " . number_format($amount_today, 2);
+        echo "</div>";
+
+        // transactions and total donations amount for this 7 days
+        $transactions_this_week = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE WEEKOFYEAR(start_date) = WEEKOFYEAR(NOW())");
+        $amount_this_week = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE WEEKOFYEAR(start_date) = WEEKOFYEAR(NOW())");
+        echo "<div style='margin-bottom: 10px'>";
+        echo __("transactions_this_week", DWR_PLUGIN_NAME) . ": $transactions_this_week";
+        echo "<br />";
+        echo __("total_donation_amount_this_week", DWR_PLUGIN_NAME) . ": " . number_format($amount_this_week, 2);
+        echo "</div>";
+
+        // transactions and total donations amount for this month
+        $transactions_this_month = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE MONTH(start_date) = MONTH(NOW())");
+        $amount_this_month = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE MONTH(start_date) = MONTH(NOW())");
+        echo "<div style='margin-bottom: 10px'>";
+        echo __("transactions_this_month", DWR_PLUGIN_NAME) . ": $transactions_this_month";
+        echo "<br />";
+        echo __("total_donation_amount_this_month", DWR_PLUGIN_NAME) . ": " . number_format($amount_this_month, 2);
+        echo "</div>";
+
+        // transactions and total donations amount for this year
+        $transactions_this_year = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE YEAR(start_date) = YEAR(NOW())");
+        $amount_this_year = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE YEAR(start_date) = YEAR(NOW())");
+        echo "<div style='margin-bottom: 10px'>";
+        echo __("transactions_this_year", DWR_PLUGIN_NAME) . ": $transactions_this_year";
+        echo "<br />";
+        echo __("total_donation_amount_this_year", DWR_PLUGIN_NAME) . ": " . number_format($amount_this_year, 2);
+        echo "</div>";
+
+        $total_amount = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations");
+        echo "<div style='margin-bottom: 10px'>";
+        echo __("transactions_total", DWR_PLUGIN_NAME) . ": $total_transactions";
+        echo "<br />";
+        echo __("total_donation_amount", DWR_PLUGIN_NAME) . ": " . number_format($total_amount, 2);
+        echo "</div>";
+
+        $last100transactions = $wpdb->get_results("SELECT * FROM `" . $table_donations . "` ORDER BY start_date DESC LIMIT 100");
+
+        echo "<h2>" . __("last_hundred_transactions_detailed", DWR_PLUGIN_NAME) . "</h2>";
         echo "<table style='width: 100%'>";
         echo "<tr>";
         echo "<th>" . __("transaction_id") . "</th><th>" . __("donation_sum", DWR_PLUGIN_NAME) . "</th><th>" . __("payment_method", DWR_PLUGIN_NAME) . "</th><th>" . __("transaction_date", DWR_PLUGIN_NAME) . "</th><th>" . __("transactin_user_message", DWR_PLUGIN_NAME) . "</th>";
@@ -123,6 +170,8 @@ function display_plugin_statistics_page() {
             echo "</tr>";
         }
         echo "</table>";
+    } else {
+        _e("no_transactions_yet_been_performed");
     }
 
     echo "</div>";
