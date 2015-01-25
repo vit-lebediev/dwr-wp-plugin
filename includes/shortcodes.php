@@ -11,14 +11,16 @@ function dwr_donate_form_shortcode($attributes)
     $hide_text_before_form = false;
     $hide_user_message = false;
 
-    foreach ($attributes as $attribute) {
-        switch ($attribute) {
-            case 'hidetextbeforeform':
-                $hide_text_before_form = true;
-                break;
-            case 'hideusermessage';
-                $hide_user_message = true;
-                break;
+    if (is_array($attributes)) {
+        foreach ($attributes as $attribute) {
+            switch ($attribute) {
+                case 'hidetextbeforeform':
+                    $hide_text_before_form = true;
+                    break;
+                case 'hideusermessage';
+                    $hide_user_message = true;
+                    break;
+            }
         }
     }
 
@@ -151,7 +153,9 @@ function dwr_confirm_form_shortcode()
         $form .= '<div class="dwr_confirmation_form_wrapper">';
         $form .= '<div class="dwr_amount">' . __('amount', DWR_PLUGIN_NAME) . ': <strong>' . $amount . '</strong></div>';
         $form .= '<div class="dwr_currency">' . __('donation_currency', DWR_PLUGIN_NAME) . ': <strong>' . $currencyName . '</strong></div>';
-        $form .= '<div class="dwr_usermessage">' . __('usermessage', DWR_PLUGIN_NAME) . ': <strong>' . $userMessage . '</strong></div>';
+        if ($userMessage) {
+            $form .= '<div class="dwr_usermessage">' . __('usermessage', DWR_PLUGIN_NAME) . ': <strong>' . $userMessage . '</strong></div>';
+        }
 
         $form .= '<div class="dwr_form">';
         $form .= '<form action="' . DWR_ROBOKASSA_ACTION_URL . '" method="POST">';
