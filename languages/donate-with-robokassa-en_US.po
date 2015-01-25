@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Donate With Robokassa\n"
-"POT-Creation-Date: 2015-01-25 08:57+0200\n"
-"PO-Revision-Date: 2015-01-25 08:57+0200\n"
+"POT-Creation-Date: 2015-01-25 19:40+0200\n"
+"PO-Revision-Date: 2015-01-25 19:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: Malgin <malgin05@gmail.com>\n"
 "Language: en\n"
@@ -22,47 +22,131 @@ msgstr "Donate With Robokassa plugin page"
 
 #: ../includes/options.php:16
 msgid "dwr_plugin_menu_title"
-msgstr "Donate With Robokassa"
+msgstr "Donate With Robokassa (DWR)"
 
-#: ../includes/options.php:30
+#: ../includes/options.php:23
+msgid "dwr_plugin_statistics_page"
+msgstr "Donate With Robokassa statistics page"
+
+#: ../includes/options.php:24
+msgid "dwr_plugin_statistics_menu_title"
+msgstr "DWR Statistics"
+
+#: ../includes/options.php:37
 msgid "dwr_plugin_page_title"
-msgstr "Donate With Robokassa Settings"
+msgstr "Donate With Robokassa (DWR) Settings"
 
-#: ../includes/options.php:52
+#: ../includes/options.php:59
 msgid "confirm_page_url"
 msgstr "Confirm page URL"
 
-#: ../includes/options.php:58
+#: ../includes/options.php:65
 msgid "result_url"
 msgstr "Robokassa <b>Result URL</b>"
 
-#: ../includes/options.php:60
+#: ../includes/options.php:67
 msgid "result_url_method"
 msgstr "Robokassa Result URL Method"
 
-#: ../includes/options.php:70
+#: ../includes/options.php:77
 msgid "merchant_login"
 msgstr "Merchant Login"
 
-#: ../includes/options.php:72
+#: ../includes/options.php:79
 msgid "merchant_pass_one"
 msgstr "Merchant Password #1"
 
-#: ../includes/options.php:74
+#: ../includes/options.php:81
 msgid "merchant_pass_two"
 msgstr "Merchant Password #2"
 
-#: ../includes/options.php:80
+#: ../includes/options.php:87
 msgid "text_before_donate_form"
 msgstr "Text to put before donation form"
 
-#: ../includes/options.php:82
+#: ../includes/options.php:89
 msgid "operation_description"
 msgstr "Robokassa transaction description"
 
-#: ../includes/options.php:88
+#: ../includes/options.php:95
 msgid "force_delete_tables"
 msgstr "Force delete tables (!!!)"
+
+#: ../includes/options.php:113
+msgid "dwr_plugin_statistics_page_title"
+msgstr "Donate With Robokassa Statistics"
+
+#: ../includes/options.php:115
+msgid "general_statistics"
+msgstr "General statistics"
+
+#: ../includes/options.php:121
+msgid "transactions_today"
+msgstr "Donations made today"
+
+#: ../includes/options.php:123
+msgid "total_donation_amount_today"
+msgstr "Total donation amount accepted today"
+
+#: ../includes/options.php:130
+msgid "transactions_this_week"
+msgstr "Donations made this week"
+
+#: ../includes/options.php:132
+msgid "total_donation_amount_this_week"
+msgstr "Total donation amount accepted this week"
+
+#: ../includes/options.php:139
+msgid "transactions_this_month"
+msgstr "Donations made this month"
+
+#: ../includes/options.php:141
+msgid "total_donation_amount_this_month"
+msgstr "Total donation amount accepted this month"
+
+#: ../includes/options.php:148
+msgid "transactions_this_year"
+msgstr "Donations made this year"
+
+#: ../includes/options.php:150
+msgid "total_donation_amount_this_year"
+msgstr "Total donation amount accepted this year"
+
+#: ../includes/options.php:155
+msgid "transactions_total"
+msgstr "Donations made for all time"
+
+#: ../includes/options.php:157
+msgid "total_donation_amount"
+msgstr "Total donation amount for all time"
+
+#: ../includes/options.php:162
+msgid "last_hundred_transactions_detailed"
+msgstr "Last 100 donations accepted"
+
+#: ../includes/options.php:165
+msgid "transaction_id"
+msgstr "Transaction Id"
+
+#: ../includes/options.php:165 ../includes/shortcodes.php:51
+msgid "donation_sum"
+msgstr "Donation amount"
+
+#: ../includes/options.php:165
+msgid "payment_method"
+msgstr "Payment Method"
+
+#: ../includes/options.php:165
+msgid "transaction_date"
+msgstr "Transaction Date"
+
+#: ../includes/options.php:165
+msgid "transaction_user_message"
+msgstr "User message"
+
+#: ../includes/options.php:174
+msgid "no_transactions_yet_been_performed"
+msgstr "There is no donations yet. You should wait a bit :)"
 
 #: ../includes/shortcodes.php:33 ../includes/shortcodes.php:120
 msgid "not_all_settings_are_set"
@@ -75,10 +159,6 @@ msgid "error_during_currency_request"
 msgstr ""
 "Error occured during request for available currencies. Please contact "
 "website administration."
-
-#: ../includes/shortcodes.php:51
-msgid "donation_sum"
-msgstr "Donation amount"
 
 #: ../includes/shortcodes.php:55 ../includes/shortcodes.php:155
 msgid "donation_currency"

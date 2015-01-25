@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: donate-with-robokassa\n"
-"POT-Creation-Date: 2015-01-25 08:27+0200\n"
-"PO-Revision-Date: 2015-01-25 08:30+0200\n"
+"POT-Creation-Date: 2015-01-25 19:41+0200\n"
+"PO-Revision-Date: 2015-01-25 19:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: Malgin <malgin05@gmail.com>\n"
 "Language: ru\n"
@@ -23,47 +23,131 @@ msgstr "Страница плагина Donate With Robokassa"
 
 #: ../includes/options.php:16
 msgid "dwr_plugin_menu_title"
-msgstr "Donate With Robokassa"
+msgstr "Donate With Robokassa (DWR)"
 
-#: ../includes/options.php:30
+#: ../includes/options.php:23
+msgid "dwr_plugin_statistics_page"
+msgstr "Страница статистики Donate With Robokassa"
+
+#: ../includes/options.php:24
+msgid "dwr_plugin_statistics_menu_title"
+msgstr "DWR - Статистика"
+
+#: ../includes/options.php:37
 msgid "dwr_plugin_page_title"
-msgstr "Настройки плагина Donate With Robokassa"
+msgstr "Настройки плагина Donate With Robokassa (DWR)"
 
-#: ../includes/options.php:52
+#: ../includes/options.php:59
 msgid "confirm_page_url"
 msgstr "URL страницы подтверждения оплаты"
 
-#: ../includes/options.php:58
+#: ../includes/options.php:65
 msgid "result_url"
 msgstr "<b>Result URL</b> для Робокассы"
 
-#: ../includes/options.php:60
+#: ../includes/options.php:67
 msgid "result_url_method"
 msgstr "HTTP метод для Result URL"
 
-#: ../includes/options.php:70
+#: ../includes/options.php:77
 msgid "merchant_login"
 msgstr "Идентификатор магазина"
 
-#: ../includes/options.php:72
+#: ../includes/options.php:79
 msgid "merchant_pass_one"
 msgstr "Пароль #1"
 
-#: ../includes/options.php:74
+#: ../includes/options.php:81
 msgid "merchant_pass_two"
 msgstr "Пароль #2"
 
-#: ../includes/options.php:80
+#: ../includes/options.php:87
 msgid "text_before_donate_form"
 msgstr "Текст перед формой пожертвования"
 
-#: ../includes/options.php:82
+#: ../includes/options.php:89
 msgid "operation_description"
 msgstr "Описание транзакции Robokassa"
 
-#: ../includes/options.php:88
+#: ../includes/options.php:95
 msgid "force_delete_tables"
 msgstr "Принудительное удаление таблиц плагина (!!!)"
+
+#: ../includes/options.php:113
+msgid "dwr_plugin_statistics_page_title"
+msgstr "Статистика пожертвований"
+
+#: ../includes/options.php:115
+msgid "general_statistics"
+msgstr "Общая статистика"
+
+#: ../includes/options.php:121
+msgid "transactions_today"
+msgstr "Количество пожертвований за сегодня"
+
+#: ../includes/options.php:123
+msgid "total_donation_amount_today"
+msgstr "Общая сумма пожертвований за сегодня"
+
+#: ../includes/options.php:130
+msgid "transactions_this_week"
+msgstr "Количество пожертвований за эту неделю"
+
+#: ../includes/options.php:132
+msgid "total_donation_amount_this_week"
+msgstr "Общая сумма пожертвований за эту неделю"
+
+#: ../includes/options.php:139
+msgid "transactions_this_month"
+msgstr "Количество пожертвований за этот месяц"
+
+#: ../includes/options.php:141
+msgid "total_donation_amount_this_month"
+msgstr "Общая сумма пожертвований за этот месяц"
+
+#: ../includes/options.php:148
+msgid "transactions_this_year"
+msgstr "Количество пожертвований за этот год"
+
+#: ../includes/options.php:150
+msgid "total_donation_amount_this_year"
+msgstr "Общая сумма пожертвований за этот год"
+
+#: ../includes/options.php:155
+msgid "transactions_total"
+msgstr "Количество пожертвований за все время"
+
+#: ../includes/options.php:157
+msgid "total_donation_amount"
+msgstr "Общая сумма пожертвований за все время"
+
+#: ../includes/options.php:162
+msgid "last_hundred_transactions_detailed"
+msgstr "Последние 100 пожертвований"
+
+#: ../includes/options.php:165
+msgid "transaction_id"
+msgstr "ID транзакции"
+
+#: ../includes/options.php:165 ../includes/shortcodes.php:51
+msgid "donation_sum"
+msgstr "Сумма пожертвования"
+
+#: ../includes/options.php:165
+msgid "payment_method"
+msgstr "Способ оплаты"
+
+#: ../includes/options.php:165
+msgid "transaction_date"
+msgstr "Дата пожертвования"
+
+#: ../includes/options.php:165
+msgid "transaction_user_message"
+msgstr "Сообщение пользователя"
+
+#: ../includes/options.php:174
+msgid "no_transactions_yet_been_performed"
+msgstr "Ещё нет ниодного пожертвования. Вам стоит подождать :)"
 
 #: ../includes/shortcodes.php:33 ../includes/shortcodes.php:120
 msgid "not_all_settings_are_set"
@@ -75,10 +159,6 @@ msgid "error_during_currency_request"
 msgstr ""
 "При запросе доступных способов оплаты возникла ошибка. Напишите пожалуйста "
 "администрации сайта."
-
-#: ../includes/shortcodes.php:51
-msgid "donation_sum"
-msgstr "Сумма пожертвования"
 
 #: ../includes/shortcodes.php:55 ../includes/shortcodes.php:155
 msgid "donation_currency"
