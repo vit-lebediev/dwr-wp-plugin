@@ -57,8 +57,12 @@ function display_plugin_options_page()
     echo "</tr><tr>";
     echo "  <td>" . __('result_url', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_result_url' size='40' type='text' value='" . $dwr_result_url . "' /></td>";
     echo "</tr><tr>";
-    echo "  <td>" . __('result_url_method', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_result_url_method' size='40' type='text' value='" . $dwr_result_url_method .  "' /></td>";
-    echo "</tr><tr>";
+    echo "  <td>" . __('result_url_method', DWR_PLUGIN_NAME) . "</td><td>";
+    echo "<select name='dwr_result_url_method'>";
+    echo "  <option value='POST' " . selected($dwr_result_url_method, 'POST', false) . ">POST</option>";
+    echo "  <option value='GET' " . selected($dwr_result_url_method, 'GET', false) . ">GET</option>";
+    echo "</select>";
+    echo "</td></tr><tr>";
 
     echo "<td>&nbsp;</td><td>&nbsp;</td>";
 
