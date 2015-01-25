@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Donate With Robokassa\n"
-"POT-Creation-Date: 2015-01-25 08:30+0200\n"
-"PO-Revision-Date: 2015-01-25 08:32+0200\n"
+"POT-Creation-Date: 2015-01-25 08:57+0200\n"
+"PO-Revision-Date: 2015-01-25 08:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: Malgin <malgin05@gmail.com>\n"
 "Language: en\n"
@@ -34,7 +34,7 @@ msgstr "Confirm page URL"
 
 #: ../includes/options.php:58
 msgid "result_url"
-msgstr "Robokassa Result URL"
+msgstr "Robokassa <b>Result URL</b>"
 
 #: ../includes/options.php:60
 msgid "result_url_method"
@@ -99,8 +99,8 @@ msgstr "Donate"
 #: ../includes/shortcodes.php:111
 msgid "error_provided_currency_incorrect"
 msgstr ""
-"Payment method passed incorrectly. Please try go back and fill the "
-"form again."
+"Payment method passed incorrectly. Please try go back and fill the form "
+"again."
 
 #: ../includes/shortcodes.php:114
 msgid "error_amount_should_be_numeric"
