@@ -126,7 +126,7 @@ function dwr_confirm_form_shortcode()
         $wpdb->insert(
             $table_donations,
             array(
-                'amount' => $amount,
+                'amount' => number_format($amount, 2),
                 'currencyLabel' => $currencyLabel,
                 'currencyName' => $currencyName,
                 'start_date' => current_time('mysql', 1),
