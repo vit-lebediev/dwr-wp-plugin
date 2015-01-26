@@ -109,14 +109,15 @@ function display_plugin_statistics_page() {
 
     $total_transactions = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations");
 
+
     echo "<div>";
     echo "<h1>" . __('dwr_plugin_statistics_page_title', DWR_PLUGIN_NAME) . "</h1>";
     if ($total_transactions > 0) {
         echo "<h2>" . __("general_statistics", DWR_PLUGIN_NAME) . "</h2>";
 
         // transactions and total donations amount today
-        $transactions_today = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE DATE(start_date) = DATE(NOW())");
-        $amount_today = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE DATE(start_date) = DATE(NOW())");
+        $transactions_today = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE accomplished = 1 AND DATE(start_date) = DATE(NOW())");
+        $amount_today = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE accomplished = 1 AND DATE(start_date) = DATE(NOW())");
         echo "<div class='dwr_statistics_entry'>";
         echo __("transactions_today", DWR_PLUGIN_NAME) . ": $transactions_today";
         echo "<br />";
@@ -124,8 +125,8 @@ function display_plugin_statistics_page() {
         echo "</div>";
 
         // transactions and total donations amount for this 7 days
-        $transactions_this_week = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE WEEKOFYEAR(start_date) = WEEKOFYEAR(NOW())");
-        $amount_this_week = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE WEEKOFYEAR(start_date) = WEEKOFYEAR(NOW())");
+        $transactions_this_week = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE accomplished = 1 AND WEEKOFYEAR(start_date) = WEEKOFYEAR(NOW())");
+        $amount_this_week = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE accomplished = 1 AND WEEKOFYEAR(start_date) = WEEKOFYEAR(NOW())");
         echo "<div class='dwr_statistics_entry'>";
         echo __("transactions_this_week", DWR_PLUGIN_NAME) . ": $transactions_this_week";
         echo "<br />";
@@ -133,8 +134,8 @@ function display_plugin_statistics_page() {
         echo "</div>";
 
         // transactions and total donations amount for this month
-        $transactions_this_month = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE MONTH(start_date) = MONTH(NOW())");
-        $amount_this_month = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE MONTH(start_date) = MONTH(NOW())");
+        $transactions_this_month = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE accomplished = 1 AND MONTH(start_date) = MONTH(NOW())");
+        $amount_this_month = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE accomplished = 1 AND MONTH(start_date) = MONTH(NOW())");
         echo "<div class='dwr_statistics_entry'>";
         echo __("transactions_this_month", DWR_PLUGIN_NAME) . ": $transactions_this_month";
         echo "<br />";
@@ -142,17 +143,23 @@ function display_plugin_statistics_page() {
         echo "</div>";
 
         // transactions and total donations amount for this year
-        $transactions_this_year = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE YEAR(start_date) = YEAR(NOW())");
-        $amount_this_year = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE YEAR(start_date) = YEAR(NOW())");
+        $transactions_this_year = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE accomplished = 1 AND YEAR(start_date) = YEAR(NOW())");
+        $amount_this_year = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE accomplished = 1 AND YEAR(start_date) = YEAR(NOW())");
         echo "<div class='dwr_statistics_entry'>";
         echo __("transactions_this_year", DWR_PLUGIN_NAME) . ": $transactions_this_year";
         echo "<br />";
         echo __("total_donation_amount_this_year", DWR_PLUGIN_NAME) . ": " . number_format($amount_this_year, 2);
         echo "</div>";
 
+        $total_accomplished_transactions = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE accomplished = 1");
+        $total_not_accomplished_transactions = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE accomplished = 0");
         $total_amount = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations");
         echo "<div class='dwr_statistics_entry'>";
         echo __("transactions_total", DWR_PLUGIN_NAME) . ": $total_transactions";
+        echo "<br />";
+        echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . __("transactions_accomplished_total", DWR_PLUGIN_NAME) . ": $total_accomplished_transactions";
+        echo "<br />";
+        echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . __("transactions_not_accomplished_total", DWR_PLUGIN_NAME) . ": $total_not_accomplished_transactions";
         echo "<br />";
         echo __("total_donation_amount", DWR_PLUGIN_NAME) . ": " . number_format($total_amount, 2);
         echo "</div>";
@@ -164,7 +171,7 @@ function display_plugin_statistics_page() {
         echo '<form action="/wp-admin/admin-post.php" method="post">';
         echo '<input type="hidden" name="action" value="dwr_delete_uncompleted_transactions">';
         echo '<input type="hidden" name="return_url" value="' . ($_SERVER['HTTPS']?"https://":"http://") . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . '">';
-        echo '<input type="submit" value="Delete">';
+        echo '<input type="submit" value="' . __("delete_not_accomplished_transactions", DWR_PLUGIN_NAME) . '">';
         echo '</form>';
 
         echo "<table class='dwr_transactions_table'>";

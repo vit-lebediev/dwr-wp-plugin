@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Donate With Robokassa\n"
-"POT-Creation-Date: 2015-01-25 19:40+0200\n"
-"PO-Revision-Date: 2015-01-25 19:49+0200\n"
+"POT-Creation-Date: 2015-01-25 22:42+0200\n"
+"PO-Revision-Date: 2015-01-25 22:50+0200\n"
 "Last-Translator: \n"
 "Language-Team: Malgin <malgin05@gmail.com>\n"
 "Language: en\n"
@@ -72,79 +72,91 @@ msgstr "Robokassa transaction description"
 msgid "force_delete_tables"
 msgstr "Force delete tables (!!!)"
 
-#: ../includes/options.php:113
+#: ../includes/options.php:114
 msgid "dwr_plugin_statistics_page_title"
 msgstr "Donate With Robokassa Statistics"
 
-#: ../includes/options.php:115
+#: ../includes/options.php:116
 msgid "general_statistics"
 msgstr "General statistics"
 
-#: ../includes/options.php:121
+#: ../includes/options.php:122
 msgid "transactions_today"
 msgstr "Donations made <b>today</b>"
 
-#: ../includes/options.php:123
+#: ../includes/options.php:124
 msgid "total_donation_amount_today"
 msgstr "Total donation amount accepted <b>today</b>"
 
-#: ../includes/options.php:130
+#: ../includes/options.php:131
 msgid "transactions_this_week"
 msgstr "Donations made <b>this week</b>"
 
-#: ../includes/options.php:132
+#: ../includes/options.php:133
 msgid "total_donation_amount_this_week"
 msgstr "Total donation amount accepted <b>this week</b>"
 
-#: ../includes/options.php:139
+#: ../includes/options.php:140
 msgid "transactions_this_month"
 msgstr "Donations made <b>this month</b>"
 
-#: ../includes/options.php:141
+#: ../includes/options.php:142
 msgid "total_donation_amount_this_month"
 msgstr "Total donation amount accepted <b>this month</b>"
 
-#: ../includes/options.php:148
+#: ../includes/options.php:149
 msgid "transactions_this_year"
 msgstr "Donations made <b>this year</b>"
 
-#: ../includes/options.php:150
+#: ../includes/options.php:151
 msgid "total_donation_amount_this_year"
 msgstr "Total donation amount accepted <b>this year</b>"
 
-#: ../includes/options.php:155
+#: ../includes/options.php:158
 msgid "transactions_total"
 msgstr "Donations made <b>for all time</b>"
 
-#: ../includes/options.php:157
+#: ../includes/options.php:160
+msgid "transactions_accomplished_total"
+msgstr "Finished"
+
+#: ../includes/options.php:162
+msgid "transactions_not_accomplished_total"
+msgstr "Unfinished"
+
+#: ../includes/options.php:164
 msgid "total_donation_amount"
 msgstr "Total donation amount <b>for all time</b>"
 
-#: ../includes/options.php:162
+#: ../includes/options.php:169
 msgid "last_hundred_transactions_detailed"
 msgstr "Last 100 donations accepted"
 
-#: ../includes/options.php:165
+#: ../includes/options.php:174
+msgid "delete_not_accomplished_transactions"
+msgstr "Delete unfinished"
+
+#: ../includes/options.php:179
 msgid "transaction_id"
 msgstr "Transaction Id"
 
-#: ../includes/options.php:165 ../includes/shortcodes.php:51
+#: ../includes/options.php:179 ../includes/shortcodes.php:51
 msgid "donation_sum"
 msgstr "Donation amount"
 
-#: ../includes/options.php:165
+#: ../includes/options.php:179
 msgid "payment_method"
 msgstr "Payment Method"
 
-#: ../includes/options.php:165
+#: ../includes/options.php:179
 msgid "transaction_date"
 msgstr "Transaction Date"
 
-#: ../includes/options.php:165
+#: ../includes/options.php:179
 msgid "transaction_user_message"
 msgstr "User message"
 
-#: ../includes/options.php:174
+#: ../includes/options.php:188
 msgid "no_transactions_yet_been_performed"
 msgstr "There is no donations yet. You should wait a bit :)"
 

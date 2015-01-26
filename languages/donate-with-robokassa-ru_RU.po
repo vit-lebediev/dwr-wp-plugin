@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: donate-with-robokassa\n"
-"POT-Creation-Date: 2015-01-25 19:41+0200\n"
-"PO-Revision-Date: 2015-01-25 19:51+0200\n"
+"POT-Creation-Date: 2015-01-25 22:42+0200\n"
+"PO-Revision-Date: 2015-01-25 22:42+0200\n"
 "Last-Translator: \n"
 "Language-Team: Malgin <malgin05@gmail.com>\n"
 "Language: ru\n"
@@ -73,79 +73,91 @@ msgstr "Описание транзакции Robokassa"
 msgid "force_delete_tables"
 msgstr "Принудительное удаление таблиц плагина (!!!)"
 
-#: ../includes/options.php:113
+#: ../includes/options.php:114
 msgid "dwr_plugin_statistics_page_title"
 msgstr "Статистика пожертвований"
 
-#: ../includes/options.php:115
+#: ../includes/options.php:116
 msgid "general_statistics"
 msgstr "Общая статистика"
 
-#: ../includes/options.php:121
+#: ../includes/options.php:122
 msgid "transactions_today"
 msgstr "Количество <b>за сегодня</b>"
 
-#: ../includes/options.php:123
+#: ../includes/options.php:124
 msgid "total_donation_amount_today"
 msgstr "Общая сумма <b>за сегодня</b>"
 
-#: ../includes/options.php:130
+#: ../includes/options.php:131
 msgid "transactions_this_week"
 msgstr "Количество <b>за эту неделю</b>"
 
-#: ../includes/options.php:132
+#: ../includes/options.php:133
 msgid "total_donation_amount_this_week"
 msgstr "Общая сумма <b>за эту неделю</b>"
 
-#: ../includes/options.php:139
+#: ../includes/options.php:140
 msgid "transactions_this_month"
 msgstr "Количество <b>за этот месяц</b>"
 
-#: ../includes/options.php:141
+#: ../includes/options.php:142
 msgid "total_donation_amount_this_month"
 msgstr "Общая сумма <b>за этот месяц</b>"
 
-#: ../includes/options.php:148
+#: ../includes/options.php:149
 msgid "transactions_this_year"
 msgstr "Количество <b>за этот год</b>"
 
-#: ../includes/options.php:150
+#: ../includes/options.php:151
 msgid "total_donation_amount_this_year"
 msgstr "Общая сумма <b>за этот год</b>"
 
-#: ../includes/options.php:155
+#: ../includes/options.php:158
 msgid "transactions_total"
 msgstr "Количество <b>за все время</b>"
 
-#: ../includes/options.php:157
+#: ../includes/options.php:160
+msgid "transactions_accomplished_total"
+msgstr "Завершенных"
+
+#: ../includes/options.php:162
+msgid "transactions_not_accomplished_total"
+msgstr "Незавершенных"
+
+#: ../includes/options.php:164
 msgid "total_donation_amount"
 msgstr "Общая сумма <b>за все время</b>"
 
-#: ../includes/options.php:162
+#: ../includes/options.php:169
 msgid "last_hundred_transactions_detailed"
 msgstr "Последние 100 пожертвований"
 
-#: ../includes/options.php:165
+#: ../includes/options.php:174
+msgid "delete_not_accomplished_transactions"
+msgstr "Удалить незавершенные"
+
+#: ../includes/options.php:179
 msgid "transaction_id"
 msgstr "ID транзакции"
 
-#: ../includes/options.php:165 ../includes/shortcodes.php:51
+#: ../includes/options.php:179 ../includes/shortcodes.php:51
 msgid "donation_sum"
 msgstr "Сумма пожертвования"
 
-#: ../includes/options.php:165
+#: ../includes/options.php:179
 msgid "payment_method"
 msgstr "Способ оплаты"
 
-#: ../includes/options.php:165
+#: ../includes/options.php:179
 msgid "transaction_date"
 msgstr "Дата пожертвования"
 
-#: ../includes/options.php:165
+#: ../includes/options.php:179
 msgid "transaction_user_message"
 msgstr "Сообщение пользователя"
 
-#: ../includes/options.php:174
+#: ../includes/options.php:188
 msgid "no_transactions_yet_been_performed"
 msgstr "Ещё нет ниодного пожертвования. Вам стоит подождать :)"
 
