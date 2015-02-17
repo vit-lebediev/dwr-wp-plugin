@@ -19,25 +19,6 @@ class DWRRobokassaService
         $this->responseLanguage = $responseLanguage;
     }
 
-    public function getAvailableCurrencies()
-    {
-        $curl = curl_init();
-
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_URL, DWR_ROBOKASSA_GET_CURRENCIES_URL . '?MerchantLogin=' . $this->merchantLogin . '&Language=' . $this->responseLanguage);
-
-        $result = curl_exec($curl);
-
-        curl_close($curl);
-
-        if ((is_object($result) AND $result->GetCurrenciesResult->Result->Code != 0) OR !$result) {
-            error_log("Error occured while requesting available merchant currencies: " . $result->GetCurrenciesResult->Result->Description);
-            return false;
-        } else {
-            return new \SimpleXMLElement($result);
-        }
-    }
-
     public function processResult($invId, $outSum, $signatureValue)
     {
         global $wpdb;
