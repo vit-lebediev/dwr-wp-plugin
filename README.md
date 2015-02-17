@@ -5,16 +5,13 @@ Donate With Robokassa WordPress plugin helps you accept donations on your WP web
 Warning! This plugin _currently_ works only if Permalink Settings changed from Default.
 
 ## How to start accepting donations
-You need to follow these SEVEN (???) simple steps:
+You need to follow these FIVE simple steps:
+
 1. Download a plugin and copy it to 'site-root-dir/wp-content/plugins/donate-with-robokassa' folder
 2. In admin panel of the site, activate the plugin
-3. Create two pages with shortcodes in the body: One for the form which user will fill in (_shortcode_: [dwr_donate_form]), and the other
-one is for confirmation one (_shortcode_: [dwr_confirm_form]). You can create only one page (confirmation), and plage donate form
-shortcode in sidebar widget)
-4. Change the URL for confirmation form to be short and informative. E.g. http://website.com/confirmation-form/
-5. Open 'Settings->Donate With Robokassa' page and fill all required fields. Put 'confirmation-form' part of confirmation page
-to the 'Confirm page URL' Option.
-6. Create two more pages, each of which will inform your users about the result of the operation, and probably, thank them for
+3. Go to Settings->Donate With Robokassa(DWR) page and fill in all requried fields
+4. Add [dwr_payment_widget] shortcode anywhere on the website where you would like to see robokassa donation widget.
+5. Create two pages, each of which will inform your users about the result of the operation, and probably, thank them for
    the donation. Make their URLs nice and informative (you will pass these URLs in Robokassa admin panel as Success URL and Fail URL,
    both with GET method).
 
