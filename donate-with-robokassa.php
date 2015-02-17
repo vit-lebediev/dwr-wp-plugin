@@ -93,9 +93,4 @@ if (is_admin()) {
      * Options
      */
     add_action('admin_menu', 'dwr_add_options_page');
-
-    /**
-     * Custom POST requests
-     */
-    add_action('admin_post_dwr_delete_uncompleted_transactions', 'dwr_delete_uncompleted_transactions');
 }

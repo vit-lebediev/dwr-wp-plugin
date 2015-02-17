@@ -160,12 +160,6 @@ function dwr_display_plugin_statistics_page() {
 
         echo "<h2>" . __("last_hundred_transactions_detailed", DWR_PLUGIN_NAME) . "</h2>";
 
-        echo '<form action="/wp-admin/admin-post.php" method="post">';
-        echo '<input type="hidden" name="action" value="dwr_delete_uncompleted_transactions">';
-        echo '<input type="hidden" name="return_url" value="' . ($_SERVER['HTTPS']?"https://":"http://") . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . '">';
-        echo '<input type="submit" value="' . __("delete_not_accomplished_transactions", DWR_PLUGIN_NAME) . '">';
-        echo '</form>';
-
         echo "<table class='dwr_transactions_table'>";
         echo "<tr>";
         echo "<th class='dwr_id_col'>" . __("transaction_id", DWR_PLUGIN_NAME) . "</th><th class='dwr_sum_col'>" . __("donation_sum", DWR_PLUGIN_NAME) . "</th><th class='dwr_payment_col'>" . __("payment_method", DWR_PLUGIN_NAME) . "</th><th class='dwr_date_col'>" . __("transaction_date", DWR_PLUGIN_NAME) . "</th><th class='dwr_message_col'>" . __("transaction_user_message", DWR_PLUGIN_NAME) . "</th>";
