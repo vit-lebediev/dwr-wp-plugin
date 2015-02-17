@@ -94,8 +94,6 @@ function dwr_donate_form_shortcode($attributes)
  */
 function dwr_confirm_form_shortcode()
 {
-    global $wpdb;
-
     $amount = $_GET['OutSum'];
     $currencyLabelAndName = $_GET['IncCurrLabelAndName'];
     $currencyLabel = array_shift(explode(":", $currencyLabelAndName));
@@ -120,28 +118,7 @@ function dwr_confirm_form_shortcode()
         $form = __('not_all_settings_are_set', DWR_PLUGIN_NAME);
     } else {
         // At this point all checks has been passed successfully
-        $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
-
-        // create a new donate entry in DB
-        $wpdb->insert(
-            $table_donations,
-            array(
-                'amount' => number_format($amount, 2),
-                'currencyLabel' => $currencyLabel,
-                'currencyName' => $currencyName,
-                'start_date' => current_time('mysql', 1),
-                'message' => $userMessage
-            ),
-            array(
-                '%f',
-                '%s',
-                '%s',
-                '%s',
-                '%s'
-            )
-        );
-
-        $transaction_id = $wpdb->insert_id;
+        $transaction_id = dwr_create_transaction($amount, $currencyLabel, $currencyName, $userMessage);
 
         $merchant_pass_one = get_option('dwr_merchant_pass_one');
         $operation_description = get_option('dwr_operation_description');
@@ -174,4 +151,51 @@ function dwr_confirm_form_shortcode()
     }
 
     return $form;
+}
+
+function dwr_payment_widget_shortcode()
+{
+    // create transaction
+//    $transaction_id = dwr_create_transaction();
+    // display form
+}
+
+#########################
+### PRIVATE FUNCTIONS ###
+#########################
+
+/**
+ * Create transaction in the DB
+ *
+ * @param float  $amount        Sum of transaction
+ * @param string $currencyLabel
+ * @param string $currencyName
+ * @param string $userMessage
+ * @return id                   Database ID of the transaction
+ */
+function dwr_create_transaction($amount, $currencyLabel, $currencyName, $userMessage)
+{
+    global $wpdb;
+
+    $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
+
+    $wpdb->insert(
+        $table_donations,
+        array(
+            'amount' => number_format($amount, 2),
+            'currencyLabel' => $currencyLabel,
+            'currencyName' => $currencyName,
+            'start_date' => current_time('mysql', 1),
+            'message' => $userMessage
+        ),
+        array(
+            '%f',
+            '%s',
+            '%s',
+            '%s',
+            '%s'
+        )
+    );
+
+    return $wpdb->insert_id;
 }
