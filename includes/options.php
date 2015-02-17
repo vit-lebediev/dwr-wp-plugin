@@ -76,9 +76,9 @@ function dwr_display_plugin_options_page()
     echo "</tr><tr>";
     echo "  <td>" . __('merchant_login', DWR_PLUGIN_NAME) . "&nbsp;<span class='dwr_required'>*</span></td><td><input name='dwr_merchant_login' size='40' type='text' value='" . $dwr_merchant_login .  "' /></td>";
     echo "</tr><tr>";
-    echo "  <td>" . __('merchant_pass_one', DWR_PLUGIN_NAME) . "&nbsp;<span class='dwr_required'>*</span></td><td><input name='dwr_merchant_pass_one' size='40' type='text' value='" . $dwr_merchant_pass_one .  "' /></td>";
+    echo "  <td>" . __('merchant_pass_one', DWR_PLUGIN_NAME) . "&nbsp;<span class='dwr_required'>*</span></td><td><input name='dwr_merchant_pass_one' size='40' type='password' value='" . $dwr_merchant_pass_one .  "' /></td>";
     echo "</tr><tr>";
-    echo "  <td>" . __('merchant_pass_two', DWR_PLUGIN_NAME) . "&nbsp;<span class='dwr_required'>*</span></td><td><input name='dwr_merchant_pass_two' size='40' type='text' value='" . $dwr_merchant_pass_two .  "' /></td>";
+    echo "  <td>" . __('merchant_pass_two', DWR_PLUGIN_NAME) . "&nbsp;<span class='dwr_required'>*</span></td><td><input name='dwr_merchant_pass_two' size='40' type='password' value='" . $dwr_merchant_pass_two .  "' /></td>";
     echo "</tr><tr>";
 
     echo "<td>&nbsp;</td><td>&nbsp;</td>";

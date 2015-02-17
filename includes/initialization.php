@@ -32,11 +32,15 @@ function init_plugin()
             case 'POST':
                 if (isset($_POST['SignatureValue'])) {
                     $robokassaService->processResult($_POST["InvId"], $_POST["OutSum"], $_POST["SignatureValue"]);
+                } else {
+                    error_log("Hit POST Result URL, but NO SignatureValue in the request");
                 }
                 break;
             case 'GET':
                 if (isset($_GET['SignatureValue'])) {
                     $robokassaService->processResult($_GET["InvId"], $_GET["OutSum"], $_GET["SignatureValue"]);
+                } else {
+                    error_log("Hit GET Result URL, but NO SignatureValue in the request");
                 }
                 break;
             default: break;
