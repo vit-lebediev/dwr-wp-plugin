@@ -16,7 +16,7 @@ function dwr_add_options_page()
         __('dwr_plugin_menu_title', DWR_PLUGIN_NAME),
         'manage_options',
         DWR_PLUGIN_NAME,
-        'display_plugin_options_page'
+        'dwr_display_plugin_options_page'
     );
 
     add_options_page(
@@ -24,14 +24,14 @@ function dwr_add_options_page()
         __('dwr_plugin_statistics_menu_title', DWR_PLUGIN_NAME),
         'manage_options',
         DWR_PLUGIN_NAME . '-statistics',
-        'display_plugin_statistics_page'
+        'dwr_display_plugin_statistics_page'
     );
 }
 
 /**
  * Display the admin options page
  */
-function display_plugin_options_page()
+function dwr_display_plugin_options_page()
 {
     echo "<div>";
     echo "<h2>" . __('dwr_plugin_page_title', DWR_PLUGIN_NAME) . "</h2>";
@@ -50,6 +50,7 @@ function display_plugin_options_page()
     $dwr_merchant_pass_one = get_option('dwr_merchant_pass_one');
     $dwr_merchant_pass_two = get_option('dwr_merchant_pass_two');
 
+    $dwr_default_donation_amount = get_option('dwr_default_donation_amount');
     $dwr_operation_description = get_option('dwr_operation_description');
 
     $dwr_force_delete_tables = (int)get_option('dwr_force_delete_tables');
@@ -83,6 +84,8 @@ function display_plugin_options_page()
     echo "<td>&nbsp;</td><td>&nbsp;</td>";
 
     echo "</tr><tr>";
+    echo "  <td>" . __('default_donation_amount', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_default_donation_amount' size='40' type='text' value='" . $dwr_default_donation_amount .  "' /></td>";
+    echo "</tr><tr>";
     echo "  <td>" . __('operation_description', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_operation_description' size='40' type='text' value='" . $dwr_operation_description .  "' /></td>";
     echo "</tr><tr>";
 
@@ -99,7 +102,7 @@ function display_plugin_options_page()
 /**
  * Display the admin options page
  */
-function display_plugin_statistics_page() {
+function dwr_display_plugin_statistics_page() {
     global $wpdb;
 
     $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;

@@ -60,6 +60,7 @@ function admin_init_plugin()
     register_setting('dwr_plugin_options', 'dwr_merchant_pass_one');
     register_setting('dwr_plugin_options', 'dwr_merchant_pass_two');
 
+    register_setting('dwr_plugin_options', 'dwr_default_donation_amount');
     register_setting('dwr_plugin_options', 'dwr_operation_description');
 
     register_setting('dwr_plugin_options', 'dwr_force_delete_tables');
