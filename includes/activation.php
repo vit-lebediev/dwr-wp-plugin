@@ -34,8 +34,6 @@ function dwr_activate_plugin()
         error_log("Could not create required tables. SQL: " . $sql);
     }
 
-    add_option('dwr_confirm_page_url', '');
-
     add_option('dwr_result_url', 'robokassa_result');
     add_option('dwr_result_url_method', 'POST');
 
@@ -62,8 +60,6 @@ function dwr_deactivate_plugin()
 
         $wpdb->query($sql);
     }
-
-    delete_option('dwr_confirm_page_url');
 
     delete_option('dwr_result_url');
     delete_option('dwr_result_url_method');
