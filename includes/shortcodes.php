@@ -8,15 +8,11 @@
 
 function dwr_donate_form_shortcode($attributes)
 {
-    $hide_text_before_form = false;
     $hide_user_message = false;
 
     if (is_array($attributes)) {
         foreach ($attributes as $attribute) {
             switch ($attribute) {
-                case 'hidetextbeforeform':
-                    $hide_text_before_form = true;
-                    break;
                 case 'hideusermessage';
                     $hide_user_message = true;
                     break;
@@ -40,10 +36,6 @@ function dwr_donate_form_shortcode($attributes)
             $action_url = "/" . $confirmation_page_url;
 
             $form .= '<div class="dwr_donation_form_wrapper">';
-
-            if (!$hide_text_before_form) {
-                $form .= '<div class="dwr_text_before_donation_form">' . get_option('dwr_text_before_donate_form') . '</div>';
-            }
 
             $form .= '<form action="' . $action_url . '" method="GET" id="dwr_donation_form">';
             $form .= '<table><tr>';
