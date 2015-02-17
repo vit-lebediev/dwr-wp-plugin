@@ -21,8 +21,6 @@ class DWRRobokassaService
 
     public function processResult($invId, $outSum, $signatureValue)
     {
-        global $wpdb;
-
         if (!$invId OR !$outSum OR !$signatureValue) {
             error_log("No invId, outSum or signatureValue provided.");
             error_log("invId: $invId, outSum: $outSum, signatureValue: $signatureValue");
@@ -30,7 +28,6 @@ class DWRRobokassaService
         }
 
         $merchant_pass_two = get_option('dwr_merchant_pass_two');
-        $default_donation_amount = get_option('dwr_default_donation_amount');
 
         if (!$merchant_pass_two) {
             error_log("Merchant Pass #2 is not set in admin panel.");

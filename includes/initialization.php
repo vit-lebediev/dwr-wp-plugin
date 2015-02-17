@@ -48,7 +48,7 @@ function init_plugin()
     }
 }
 
-function admin_init_plugin()
+function dwr_admin_init_plugin()
 {
     // Register plugin options in admin panel
     register_setting('dwr_plugin_options', 'dwr_result_url');

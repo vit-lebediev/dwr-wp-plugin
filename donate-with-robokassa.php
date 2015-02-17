@@ -26,15 +26,6 @@
 define('DWR_DONATIONS_TABLE_NAME', 'dwr_donations');
 
 /**
- * Define URL constants
- */
-//define('DWR_ROBOKASSA_ACTION_URL', 'http://test.robokassa.ru/Index.aspx');
-//define('DWR_ROBOKASSA_GET_CURRENCIES_URL', 'http://test.robokassa.ru/Webservice/Service.asmx/GetCurrencies');
-
-define('DWR_ROBOKASSA_ACTION_URL', 'https://auth.robokassa.ru/Merchant/Index.aspx');
-define('DWR_ROBOKASSA_GET_CURRENCIES_URL', 'https://auth.robokassa.ru/Merchant/WebService/Service.asmx/GetCurrencies');
-
-/**
  * Define other constants
  */
 define('DWR_PLUGIN_NAME', 'donate-with-robokassa');
@@ -50,8 +41,6 @@ include realpath(dirname(__FILE__)) . '/includes/shortcodes.php';
 include realpath(dirname(__FILE__)) . '/includes/options.php';
 include realpath(dirname(__FILE__)) . '/includes/DWRRobokassaService.php';
 
-include realpath(dirname(__FILE__)) . '/includes/custom_post_actions.php';
-
 /**
  * Activation
  */
@@ -66,8 +55,6 @@ add_action('init', 'init_plugin');
 /**
  * Shortcodes
  */
-add_shortcode('dwr_donate_form', 'dwr_donate_form_shortcode');
-add_shortcode('dwr_confirm_form', 'dwr_confirm_form_shortcode');
 add_shortcode('dwr_payment_widget', 'dwr_payment_widget_shortcode');
 
 /**
@@ -87,7 +74,7 @@ if (is_admin()) {
     /**
      * Initialization
      */
-    add_action('admin_init', 'admin_init_plugin');
+    add_action('admin_init', 'dwr_admin_init_plugin');
 
     /**
      * Options
