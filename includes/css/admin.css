@@ -25,15 +25,15 @@
     text-align: center;
 }
 
-.dwr_transactions_table tr th.dwr_sum_col,
-.dwr_transactions_table tr td.dwr_sum_col {
+.dwr_transactions_table tr th.dwr_robokassa_id_col,
+.dwr_transactions_table tr td.dwr_robokassa_id_col {
     width: 100px;
     text-align: center;
 }
 
-.dwr_transactions_table tr th.dwr_payment_col,
-.dwr_transactions_table tr td.dwr_payment_col {
-    width: 150px;
+.dwr_transactions_table tr th.dwr_sum_col,
+.dwr_transactions_table tr td.dwr_sum_col {
+    width: 100px;
     text-align: center;
 }
 
@@ -41,24 +41,4 @@
 .dwr_transactions_table tr td.dwr_date_col {
     width: 200px;
     text-align: center;
-}
-
-.dwr_transactions_table tr th.dwr_message_col,
-.dwr_transactions_table tr td.dwr_message_col {
-    width: 250px;
-}
-
-
-.dwr_transactions_table tr.transaction_accomplished {
-    background-color: #D4FFD4;
-}
-
-
-.dwr_transactions_table tr.transaction_not_accomplished {
-    background-color: #FFD4D4;
-}
-
-textarea.dwr_text_before_donate_form {
-    width: 235px;
-    height: 60px;
 }

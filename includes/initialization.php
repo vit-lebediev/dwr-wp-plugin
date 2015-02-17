@@ -19,7 +19,7 @@ function init_plugin()
     $result_url = get_option('dwr_result_url');
 
     $merchant_login = get_option('dwr_merchant_login');
-    $robokassaService = new DWRRobokassaService($merchant_login, dwr_get_blog_language_for_robokassa());
+    $robokassaService = new DWRRobokassaService($merchant_login);
 
     // Get current URI part
     $real_url = $_SERVER['REQUEST_URI'];
@@ -31,16 +31,16 @@ function init_plugin()
         switch ($result_url_method) {
             case 'POST':
                 if (isset($_POST['SignatureValue'])) {
-                    $InvId = $_POST["InvId"];
-                    $SignatureValue = $_POST["SignatureValue"];
-                    $robokassaService->processResult($InvId, $SignatureValue);
+                    $robokassaService->processResult($_POST["InvId"], $_POST["OutSum"], $_POST["SignatureValue"]);
+                } else {
+                    error_log("Hit POST Result URL, but NO SignatureValue in the request");
                 }
                 break;
             case 'GET':
                 if (isset($_GET['SignatureValue'])) {
-                    $InvId = $_GET["InvId"];
-                    $SignatureValue = $_GET["SignatureValue"];
-                    $robokassaService->processResult($InvId, $SignatureValue);
+                    $robokassaService->processResult($_GET["InvId"], $_GET["OutSum"], $_GET["SignatureValue"]);
+                } else {
+                    error_log("Hit GET Result URL, but NO SignatureValue in the request");
                 }
                 break;
             default: break;
@@ -48,11 +48,9 @@ function init_plugin()
     }
 }
 
-function admin_init_plugin()
+function dwr_admin_init_plugin()
 {
     // Register plugin options in admin panel
-    register_setting('dwr_plugin_options', 'dwr_confirm_page_url');
-
     register_setting('dwr_plugin_options', 'dwr_result_url');
     register_setting('dwr_plugin_options', 'dwr_result_url_method'); // TODO: Add validation, check for possible values (GET AND POST)
 
@@ -60,7 +58,7 @@ function admin_init_plugin()
     register_setting('dwr_plugin_options', 'dwr_merchant_pass_one');
     register_setting('dwr_plugin_options', 'dwr_merchant_pass_two');
 
-    register_setting('dwr_plugin_options', 'dwr_text_before_donate_form');
+    register_setting('dwr_plugin_options', 'dwr_default_donation_amount');
     register_setting('dwr_plugin_options', 'dwr_operation_description');
 
     register_setting('dwr_plugin_options', 'dwr_force_delete_tables');

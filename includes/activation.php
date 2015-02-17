@@ -15,14 +15,10 @@ function dwr_activate_plugin()
     $sql =
         "
             CREATE TABLE IF NOT EXISTS `" . $table_donations . "` (
-                `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+                `id` INT(11) UNSIGNED UNIQUE NOT NULL AUTO_INCREMENT,
+                `robokassa_id` INT(11) UNSIGNED UNIQUE DEFAULT NULL,
                 `amount` FLOAT UNSIGNED NOT NULL,
-                `currencyLabel` VARCHAR(255) NOT NULL,
-                `currencyName` VARCHAR(255) NOT NULL,
-                `message` TEXT DEFAULT NULL,
-                `start_date` DATETIME NOT NULL,
-                `finish_date` DATETIME DEFAULT NULL,
-                `accomplished` BOOL DEFAULT 0,
+                `donation_date` DATETIME NOT NULL,
                 PRIMARY KEY (`id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8
         ";
@@ -33,8 +29,6 @@ function dwr_activate_plugin()
         error_log("Could not create required tables. SQL: " . $sql);
     }
 
-    add_option('dwr_confirm_page_url', '');
-
     add_option('dwr_result_url', 'robokassa_result');
     add_option('dwr_result_url_method', 'POST');
 
@@ -42,7 +36,7 @@ function dwr_activate_plugin()
     add_option('dwr_merchant_pass_one', '');
     add_option('dwr_merchant_pass_two', '');
 
-    add_option('dwr_text_before_donate_form', '');
+    add_option('dwr_default_donation_amount');
     add_option('dwr_operation_description', '');
 
     add_option('dwr_force_delete_tables', '');
@@ -62,8 +56,6 @@ function dwr_deactivate_plugin()
         $wpdb->query($sql);
     }
 
-    delete_option('dwr_confirm_page_url');
-
     delete_option('dwr_result_url');
     delete_option('dwr_result_url_method');
 
@@ -71,7 +63,7 @@ function dwr_deactivate_plugin()
     delete_option('dwr_merchant_pass_one');
     delete_option('dwr_merchant_pass_two');
 
-    delete_option('dwr_text_before_donate_form');
+    delete_option('dwr_default_donation_amount');
     delete_option('dwr_operation_description');
 
     delete_option('dwr_force_delete_tables');

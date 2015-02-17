@@ -6,28 +6,14 @@
  * Time: 19:18
  */
 
-function dwr_get_blog_language_for_robokassa()
-{
-    $culture = substr(get_bloginfo("language"), 0, 2);
-    $allowed_cultures = array('ru', 'en');
-
-    if (!in_array($culture, $allowed_cultures)) {
-        $culture = 'ru';
-    }
-
-    return $culture;
-}
-
 function dwr_required_fields_are_set() {
-    $confirmation_page_url = get_option('dwr_confirm_page_url');
     $merchant_login = get_option('dwr_merchant_login');
     $merchant_pass_one = get_option('dwr_merchant_pass_one');
     $merchant_pass_two = get_option('dwr_merchant_pass_two');
     $dwr_result_url = get_option('dwr_result_url');
     $dwr_result_url_method = get_option('dwr_result_url_method');
 
-    if ($confirmation_page_url AND
-        $merchant_login AND
+    if ($merchant_login AND
         $merchant_pass_one AND
         $merchant_pass_two AND
         $dwr_result_url AND
@@ -37,4 +23,34 @@ function dwr_required_fields_are_set() {
     } else {
         return false;
     }
+}
+
+/**
+ * Create donation entry in the DB
+ *
+ * @param float $amount      Sum of transaction
+ * @param int   $robokassaId Robokassa-assigned operation ID
+ * @return id                   Database ID of the transaction
+ */
+function dwr_create_donation_entry($amount, $robokassaId)
+{
+    global $wpdb;
+
+    $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
+
+    $wpdb->insert(
+        $table_donations,
+        array(
+            'amount' => number_format($amount, 2),
+            'robokassa_id' => (int)$robokassaId,
+            'donation_date' => current_time('mysql', 1)
+        ),
+        array(
+            '%f',
+            '%d',
+            '%s'
+        )
+    );
+
+    return $wpdb->insert_id;
 }
