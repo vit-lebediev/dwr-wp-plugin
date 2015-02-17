@@ -6,18 +6,6 @@
  * Time: 19:18
  */
 
-function dwr_get_blog_language_for_robokassa()
-{
-    $culture = substr(get_bloginfo("language"), 0, 2);
-    $allowed_cultures = array('ru', 'en');
-
-    if (!in_array($culture, $allowed_cultures)) {
-        $culture = 'ru';
-    }
-
-    return $culture;
-}
-
 function dwr_required_fields_are_set() {
     $merchant_login = get_option('dwr_merchant_login');
     $merchant_pass_one = get_option('dwr_merchant_pass_one');

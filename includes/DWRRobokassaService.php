@@ -13,10 +13,9 @@
  */
 class DWRRobokassaService
 {
-    public function __construct($merchantLogin, $responseLanguage)
+    public function __construct($merchantLogin)
     {
         $this->merchantLogin = $merchantLogin;
-        $this->responseLanguage = $responseLanguage;
     }
 
     public function processResult($invId, $outSum, $signatureValue)
@@ -53,5 +52,4 @@ class DWRRobokassaService
     }
 
     private $merchantLogin = null;
-    private $responseLanguage = null;
 }
