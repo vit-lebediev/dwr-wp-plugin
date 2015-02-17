@@ -145,8 +145,20 @@ function dwr_confirm_form_shortcode()
     return $form;
 }
 
-function dwr_payment_widget_shortcode()
+function dwr_payment_widget_shortcode($attributes)
 {
+    $compact_mode = false;
+
+    if (is_array($attributes)) {
+        foreach ($attributes as $attribute) {
+            switch ($attribute) {
+                case 'compact';
+                    $compact_mode = true;
+                    break;
+            }
+        }
+    }
+
     // display widget with default amount
     $merchant_login = get_option('dwr_merchant_login');
 
@@ -162,7 +174,12 @@ function dwr_payment_widget_shortcode()
 
         $signature_value = md5($merchant_login . "::" . $inv_id . ":" . $merchant_pass_one);
 
-        $widget .= '<script language="javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormFL.js?MerchantLogin=' . $merchant_login . '&DefaultSum=' . $default_donation_amount . '&InvoiceID=' . $inv_id . '&Description=' . $operation_description . '&SignatureValue=' . $signature_value . '"></script>';
+        if ($compact_mode) {
+            $widget .= '<script language="javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormV.js?MerchantLogin=' . $merchant_login . '&DefaultSum=' . $default_donation_amount . '&InvoiceID=' . $inv_id . '&Description=' . $operation_description . '&SignatureValue=' . $signature_value . '"></script>';
+        } else {
+            $widget .= '<script language="javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormFL.js?MerchantLogin=' . $merchant_login . '&DefaultSum=' . $default_donation_amount . '&InvoiceID=' . $inv_id . '&Description=' . $operation_description . '&SignatureValue=' . $signature_value . '"></script>';
+        }
+
     }
 
     return $widget;
