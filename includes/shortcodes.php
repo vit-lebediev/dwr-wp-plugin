@@ -147,47 +147,23 @@ function dwr_confirm_form_shortcode()
 
 function dwr_payment_widget_shortcode()
 {
-    // create transaction
-//    $transaction_id = dwr_create_transaction();
-    // display form
-}
+    // display widget with default amount
+    $merchant_login = get_option('dwr_merchant_login');
 
-#########################
-### PRIVATE FUNCTIONS ###
-#########################
+    $widget = '';
 
-/**
- * Create transaction in the DB
- *
- * @param float  $amount        Sum of transaction
- * @param string $currencyLabel
- * @param string $currencyName
- * @param string $userMessage
- * @return id                   Database ID of the transaction
- */
-function dwr_create_transaction($amount, $currencyLabel, $currencyName, $userMessage)
-{
-    global $wpdb;
+    if (!dwr_required_fields_are_set()) {
+        $widget = __('not_all_settings_are_set', DWR_PLUGIN_NAME);
+    } else {
+        $merchant_pass_one = get_option('dwr_merchant_pass_one');
+        $operation_description = get_option('dwr_operation_description');
+        $default_donation_amount = get_option('dwr_default_donation_amount');
+        $inv_id = 0; // default so that robokassa could assing it's own value for this
 
-    $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
+        $signature_value = md5($merchant_login . ":" . $inv_id . ":" . $merchant_pass_one);
 
-    $wpdb->insert(
-        $table_donations,
-        array(
-            'amount' => number_format($amount, 2),
-            'currencyLabel' => $currencyLabel,
-            'currencyName' => $currencyName,
-            'start_date' => current_time('mysql', 1),
-            'message' => $userMessage
-        ),
-        array(
-            '%f',
-            '%s',
-            '%s',
-            '%s',
-            '%s'
-        )
-    );
+        $widget .= '<script language="javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormFLS.js?MerchantLogin=' . $merchant_login . '&DefaultSum=' . $default_donation_amount . '&InvoiceID=' . $inv_id . '&Description=' . $operation_description . '&SignatureValue=' . $signature_value . '"></script>';
+    }
 
-    return $wpdb->insert_id;
+    return $widget;
 }

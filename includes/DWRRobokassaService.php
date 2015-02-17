@@ -38,31 +38,25 @@ class DWRRobokassaService
         }
     }
 
-    public function processResult($invId, $signatureValue)
+    public function processResult($invId, $outSum, $signatureValue)
     {
         global $wpdb;
 
-        if (!$invId OR !$signatureValue) {
-            error_log("No $invId or $signatureValue provided.");
-            die("No $invId or $signatureValue provided.");
-        }
-
-        $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
-        $transaction = $wpdb->get_row($wpdb->prepare("SELECT * FROM `" . $table_donations . "` WHERE `id` = %d", $invId));
-
-        if ($transaction === null) {
-            error_log("Transaction with id $invId was not found in database");
-            die("Internal error");
+        if (!$invId OR !$outSum OR !$signatureValue) {
+            error_log("No invId, outSum or signatureValue provided.");
+            error_log("invId: $invId, outSum: $outSum, signatureValue: $signatureValue");
+            die("No invId, outSum or signatureValue provided.");
         }
 
         $merchant_pass_two = get_option('dwr_merchant_pass_two');
+        $default_donation_amount = get_option('dwr_default_donation_amount');
 
         if (!$merchant_pass_two) {
             error_log("Merchant Pass #2 is not set in admin panel.");
             die("Internal error");
         }
 
-        $mySignatureValue = strtolower(md5("{$transaction->amount}:$invId:$merchant_pass_two"));
+        $mySignatureValue = strtolower(md5("$default_donation_amount:$invId:$merchant_pass_two"));
         $signatureValue = strtolower($signatureValue);
 
         if ($signatureValue === $mySignatureValue) {
@@ -70,14 +64,8 @@ class DWRRobokassaService
             // TODO: implement mail delivery if required
             // wp_mail("malgin05@gmail.com", "Domation arrived", "Details");
 
-            // update transaction in the db
-            $wpdb->update(
-                $table_donations,
-                array('accomplished' => 1, 'finish_date' => current_time('mysql', 1)),
-                array('id' => $invId),
-                array('%d', '%s'),
-                array('%d')
-            );
+            // create new donation entry in the DB
+            dwr_create_donation_entry($outSum, $invId);
         } else {
             error_log("Signatures don't match, something went wrong. Their: $signatureValue, ours: $mySignatureValue");
             echo "Signatures don't match, something went wrong.";

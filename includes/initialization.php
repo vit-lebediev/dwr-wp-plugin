@@ -31,16 +31,12 @@ function init_plugin()
         switch ($result_url_method) {
             case 'POST':
                 if (isset($_POST['SignatureValue'])) {
-                    $InvId = $_POST["InvId"];
-                    $SignatureValue = $_POST["SignatureValue"];
-                    $robokassaService->processResult($InvId, $SignatureValue);
+                    $robokassaService->processResult($_POST["InvId"], $_POST["OutSum"], $_POST["SignatureValue"]);
                 }
                 break;
             case 'GET':
                 if (isset($_GET['SignatureValue'])) {
-                    $InvId = $_GET["InvId"];
-                    $SignatureValue = $_GET["SignatureValue"];
-                    $robokassaService->processResult($InvId, $SignatureValue);
+                    $robokassaService->processResult($_GET["InvId"], $_GET["OutSum"], $_GET["SignatureValue"]);
                 }
                 break;
             default: break;

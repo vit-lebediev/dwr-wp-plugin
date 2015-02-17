@@ -15,7 +15,8 @@ function dwr_activate_plugin()
     $sql =
         "
             CREATE TABLE IF NOT EXISTS `" . $table_donations . "` (
-                `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+                `id` INT(11) UNIQUE UNSIGNED NOT NULL AUTO_INCREMENT,
+                `robokassa_id` INT(11) UNIQUE UNSIGNED DEFAULT NULL,
                 `amount` FLOAT UNSIGNED NOT NULL,
                 `currencyLabel` VARCHAR(255) NOT NULL,
                 `currencyName` VARCHAR(255) NOT NULL,

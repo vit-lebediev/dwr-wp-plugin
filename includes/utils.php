@@ -38,3 +38,39 @@ function dwr_required_fields_are_set() {
         return false;
     }
 }
+
+/**
+ * Create donation entry in the DB
+ *
+ * @param float $amount      Sum of transaction
+ * @param int   $robokassaId Robokassa-assigned operation ID
+ * @return id                   Database ID of the transaction
+ */
+function dwr_create_donation_entry($amount, $robokassaId)
+{
+    global $wpdb;
+
+    $table_donations = $wpdb->prefix . DWR_DONATIONS_TABLE_NAME;
+
+    $wpdb->insert(
+        $table_donations,
+        array(
+            'amount' => number_format($amount, 2),
+            'robokassa_id' => (int)$robokassaId,
+            'currencyLabel' => "Default",
+            'currencyName' => "Default",
+            'start_date' => current_time('mysql', 1),
+            'message' => "Default"
+        ),
+        array(
+            '%f',
+            '%d',
+            '%s',
+            '%s',
+            '%s',
+            '%s'
+        )
+    );
+
+    return $wpdb->insert_id;
+}
