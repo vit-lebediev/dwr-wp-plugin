@@ -76,9 +76,9 @@ function dwr_display_plugin_options_page()
     echo "<td>&nbsp;</td><td>&nbsp;</td>";
 
     echo "</tr><tr>";
-    echo "  <td>" . __('default_donation_amount', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_default_donation_amount' size='40' type='text' value='" . $dwr_default_donation_amount .  "' /></td>";
+    echo "  <td>" . __('default_donation_amount', DWR_PLUGIN_NAME) . "&nbsp;<span class='dwr_required'>*</span></td><td><input name='dwr_default_donation_amount' size='40' type='text' value='" . $dwr_default_donation_amount .  "' /></td>";
     echo "</tr><tr>";
-    echo "  <td>" . __('operation_description', DWR_PLUGIN_NAME) . "</td><td><input name='dwr_operation_description' size='40' type='text' value='" . $dwr_operation_description .  "' /></td>";
+    echo "  <td>" . __('operation_description', DWR_PLUGIN_NAME) . "&nbsp;<span class='dwr_required'>*</span></td><td><input name='dwr_operation_description' size='40' type='text' value='" . $dwr_operation_description .  "' /></td>";
     echo "</tr><tr>";
 
     echo "<td>&nbsp;</td><td>&nbsp;</td>";
@@ -150,7 +150,7 @@ function dwr_display_plugin_statistics_page() {
         echo __("total_donation_amount", DWR_PLUGIN_NAME) . ": " . number_format($total_amount, 2);
         echo "</div>";
 
-        $last100transactions = $wpdb->get_results("SELECT * FROM `" . $table_donations . "` ORDER BY start_date DESC LIMIT 100");
+        $last100transactions = $wpdb->get_results("SELECT * FROM `" . $table_donations . "` ORDER BY donation_date DESC LIMIT 100");
 
         echo "<h2>" . __("last_hundred_transactions_detailed", DWR_PLUGIN_NAME) . "</h2>";
 
