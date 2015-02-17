@@ -18,12 +18,7 @@ function dwr_activate_plugin()
                 `id` INT(11) UNSIGNED UNIQUE NOT NULL AUTO_INCREMENT,
                 `robokassa_id` INT(11) UNSIGNED UNIQUE DEFAULT NULL,
                 `amount` FLOAT UNSIGNED NOT NULL,
-                `currencyLabel` VARCHAR(255) NOT NULL,
-                `currencyName` VARCHAR(255) NOT NULL,
-                `message` TEXT DEFAULT NULL,
-                `start_date` DATETIME NOT NULL,
-                `finish_date` DATETIME DEFAULT NULL,
-                `accomplished` BOOL DEFAULT 0,
+                `donation_date` DATETIME NOT NULL,
                 PRIMARY KEY (`id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8
         ";

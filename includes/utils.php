@@ -43,17 +43,11 @@ function dwr_create_donation_entry($amount, $robokassaId)
         array(
             'amount' => number_format($amount, 2),
             'robokassa_id' => (int)$robokassaId,
-            'currencyLabel' => "Default",
-            'currencyName' => "Default",
-            'start_date' => current_time('mysql', 1),
-            'message' => "Default"
+            'donation_date' => current_time('mysql', 1)
         ),
         array(
             '%f',
             '%d',
-            '%s',
-            '%s',
-            '%s',
             '%s'
         )
     );

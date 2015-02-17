@@ -108,8 +108,8 @@ function dwr_display_plugin_statistics_page() {
         echo "<h2>" . __("general_statistics", DWR_PLUGIN_NAME) . "</h2>";
 
         // transactions and total donations amount today
-        $transactions_today = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE accomplished = 1 AND DATE(start_date) = DATE(NOW())");
-        $amount_today = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE accomplished = 1 AND DATE(start_date) = DATE(NOW())");
+        $transactions_today = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE DATE(donation_date) = DATE(NOW())");
+        $amount_today = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE DATE(donation_date) = DATE(NOW())");
         echo "<div class='dwr_statistics_entry'>";
         echo __("transactions_today", DWR_PLUGIN_NAME) . ": $transactions_today";
         echo "<br />";
@@ -117,8 +117,8 @@ function dwr_display_plugin_statistics_page() {
         echo "</div>";
 
         // transactions and total donations amount for this 7 days
-        $transactions_this_week = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE accomplished = 1 AND WEEKOFYEAR(start_date) = WEEKOFYEAR(NOW())");
-        $amount_this_week = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE accomplished = 1 AND WEEKOFYEAR(start_date) = WEEKOFYEAR(NOW())");
+        $transactions_this_week = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE WEEKOFYEAR(donation_date) = WEEKOFYEAR(NOW())");
+        $amount_this_week = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE WEEKOFYEAR(donation_date) = WEEKOFYEAR(NOW())");
         echo "<div class='dwr_statistics_entry'>";
         echo __("transactions_this_week", DWR_PLUGIN_NAME) . ": $transactions_this_week";
         echo "<br />";
@@ -126,8 +126,8 @@ function dwr_display_plugin_statistics_page() {
         echo "</div>";
 
         // transactions and total donations amount for this month
-        $transactions_this_month = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE accomplished = 1 AND MONTH(start_date) = MONTH(NOW())");
-        $amount_this_month = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE accomplished = 1 AND MONTH(start_date) = MONTH(NOW())");
+        $transactions_this_month = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE MONTH(donation_date) = MONTH(NOW())");
+        $amount_this_month = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE MONTH(donation_date) = MONTH(NOW())");
         echo "<div class='dwr_statistics_entry'>";
         echo __("transactions_this_month", DWR_PLUGIN_NAME) . ": $transactions_this_month";
         echo "<br />";
@@ -135,23 +135,17 @@ function dwr_display_plugin_statistics_page() {
         echo "</div>";
 
         // transactions and total donations amount for this year
-        $transactions_this_year = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE accomplished = 1 AND YEAR(start_date) = YEAR(NOW())");
-        $amount_this_year = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE accomplished = 1 AND YEAR(start_date) = YEAR(NOW())");
+        $transactions_this_year = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE YEAR(donation_date) = YEAR(NOW())");
+        $amount_this_year = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations WHERE YEAR(donation_date) = YEAR(NOW())");
         echo "<div class='dwr_statistics_entry'>";
         echo __("transactions_this_year", DWR_PLUGIN_NAME) . ": $transactions_this_year";
         echo "<br />";
         echo __("total_donation_amount_this_year", DWR_PLUGIN_NAME) . ": " . number_format($amount_this_year, 2);
         echo "</div>";
 
-        $total_accomplished_transactions = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE accomplished = 1");
-        $total_not_accomplished_transactions = $wpdb->get_var("SELECT COUNT(*) FROM $table_donations WHERE accomplished = 0");
         $total_amount = $wpdb->get_var("SELECT SUM(amount) FROM $table_donations");
         echo "<div class='dwr_statistics_entry'>";
         echo __("transactions_total", DWR_PLUGIN_NAME) . ": $total_transactions";
-        echo "<br />";
-        echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . __("transactions_accomplished_total", DWR_PLUGIN_NAME) . ": $total_accomplished_transactions";
-        echo "<br />";
-        echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . __("transactions_not_accomplished_total", DWR_PLUGIN_NAME) . ": $total_not_accomplished_transactions";
         echo "<br />";
         echo __("total_donation_amount", DWR_PLUGIN_NAME) . ": " . number_format($total_amount, 2);
         echo "</div>";
@@ -162,11 +156,11 @@ function dwr_display_plugin_statistics_page() {
 
         echo "<table class='dwr_transactions_table'>";
         echo "<tr>";
-        echo "<th class='dwr_id_col'>" . __("transaction_id", DWR_PLUGIN_NAME) . "</th><th class='dwr_sum_col'>" . __("donation_sum", DWR_PLUGIN_NAME) . "</th><th class='dwr_payment_col'>" . __("payment_method", DWR_PLUGIN_NAME) . "</th><th class='dwr_date_col'>" . __("transaction_date", DWR_PLUGIN_NAME) . "</th><th class='dwr_message_col'>" . __("transaction_user_message", DWR_PLUGIN_NAME) . "</th>";
+        echo "<th class='dwr_id_col'>" . __("transaction_id", DWR_PLUGIN_NAME) . "</th><th class='dwr_robokassa_id_col'>" . __("robokassa_id", DWR_PLUGIN_NAME) . "</th><th class='dwr_sum_col'>" . __("donation_sum", DWR_PLUGIN_NAME) . "</th><th class='dwr_date_col'>" . __("transaction_date", DWR_PLUGIN_NAME) . "</th>";
         echo "</tr>";
         foreach ($last100transactions as $transaction) {
-            echo "<tr class='" . (($transaction->accomplished) ? 'transaction_accomplished' : 'transaction_not_accomplished') . "'>";
-            echo "<td class='dwr_id_col'>{$transaction->id}</td><td class='dwr_sum_col'>{$transaction->amount}</td><td class='dwr_payment_col'>{$transaction->currencyName}</td><td class='dwr_date_col'>" . date('F j, Y, g:i a', strtotime($transaction->start_date)) . "</td><td class='dwr_message_col'>{$transaction->message}</td>";
+            echo "<tr>";
+            echo "<td class='dwr_id_col'>{$transaction->id}</td><td class='dwr_robokassa_id_col'>{$transaction->robokassa_id}</td><td class='dwr_sum_col'>{$transaction->amount}</td><td class='dwr_date_col'>" . date('F j, Y, g:i a', strtotime($transaction->donation_date)) . "</td>";
             echo "</tr>";
         }
         echo "</table>";
