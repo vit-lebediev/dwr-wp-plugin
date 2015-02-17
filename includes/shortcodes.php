@@ -172,11 +172,13 @@ function dwr_payment_widget_shortcode($attributes)
         $default_donation_amount = get_option('dwr_default_donation_amount');
         $inv_id = 0; // default so that robokassa could assing it's own value for this
 
-        $signature_value = md5($merchant_login . "::" . $inv_id . ":" . $merchant_pass_one);
-
         if ($compact_mode) {
-            $widget .= '<script language="javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormV.js?MerchantLogin=' . $merchant_login . '&DefaultSum=' . $default_donation_amount . '&InvoiceID=' . $inv_id . '&Description=' . $operation_description . '&SignatureValue=' . $signature_value . '"></script>';
+            $signature_value = md5($merchant_login . ":" . $default_donation_amount . ":" . $inv_id . ":" . $merchant_pass_one);
+
+            $widget .= '<script language="javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormV.js?MerchantLogin=' . $merchant_login . '&OutSum=' . $default_donation_amount . '&InvoiceID=' . $inv_id . '&Description=' . $operation_description . '&SignatureValue=' . $signature_value . '"></script>';
         } else {
+            $signature_value = md5($merchant_login . "::" . $inv_id . ":" . $merchant_pass_one);
+
             $widget .= '<script language="javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormFL.js?MerchantLogin=' . $merchant_login . '&DefaultSum=' . $default_donation_amount . '&InvoiceID=' . $inv_id . '&Description=' . $operation_description . '&SignatureValue=' . $signature_value . '"></script>';
         }
 
