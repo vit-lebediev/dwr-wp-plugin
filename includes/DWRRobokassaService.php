@@ -56,7 +56,7 @@ class DWRRobokassaService
             die("Internal error");
         }
 
-        $mySignatureValue = strtolower(md5("$default_donation_amount:$invId:$merchant_pass_two"));
+        $mySignatureValue = strtolower(md5("$outSum:$invId:$merchant_pass_two"));
         $signatureValue = strtolower($signatureValue);
 
         if ($signatureValue === $mySignatureValue) {
