@@ -2,11 +2,13 @@
 Donate With Robokassa WordPress plugin helps you accept donations on your WP website with [Robokassa](http://robokassa.ru "Title")!
 
 With this plugin, you will be able to add a robokassa widget with a field for arbitrary amount of donation, like this one:
- ![image](https://cloud.githubusercontent.com/assets/1384973/6256310/cbb23562-b7bf-11e4-9868-532b18fe5154.png)
+
+![image](https://cloud.githubusercontent.com/assets/1384973/6256310/cbb23562-b7bf-11e4-9868-532b18fe5154.png)
 
 Or you can add a compact button to your pages/sidebars which will lead to the robokassa payment page with default donation
 value, which could be set on plugin settings page!
- ![image](https://cloud.githubusercontent.com/assets/1384973/6256359/2cb64ca4-b7c0-11e4-91ad-f4efc222d127.png)
+
+![image](https://cloud.githubusercontent.com/assets/1384973/6256359/2cb64ca4-b7c0-11e4-91ad-f4efc222d127.png)
 
 ## How the plugin works
 Warning! This plugin _currently_ works only if Permalink Settings changed from Default.
