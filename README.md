@@ -1,4 +1,4 @@
-# Плагин для ВордПресса Donate With Robokassa (DWR) 
+# Плагин для WordPress Donate With Robokassa (DWR) 
 English version of this README could be found [at the bottom of this page](https://github.com/Malgin/dwr-wp-plugin#donate-with-robokassa-dwr-wordpress-plugin)
 
 Плагин Donate With Robokassa поможет вам принимать пожертвования с помощью [Робокассы](http://robokassa.ru "Официальный вебсайт Робокассы")!
