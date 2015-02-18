@@ -165,7 +165,7 @@ function dwr_display_plugin_statistics_page() {
         }
         echo "</table>";
     } else {
-        _e("no_transactions_yet_been_performed");
+        _e("no_transactions_yet_been_performed", DWR_PLUGIN_NAME);
     }
 
     echo "</div>";
