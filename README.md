@@ -18,19 +18,18 @@ value, which could be set on plugin settings page!
 * This plugin _currently_ works only if Permalink Settings changed from Default.
 
 ## How to start accepting donations
-You need to follow these FIVE simple steps:
+You need to follow these FIVE (one of two at the end is optional) simple steps:
 
-1. Download a plugin and copy it to 'site-root-dir/wp-content/plugins/donate-with-robokassa' folder
-2. In admin panel of the site, activate the plugin (You can do it under "Plugins -> Installed Plugins" menu)
-3. Go to Settings -> Donate With Robokassa (DWR) page and fill in all the required fields
-4. Add [dwr_payment_widget] shortcode anywhere on the website where you would like to see robokassa donation widget.
+1. Download a plugin and copy it to 'site-root-dir/wp-content/plugins/donate-with-robokassa' folder.
+2. In admin panel of the site, activate the plugin (You can do it under "Plugins -> Installed Plugins" menu).
+3. Go to Settings -> Donate With Robokassa (DWR) page and fill in all the required fields (more details on this [here](https://github.com/Malgin/dwr-wp-plugin#donate-with-robokassa-dwr-settings-page)).
+4. Add **[dwr_payment_widget]** shortcode anywhere on the website where you would like to see robokassa donation widget.
 5. (Optional) Create two pages, each of which will inform your users about the result of the operation, and probably, thank them for
    the donation. Make their URLs nice and informative (you will pass these URLs in Robokassa admin panel as Success URL and Fail URL,
    both with GET method).
 6. (Optional) Instead of creating separate pages, you could just set Success URL anf Fail URL to point to your websire homepage. But this is bit rude.
 
 That's it! You're all set up.
-
 
 ## Shortcodes
 This plugin supports one shortcode: [dwr_payment_widget]. Inserting just this shortcode in an article, or on a page, will result in
