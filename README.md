@@ -31,7 +31,9 @@ That's it! You're all set up.
 ## Shortcodes
 This plugin supports one shortcode: [dwr_payment_widget]. Inserting just this shortcode in an article, or on a page, will result in
 a widget with arbitrary donation to appear on the page.
+
 In order to insert compact widget button, you should add an empty 'compact' parameter to the shortcode, like this: [dwr_payment_widget compact]
+
 **Warning!** If required (which are all) options are not set in the plugin settings page, a warning message will be displayed instead of a widget.
 
 ## Options
