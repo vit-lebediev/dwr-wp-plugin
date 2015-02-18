@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: donate-with-robokassa\n"
-"POT-Creation-Date: 2015-01-25 22:42+0200\n"
-"PO-Revision-Date: 2015-01-25 22:42+0200\n"
+"POT-Creation-Date: 2015-02-18 23:51+0200\n"
+"PO-Revision-Date: 2015-02-18 23:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: Malgin <malgin05@gmail.com>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.7.4\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -37,186 +37,175 @@ msgstr "DWR - Статистика"
 msgid "dwr_plugin_page_title"
 msgstr "Настройки плагина Donate With Robokassa (DWR)"
 
-#: ../includes/options.php:59
-msgid "confirm_page_url"
-msgstr "URL страницы подтверждения оплаты"
-
-#: ../includes/options.php:65
+#: ../includes/options.php:57
 msgid "result_url"
 msgstr "<b>Result URL</b> для Робокассы"
 
-#: ../includes/options.php:67
+#: ../includes/options.php:59
 msgid "result_url_method"
 msgstr "HTTP метод для Result URL"
 
-#: ../includes/options.php:77
+#: ../includes/options.php:69
 msgid "merchant_login"
 msgstr "Идентификатор магазина"
 
-#: ../includes/options.php:79
+#: ../includes/options.php:71
 msgid "merchant_pass_one"
 msgstr "Пароль #1"
 
-#: ../includes/options.php:81
+#: ../includes/options.php:73
 msgid "merchant_pass_two"
 msgstr "Пароль #2"
 
-#: ../includes/options.php:87
-msgid "text_before_donate_form"
-msgstr "Текст перед формой пожертвования"
+#: ../includes/options.php:79
+msgid "default_donation_amount"
+msgstr "Сумма пожертвования по умолчанию"
 
-#: ../includes/options.php:89
+#: ../includes/options.php:81
 msgid "operation_description"
 msgstr "Описание транзакции Robokassa"
 
-#: ../includes/options.php:95
+#: ../includes/options.php:87
 msgid "force_delete_tables"
 msgstr "Принудительное удаление таблиц плагина (!!!)"
 
-#: ../includes/options.php:114
+#: ../includes/options.php:106
 msgid "dwr_plugin_statistics_page_title"
 msgstr "Статистика пожертвований"
 
-#: ../includes/options.php:116
+#: ../includes/options.php:108
 msgid "general_statistics"
 msgstr "Общая статистика"
 
-#: ../includes/options.php:122
+#: ../includes/options.php:114
 msgid "transactions_today"
 msgstr "Количество <b>за сегодня</b>"
 
-#: ../includes/options.php:124
+#: ../includes/options.php:116
 msgid "total_donation_amount_today"
 msgstr "Общая сумма <b>за сегодня</b>"
 
-#: ../includes/options.php:131
+#: ../includes/options.php:123
 msgid "transactions_this_week"
 msgstr "Количество <b>за эту неделю</b>"
 
-#: ../includes/options.php:133
+#: ../includes/options.php:125
 msgid "total_donation_amount_this_week"
 msgstr "Общая сумма <b>за эту неделю</b>"
 
-#: ../includes/options.php:140
+#: ../includes/options.php:132
 msgid "transactions_this_month"
 msgstr "Количество <b>за этот месяц</b>"
 
-#: ../includes/options.php:142
+#: ../includes/options.php:134
 msgid "total_donation_amount_this_month"
 msgstr "Общая сумма <b>за этот месяц</b>"
 
-#: ../includes/options.php:149
+#: ../includes/options.php:141
 msgid "transactions_this_year"
 msgstr "Количество <b>за этот год</b>"
 
-#: ../includes/options.php:151
+#: ../includes/options.php:143
 msgid "total_donation_amount_this_year"
 msgstr "Общая сумма <b>за этот год</b>"
 
-#: ../includes/options.php:158
+#: ../includes/options.php:148
 msgid "transactions_total"
 msgstr "Количество <b>за все время</b>"
 
-#: ../includes/options.php:160
-msgid "transactions_accomplished_total"
-msgstr "Завершенных"
-
-#: ../includes/options.php:162
-msgid "transactions_not_accomplished_total"
-msgstr "Незавершенных"
-
-#: ../includes/options.php:164
+#: ../includes/options.php:150
 msgid "total_donation_amount"
 msgstr "Общая сумма <b>за все время</b>"
 
-#: ../includes/options.php:169
+#: ../includes/options.php:155
 msgid "last_hundred_transactions_detailed"
 msgstr "Последние 100 пожертвований"
 
-#: ../includes/options.php:174
-msgid "delete_not_accomplished_transactions"
-msgstr "Удалить незавершенные"
-
-#: ../includes/options.php:179
+#: ../includes/options.php:159
 msgid "transaction_id"
 msgstr "ID транзакции"
 
-#: ../includes/options.php:179 ../includes/shortcodes.php:51
+#: ../includes/options.php:159
+msgid "robokassa_id"
+msgstr "ID транзакции Робокассы"
+
+#: ../includes/options.php:159
 msgid "donation_sum"
 msgstr "Сумма пожертвования"
 
-#: ../includes/options.php:179
-msgid "payment_method"
-msgstr "Способ оплаты"
-
-#: ../includes/options.php:179
+#: ../includes/options.php:159
 msgid "transaction_date"
 msgstr "Дата пожертвования"
 
-#: ../includes/options.php:179
-msgid "transaction_user_message"
-msgstr "Сообщение пользователя"
-
-#: ../includes/options.php:188
+#: ../includes/options.php:168
 msgid "no_transactions_yet_been_performed"
-msgstr "Ещё нет ниодного пожертвования. Вам стоит подождать :)"
+msgstr "Ещё нет ни одного пожертвования. Вам стоит подождать :)"
 
-#: ../includes/shortcodes.php:33 ../includes/shortcodes.php:120
+#: ../includes/shortcodes.php:32
 msgid "not_all_settings_are_set"
 msgstr ""
 "Не все обязательные поля заполнены в админ панели. Плагин не работоспособен."
 
-#: ../includes/shortcodes.php:38
-msgid "error_during_currency_request"
-msgstr ""
-"При запросе доступных способов оплаты возникла ошибка. Напишите пожалуйста "
-"администрации сайта."
+#~ msgid "confirm_page_url"
+#~ msgstr "URL страницы подтверждения оплаты"
 
-#: ../includes/shortcodes.php:55 ../includes/shortcodes.php:155
-msgid "donation_currency"
-msgstr "Способ оплаты"
+#~ msgid "text_before_donate_form"
+#~ msgstr "Текст перед формой пожертвования"
 
-#: ../includes/shortcodes.php:72
-msgid "user_message"
-msgstr ""
-"Если хотите, вы можете оставить нам несколько хороший слов или пожелание."
+#~ msgid "transactions_accomplished_total"
+#~ msgstr "Завершенных"
 
-#: ../includes/shortcodes.php:74
-msgid "leave_us_a_message"
-msgstr "Оставьте нам пожелание!"
+#~ msgid "transactions_not_accomplished_total"
+#~ msgstr "Незавершенных"
 
-#: ../includes/shortcodes.php:79 ../includes/shortcodes.php:170
-msgid "donate"
-msgstr "Поддержать"
+#~ msgid "delete_not_accomplished_transactions"
+#~ msgstr "Удалить незавершенные"
 
-#: ../includes/shortcodes.php:111
-msgid "error_provided_currency_incorrect"
-msgstr ""
-"Метод пларежа передан некорректно. Попробуйте вернуться и заполнить форму "
-"заново."
+#~ msgid "payment_method"
+#~ msgstr "Способ оплаты"
 
-#: ../includes/shortcodes.php:114
-msgid "error_amount_should_be_numeric"
-msgstr "Значение суммы пожертвования должно быть числовым значением."
+#~ msgid "transaction_user_message"
+#~ msgstr "Сообщение пользователя"
 
-#: ../includes/shortcodes.php:117
-#, php-format
-msgid "error_amount_cannot_be_below_zero_you_specified %1$.2f"
-msgstr ""
-"Значение суммы пожертвования не может быть 0 или отрицательным, вы указали "
-"%1$.2f."
+#~ msgid "error_during_currency_request"
+#~ msgstr ""
+#~ "При запросе доступных способов оплаты возникла ошибка. Напишите "
+#~ "пожалуйста администрации сайта."
 
-#: ../includes/shortcodes.php:154
-msgid "amount"
-msgstr "Сумма"
+#~ msgid "donation_currency"
+#~ msgstr "Способ оплаты"
 
-#: ../includes/shortcodes.php:157
-msgid "usermessage"
-msgstr "Ваше сообщение нам"
+#~ msgid "user_message"
+#~ msgstr ""
+#~ "Если хотите, вы можете оставить нам несколько хороший слов или пожелание."
 
-#: ../includes/shortcodes.php:171
-msgid "cancel"
-msgstr "Отмена"
+#~ msgid "leave_us_a_message"
+#~ msgstr "Оставьте нам пожелание!"
+
+#~ msgid "donate"
+#~ msgstr "Поддержать"
+
+#~ msgid "error_provided_currency_incorrect"
+#~ msgstr ""
+#~ "Метод пларежа передан некорректно. Попробуйте вернуться и заполнить форму "
+#~ "заново."
+
+#~ msgid "error_amount_should_be_numeric"
+#~ msgstr "Значение суммы пожертвования должно быть числовым значением."
+
+#~ msgid "error_amount_cannot_be_below_zero_you_specified %1$.2f"
+#~ msgstr ""
+#~ "Значение суммы пожертвования не может быть 0 или отрицательным, вы "
+#~ "указали %1$.2f."
+
+#~ msgid "amount"
+#~ msgstr "Сумма"
+
+#~ msgid "usermessage"
+#~ msgstr "Ваше сообщение нам"
+
+#~ msgid "cancel"
+#~ msgstr "Отмена"
 
 #~ msgid "success_url"
 #~ msgstr "<b>Success URL</b> для Робокассы"
