@@ -1,5 +1,8 @@
 # Donate With Robokassa (DWR) Wordpress Plugin
-Donate With Robokassa WordPress plugin helps you accept donations on your WP website with [Robokassa](http://robokassa.ru "Title")!
+Donate With Robokassa WordPress plugin helps you accept donations on your WP website with [Robokassa](http://robokassa.ru "Robokassa Website")!
+
+Robokassa is a payment aggregator, which helps you accept payment via a wide variety of methods, including WebMoney, Yandex.Money, Money@Mail.ru,
+with different Mobile Operators (Megafon, MTC), via terminals, and others!
 
 With this plugin, you will be able to add a robokassa widget with a field for arbitrary amount of donation, like this one:
 
@@ -10,8 +13,9 @@ value, which could be set on plugin settings page!
 
 ![image](https://cloud.githubusercontent.com/assets/1384973/6256359/2cb64ca4-b7c0-11e4-91ad-f4efc222d127.png)
 
-## How the plugin works
-**Warning!** This plugin _currently_ works only if Permalink Settings changed from Default.
+## Prerequisites
+* In order to use this plugin, you should be familiar with Robokassa system. You can read about it on [Robokassa official website](http://robokassa.ru "Robokassa Website") (ru).
+* This plugin _currently_ works only if Permalink Settings changed from Default.
 
 ## How to start accepting donations
 You need to follow these FIVE simple steps:
@@ -30,13 +34,46 @@ That's it! You're all set up.
 
 ## Shortcodes
 This plugin supports one shortcode: [dwr_payment_widget]. Inserting just this shortcode in an article, or on a page, will result in
-a widget with arbitrary donation to appear on the page.
+a widget with a field for arbitrary donation to appear on the page.
 
 In order to insert compact widget button, you should add an empty 'compact' parameter to the shortcode, like this: [dwr_payment_widget compact]
 
 **Warning!** If required (which are all) options are not set in the plugin settings page, a warning message will be displayed instead of a widget.
 
-## Options
+## Settings
+There's two settings sections for the plugin:
+
+* Settings -> Donate With Robokassa (DWR)
+* Settings -> DWR Statistics
+
+### Donate With Robokassa (DWR) Settings page
+On this page, there's a list of options, required to be set before a plugin cloud operate.
+
+* Robokassa Result URL
+This option describes a part of Robokassa Result URL (a parameter in Robokassa shop settings), which will be attached to your website hostname.
+It is recommended to leave this option with a default value. Change it only if you understand what are you doing.
+Example: Your website is http://myonlineblog.com/. If 'Robokassa Result URL' will be default ('robokassa_result'), then you should
+set Result URL on Robokassa shop settings page to **http://myonlineblog.com/robokassa_result**.
+
+* Robokassa Result URL Method
+This should be the same, as on Robokassa shop settings page for Result URL.
+
+* Merchant Login
+This is a so called **shop identifier**. You can find it on the settings page of your shop in Robokassa shop admin panel.
+
+* Merchant Password #1 & Merchant Password #2
+Should be the same as the values you set in shop settings.
+
+* Default donation amount
+The default amount set to the widget with a field for specifying donation, and default amount which will be used for compact button.
+
+* Robokassa transaction description
+The description of a Robokassa shop transaction. Will be displayed in the list of operations in admin panel of the shop.
+
+* Force delete tables
+If this checkbox set, on deactivation of a plugin a table with all transactions will be deleted.
+**Warning!** A table holds all transaction history, and if lost, all statistics will be lost too! (Though transaction history could be
+viewed in the admin panel of the shop)
 
 ## Localization
 The plugin is localized for English and Russian languages.
