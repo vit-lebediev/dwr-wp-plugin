@@ -11,7 +11,7 @@ value, which could be set on plugin settings page!
 ![image](https://cloud.githubusercontent.com/assets/1384973/6256359/2cb64ca4-b7c0-11e4-91ad-f4efc222d127.png)
 
 ## How the plugin works
-Warning! This plugin _currently_ works only if Permalink Settings changed from Default.
+**Warning!** This plugin _currently_ works only if Permalink Settings changed from Default.
 
 ## How to start accepting donations
 You need to follow these FIVE simple steps:
@@ -29,6 +29,12 @@ That's it! You're all set up.
 
 
 ## Shortcodes
+This plugin supports one shortcode: [dwr_payment_widget]. Inserting just this shortcode in an article, or on a page, will result in
+a widget with arbitrary donation to appear on the page.
+In order to insert compact widget button, you should add an empty 'compact' parameter to the shortcode, like this: [dwr_payment_widget compact]
+**Warning!** If required (which are all) options are not set in the plugin settings page, a warning message will be displayed instead of a widget.
+
+## Options
 
 ## Localization
 The plugin is localized for English and Russian languages.
