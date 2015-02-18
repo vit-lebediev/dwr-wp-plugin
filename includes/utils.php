@@ -12,12 +12,16 @@ function dwr_required_fields_are_set() {
     $merchant_pass_two = get_option('dwr_merchant_pass_two');
     $dwr_result_url = get_option('dwr_result_url');
     $dwr_result_url_method = get_option('dwr_result_url_method');
+    $dwr_default_donation_amount = get_option('dwr_default_donation_amount');
+    $dwr_operation_description = get_option('dwr_operation_description');
 
     if ($merchant_login AND
         $merchant_pass_one AND
         $merchant_pass_two AND
         $dwr_result_url AND
-        $dwr_result_url_method)
+        $dwr_result_url_method AND
+        $dwr_default_donation_amount AND
+        $dwr_operation_description)
     {
         return true;
     } else {
