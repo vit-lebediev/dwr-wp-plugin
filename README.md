@@ -46,11 +46,11 @@ There's two settings sections for the plugin:
 * Settings -> Donate With Robokassa (DWR)
 * Settings -> DWR Statistics
 
-### Donate With Robokassa (DWR) Settings page
+#### Donate With Robokassa (DWR) Settings page
 On this page, there's a list of options, required to be set before a plugin could operate.
 
 * Robokassa Result URL.  
-This option describes a part of Robokassa Result URL (a parameter in Robokassa shop settings), which will be attached to your website hostname.  
+This option describes a part of Robokassa Result URL (a parameter in Robokassa shop settings), which will be attached to your website hostname.
 It is recommended to leave this option with a default value. Change it only if you understand what are you doing.  
 _Example_: Your website is http://myonlineblog.com/. If 'Robokassa Result URL' will be default ('robokassa_result'), then you should
 set Result URL on Robokassa shop settings page to **http://myonlineblog.com/robokassa_result**.
