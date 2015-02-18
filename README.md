@@ -18,7 +18,7 @@ value, which could be set on plugin settings page!
 * This plugin _currently_ works only if Permalink Settings changed from Default.
 
 ## How to start accepting donations
-You need to follow these FIVE (one of two at the end is optional) simple steps:
+You need to follow these FIVE (**one of two** at the end is optional) simple steps:
 
 1. Download a plugin and copy it to 'site-root-dir/wp-content/plugins/donate-with-robokassa' folder.
 2. In admin panel of the site, activate the plugin (You can do it under "Plugins -> Installed Plugins" menu).
