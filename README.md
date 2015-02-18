@@ -52,7 +52,7 @@ On this page, there's a list of options, required to be set before a plugin coul
 * Robokassa Result URL.  
 This option describes a part of Robokassa Result URL (a parameter in Robokassa shop settings), which will be attached to your website hostname.
 It is recommended to leave this option with a default value. Change it only if you understand what are you doing.  
-_Example_: Your website is http://myonlineblog.com/. If 'Robokassa Result URL' will be default ('robokassa_result'), then you should
+_Example_: Your website is http://myonlineblog.com/. If 'Robokassa Result URL' setting will be default ('robokassa_result'), then you should
 set Result URL on Robokassa shop settings page to **http://myonlineblog.com/robokassa_result**.
 
 * Robokassa Result URL Method  
@@ -65,7 +65,7 @@ This is a so called **shop identifier**. You can find it on the settings page of
 Should be the same as the values you set in shop settings.
 
 * Default donation amount  
-The default amount set to the widget with a field for specifying donation, and default amount which will be used for compact button.
+The default amount set to the widget with a field for specifying donation, and default amount which will be used for a compact button.
 
 * Robokassa transaction description  
 The description of a Robokassa shop transaction. Will be displayed in the list of operations in admin panel of the shop.
@@ -75,9 +75,13 @@ If this checkbox set, on deactivation of a plugin a table with all transactions 
 **Warning!** A table holds all transaction history, and if lost, all statistics will be lost too! (Though transaction history could be
 viewed in the admin panel of the shop)
 
+#### DWR Statistics
+Currently, this page only displays a list of last 100 donations with a very basic statistics. I _plan_ to work on this part more, and make 
+statistics more representative.
+
 ## Localization
 The plugin is localized for English and Russian languages.
 
-The plugin will not delete it's DataBase  table ('dwr_donations') on deactivation, due the possibility of loosing all donations history,
-and, which is worse, collisions of invId with robokassa.
+**One again**. The plugin will not delete it's DataBase table ('dwr_donations') on deactivation, due the possibility of loosing all donations history.  
+This mean that you can deactivate a plugin, and then re-activate it, and all previous statistics will be available.  
 There's a checkbox on the parameters page of the plugin to force delete the table on deactivation.
