@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Donate With Robokassa\n"
-"POT-Creation-Date: 2015-01-25 22:42+0200\n"
-"PO-Revision-Date: 2015-01-25 22:50+0200\n"
+"POT-Creation-Date: 2015-02-18 23:46+0200\n"
+"PO-Revision-Date: 2015-02-18 23:47+0200\n"
 "Last-Translator: \n"
 "Language-Team: Malgin <malgin05@gmail.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.7.4\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
@@ -36,184 +36,173 @@ msgstr "DWR Statistics"
 msgid "dwr_plugin_page_title"
 msgstr "Donate With Robokassa (DWR) Settings"
 
-#: ../includes/options.php:59
-msgid "confirm_page_url"
-msgstr "Confirm page URL"
-
-#: ../includes/options.php:65
+#: ../includes/options.php:57
 msgid "result_url"
 msgstr "Robokassa <b>Result URL</b>"
 
-#: ../includes/options.php:67
+#: ../includes/options.php:59
 msgid "result_url_method"
 msgstr "Robokassa Result URL Method"
 
-#: ../includes/options.php:77
+#: ../includes/options.php:69
 msgid "merchant_login"
 msgstr "Merchant Login"
 
-#: ../includes/options.php:79
+#: ../includes/options.php:71
 msgid "merchant_pass_one"
 msgstr "Merchant Password #1"
 
-#: ../includes/options.php:81
+#: ../includes/options.php:73
 msgid "merchant_pass_two"
 msgstr "Merchant Password #2"
 
-#: ../includes/options.php:87
-msgid "text_before_donate_form"
-msgstr "Text to put before donation form"
+#: ../includes/options.php:79
+msgid "default_donation_amount"
+msgstr "Default donation amount"
 
-#: ../includes/options.php:89
+#: ../includes/options.php:81
 msgid "operation_description"
 msgstr "Robokassa transaction description"
 
-#: ../includes/options.php:95
+#: ../includes/options.php:87
 msgid "force_delete_tables"
 msgstr "Force delete tables (!!!)"
 
-#: ../includes/options.php:114
+#: ../includes/options.php:106
 msgid "dwr_plugin_statistics_page_title"
 msgstr "Donate With Robokassa Statistics"
 
-#: ../includes/options.php:116
+#: ../includes/options.php:108
 msgid "general_statistics"
 msgstr "General statistics"
 
-#: ../includes/options.php:122
+#: ../includes/options.php:114
 msgid "transactions_today"
 msgstr "Donations made <b>today</b>"
 
-#: ../includes/options.php:124
+#: ../includes/options.php:116
 msgid "total_donation_amount_today"
 msgstr "Total donation amount accepted <b>today</b>"
 
-#: ../includes/options.php:131
+#: ../includes/options.php:123
 msgid "transactions_this_week"
 msgstr "Donations made <b>this week</b>"
 
-#: ../includes/options.php:133
+#: ../includes/options.php:125
 msgid "total_donation_amount_this_week"
 msgstr "Total donation amount accepted <b>this week</b>"
 
-#: ../includes/options.php:140
+#: ../includes/options.php:132
 msgid "transactions_this_month"
 msgstr "Donations made <b>this month</b>"
 
-#: ../includes/options.php:142
+#: ../includes/options.php:134
 msgid "total_donation_amount_this_month"
 msgstr "Total donation amount accepted <b>this month</b>"
 
-#: ../includes/options.php:149
+#: ../includes/options.php:141
 msgid "transactions_this_year"
 msgstr "Donations made <b>this year</b>"
 
-#: ../includes/options.php:151
+#: ../includes/options.php:143
 msgid "total_donation_amount_this_year"
 msgstr "Total donation amount accepted <b>this year</b>"
 
-#: ../includes/options.php:158
+#: ../includes/options.php:148
 msgid "transactions_total"
 msgstr "Donations made <b>for all time</b>"
 
-#: ../includes/options.php:160
-msgid "transactions_accomplished_total"
-msgstr "Finished"
-
-#: ../includes/options.php:162
-msgid "transactions_not_accomplished_total"
-msgstr "Unfinished"
-
-#: ../includes/options.php:164
+#: ../includes/options.php:150
 msgid "total_donation_amount"
 msgstr "Total donation amount <b>for all time</b>"
 
-#: ../includes/options.php:169
+#: ../includes/options.php:155
 msgid "last_hundred_transactions_detailed"
 msgstr "Last 100 donations accepted"
 
-#: ../includes/options.php:174
-msgid "delete_not_accomplished_transactions"
-msgstr "Delete unfinished"
-
-#: ../includes/options.php:179
+#: ../includes/options.php:159
 msgid "transaction_id"
 msgstr "Transaction Id"
 
-#: ../includes/options.php:179 ../includes/shortcodes.php:51
+#: ../includes/options.php:159
+msgid "robokassa_id"
+msgstr "Robokassa transaction ID"
+
+#: ../includes/options.php:159
 msgid "donation_sum"
 msgstr "Donation amount"
 
-#: ../includes/options.php:179
-msgid "payment_method"
-msgstr "Payment Method"
-
-#: ../includes/options.php:179
+#: ../includes/options.php:159
 msgid "transaction_date"
 msgstr "Transaction Date"
 
-#: ../includes/options.php:179
-msgid "transaction_user_message"
-msgstr "User message"
-
-#: ../includes/options.php:188
+#: ../includes/options.php:168
 msgid "no_transactions_yet_been_performed"
 msgstr "There is no donations yet. You should wait a bit :)"
 
-#: ../includes/shortcodes.php:33 ../includes/shortcodes.php:120
+#: ../includes/shortcodes.php:32
 msgid "not_all_settings_are_set"
 msgstr ""
 "Not all required fields are filled in admin panel. This plugin cannot "
 "operate."
 
-#: ../includes/shortcodes.php:38
-msgid "error_during_currency_request"
-msgstr ""
-"Error occured during request for available currencies. Please contact "
-"website administration."
+#~ msgid "confirm_page_url"
+#~ msgstr "Confirm page URL"
 
-#: ../includes/shortcodes.php:55 ../includes/shortcodes.php:155
-msgid "donation_currency"
-msgstr "Donation payment method"
+#~ msgid "text_before_donate_form"
+#~ msgstr "Text to put before donation form"
 
-#: ../includes/shortcodes.php:72
-msgid "user_message"
-msgstr "You can leave us some kind words."
+#~ msgid "transactions_accomplished_total"
+#~ msgstr "Finished"
 
-#: ../includes/shortcodes.php:74
-msgid "leave_us_a_message"
-msgstr "Leave us a few nice words!"
+#~ msgid "transactions_not_accomplished_total"
+#~ msgstr "Unfinished"
 
-#: ../includes/shortcodes.php:79 ../includes/shortcodes.php:170
-msgid "donate"
-msgstr "Donate"
+#~ msgid "delete_not_accomplished_transactions"
+#~ msgstr "Delete unfinished"
 
-#: ../includes/shortcodes.php:111
-msgid "error_provided_currency_incorrect"
-msgstr ""
-"Payment method passed incorrectly. Please try go back and fill the form "
-"again."
+#~ msgid "payment_method"
+#~ msgstr "Payment Method"
 
-#: ../includes/shortcodes.php:114
-msgid "error_amount_should_be_numeric"
-msgstr "Amount should be numeric"
+#~ msgid "transaction_user_message"
+#~ msgstr "User message"
 
-#: ../includes/shortcodes.php:117
-#, php-format
-msgid "error_amount_cannot_be_below_zero_you_specified %1$.2f"
-msgstr "Amout cannot be zero or below zero. You've specified %1$.2f."
+#~ msgid "error_during_currency_request"
+#~ msgstr ""
+#~ "Error occured during request for available currencies. Please contact "
+#~ "website administration."
 
-#: ../includes/shortcodes.php:154
-msgid "amount"
-msgstr "Amount"
+#~ msgid "donation_currency"
+#~ msgstr "Donation payment method"
 
-#: ../includes/shortcodes.php:157
-msgid "usermessage"
-msgstr "Your message to us:"
+#~ msgid "user_message"
+#~ msgstr "You can leave us some kind words."
 
-#: ../includes/shortcodes.php:171
-msgid "cancel"
-msgstr "Cancel"
+#~ msgid "leave_us_a_message"
+#~ msgstr "Leave us a few nice words!"
+
+#~ msgid "donate"
+#~ msgstr "Donate"
+
+#~ msgid "error_provided_currency_incorrect"
+#~ msgstr ""
+#~ "Payment method passed incorrectly. Please try go back and fill the form "
+#~ "again."
+
+#~ msgid "error_amount_should_be_numeric"
+#~ msgstr "Amount should be numeric"
+
+#~ msgid "error_amount_cannot_be_below_zero_you_specified %1$.2f"
+#~ msgstr "Amout cannot be zero or below zero. You've specified %1$.2f."
+
+#~ msgid "amount"
+#~ msgstr "Amount"
+
+#~ msgid "usermessage"
+#~ msgstr "Your message to us:"
+
+#~ msgid "cancel"
+#~ msgstr "Cancel"
 
 #~ msgid "success_url"
 #~ msgstr "Robokassa Success URL"
