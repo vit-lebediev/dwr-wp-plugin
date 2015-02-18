@@ -70,7 +70,7 @@ The default amount set to the widget with a field for specifying donation, and d
 The description of a Robokassa shop transaction. Will be displayed in the list of operations in admin panel of the shop.
 
 * Force delete tables  
-If this checkbox set, on deactivation of a plugin a table with all transactions will be deleted.  
+If this checkbox is set, on deactivation of a plugin a table with all transactions will be deleted.  
 **Warning!** A table holds all transaction history, and if lost, all statistics will be lost too! (Though transaction history could be
 viewed in the admin panel of the shop)
 
