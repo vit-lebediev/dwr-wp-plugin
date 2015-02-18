@@ -49,30 +49,39 @@ There's two settings sections for the plugin:
 ### Donate With Robokassa (DWR) Settings page
 On this page, there's a list of options, required to be set before a plugin could operate.
 
-* **Robokassa Result URL**.
+* Robokassa Result URL.
 
 This option describes a part of Robokassa Result URL (a parameter in Robokassa shop settings), which will be attached to your website hostname.
+
 It is recommended to leave this option with a default value. Change it only if you understand what are you doing.
+
 Example: Your website is http://myonlineblog.com/. If 'Robokassa Result URL' will be default ('robokassa_result'), then you should
 set Result URL on Robokassa shop settings page to **http://myonlineblog.com/robokassa_result**.
 
 * Robokassa Result URL Method
+
 This should be the same, as on Robokassa shop settings page for Result URL.
 
 * Merchant Login
+
 This is a so called **shop identifier**. You can find it on the settings page of your shop in Robokassa shop admin panel.
 
 * Merchant Password #1 & Merchant Password #2
+
 Should be the same as the values you set in shop settings.
 
 * Default donation amount
+
 The default amount set to the widget with a field for specifying donation, and default amount which will be used for compact button.
 
 * Robokassa transaction description
+
 The description of a Robokassa shop transaction. Will be displayed in the list of operations in admin panel of the shop.
 
 * Force delete tables
+
 If this checkbox set, on deactivation of a plugin a table with all transactions will be deleted.
+
 **Warning!** A table holds all transaction history, and if lost, all statistics will be lost too! (Though transaction history could be
 viewed in the admin panel of the shop)
 
