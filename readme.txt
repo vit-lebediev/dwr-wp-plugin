@@ -103,5 +103,9 @@ There's a checkbox on the parameters page of the plugin to force delete the tabl
 
 == Changelog ==
 
+= 1.0.1 =
+* Update README.md file
+* Add readme.txt file for WP Plugin Repository
+
 = 1.0.0 =
 * First public release of the plugin
