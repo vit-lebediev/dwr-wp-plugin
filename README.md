@@ -90,7 +90,8 @@ _Пример_: Ваш вебсайт находится по адресу http:
 ## Локализация
 Плагин локализован для английского и русского языков.
 
-**Ещё раз**. При деактивации плагин не удалит свою таблицу ('dwr_donations') из базы данных, т.к. при этом будет утеряна вся история пожертвований.  
+## Ещё раз
+При деактивации плагин не удалит свою таблицу ('dwr_donations') из базы данных, т.к. при этом будет утеряна вся история пожертвований.  
 Это означает что вы можете деактивировать плагин, а затем активировать его опять, и вся предыдущая история пожертвований будет доступна.  
 В настройках есть чекбокс, выставив который, вы сможете удалить таблицу, деактивировав плагин.
 
@@ -185,6 +186,7 @@ statistics more representative.
 ## Localization
 The plugin is localized for English and Russian languages.
 
-**One again**. The plugin will not delete it's DataBase table ('dwr_donations') on deactivation, due the possibility of loosing all donations history.  
+## Once again
+The plugin will not delete it's DataBase table ('dwr_donations') on deactivation, due the possibility of loosing all donations history.  
 This mean that you can deactivate a plugin, and then re-activate it, and all previous statistics will be available.  
 There's a checkbox on the parameters page of the plugin to force delete the table on deactivation.
