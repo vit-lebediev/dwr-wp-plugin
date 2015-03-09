@@ -15,6 +15,13 @@ English version of this README could be found [at the bottom of this page](https
 
 ![image](https://cloud.githubusercontent.com/assets/1384973/6256359/2cb64ca4-b7c0-11e4-91ad-f4efc222d127.png)
 
+## Пожертвования
+Я не собираю пожертвования, но буду благодарен если вы [поддержите проект](http://vertdider.com/pomoshh-proektu/ "Помощь проекту Vert Dider") по популяризации науки и научного подхода, в котором я принимаю участие как волонтер.
+
+## Баги и пожелания для дальнейшего развития проекта
+Если вам нравится мой плагин, но вы нашли в нем ошибку, пожалуйста, добавьте её в [багтрекер](https://github.com/Malgin/dwr-wp-plugin/issues) на Github странице плагина
+А так же, если у вас есть пожелания для добавления нового функционала, создайте запрос на это изменение все в [том же багтрекере](https://github.com/Malgin/dwr-wp-plugin/issues)
+
 ## Предварительные требования
 * Для того, чтобы использовать этот плагин эффективно, вам необходимо знать как работает Робокасса. Ознакомиться с ней можно на [официальном сайте](http://robokassa.ru "Официальный вебсайт Робокассы").
 * На данный момент, этот плагин работает только если настройка "Постоянные ссылки" выставлена не по умолчанию.
@@ -102,6 +109,13 @@ Or you can add a compact button to your pages/sidebars which will lead to the ro
 value, which could be set on plugin settings page!
 
 ![image](https://cloud.githubusercontent.com/assets/1384973/6256359/2cb64ca4-b7c0-11e4-91ad-f4efc222d127.png)
+
+## Donations
+I do not accept donations, but I would be very gratitude if you will donate to [science populatization project](http://vertdider.com/pomoshh-proektu/ "Vert Dider") I work on as a volunteer.
+
+## Bugs & Feature requests 
+If you like my plugin, but find a bug in it, please create a bugreport on it's [official Github repository page](https://github.com/Malgin/dwr-wp-plugin/issues)
+Also, if you have an idea how to improve the project further, please create feature requests [there, too](https://github.com/Malgin/dwr-wp-plugin/issues).
 
 ## Prerequisites
 * In order to use this plugin, you should be familiar with Robokassa system. You can read about it on [Robokassa official website](http://robokassa.ru "Robokassa Website") (ru).
