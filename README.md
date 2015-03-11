@@ -29,7 +29,7 @@ English version of this README could be found [at the bottom of this page](https
 ## Как начать принимать пожертвования
 Вам нужно проследовать этим ПЯТИ (**один из двух** последних необязателен) простым шагам:
 
-1. Скачайте плагин и скопируйте его в папку 'site-root-dir/wp-content/plugins/donate-with-robokassa', где site-root-dir - корневая директория вашей WordPress установки.
+1. Скачайте плагин и скопируйте его в папку 'site-root-dir/wp-content/plugins/donate-with-robokassa', где site-root-dir - корневая директория вашей WordPress установки (или установите плагин из раздела "Плагины" в админ панели. Для удобства там вы можете воспользоваться поиском.).
 2. В админпанели сайта, активируйте плагин (Это делается в меню "Плагины -> Установленные")
 3. Откройте меню "Параметры -> Donate With Robokassa (DWR)" и заполните все необходимые поля (более детально о них можно почитать [ниже](https://github.com/Malgin/dwr-wp-plugin#%D0%A1%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%BE%D0%B2-donate-with-robokassa-dwr)).
 4. Добавьте шорткод **[dwr_payment_widget]** в любую запись или на любую страницу, туда, где бы вы хотели видеть виджет приема платежей.
@@ -125,7 +125,7 @@ Also, if you have an idea how to improve the project further, please create feat
 ## How to start accepting donations
 You need to follow these FIVE (**one of two** at the end is optional) simple steps:
 
-1. Download a plugin and copy it to 'site-root-dir/wp-content/plugins/donate-with-robokassa' folder.
+1. Download a plugin and copy it to 'site-root-dir/wp-content/plugins/donate-with-robokassa' folder (or install it from "Plugins -> Add new" menu in the admin panel. You can find it using plugin search.).
 2. In admin panel of the site, activate the plugin (You can do it under "Plugins -> Installed Plugins" menu).
 3. Go to Settings -> Donate With Robokassa (DWR) page and fill in all the required fields (more details on this [here](https://github.com/Malgin/dwr-wp-plugin#donate-with-robokassa-dwr-settings-page)).
 4. Add **[dwr_payment_widget]** shortcode anywhere on the website where you would like to see robokassa donation widget.
