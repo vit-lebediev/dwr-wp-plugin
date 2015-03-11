@@ -5,7 +5,7 @@
  * Description:
  *     A plugin which will help you integrate robokassa into your website to accept donations.
  * 
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Malgin
  * Author URI: https://github.com/Malgin
  * License: MIT

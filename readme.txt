@@ -4,7 +4,7 @@ Donate link: http://vertdider.com/pomoshh-proektu/
 Tags: donation, robokassa
 Requires at least: 3.6.1
 Tested up to: 3.6.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: MIT
 License URI: http://opensource.org/licenses/MIT
 
@@ -14,6 +14,8 @@ License URI: http://opensource.org/licenses/MIT
 
 * Author: [Malgin](https://github.com/Malgin)
 * Project URL: <https://github.com/Malgin/dwr-wp-plugin>
+
+Описание на русском языке доступно на [официальной Github странице плагина](https://github.com/Malgin/dwr-wp-plugin "Donate With Robokassa").
 
 Robokassa is a payment aggregator, which helps you accept payment via a wide variety of methods, including QIWI, WebMoney, Yandex.Money, Money@Mail.ru, with different Mobile Operators (Megafon, MTC), via terminals, and others!
 
@@ -41,7 +43,7 @@ In order to insert **compact widget button**, you should add an empty 'compact' 
 == Installation ==
 You need to follow these FIVE (*one of two* at the end is optional) simple steps:
 
-1. Download a plugin and copy it to 'site-root-dir/wp-content/plugins/donate-with-robokassa' folder (or install it from "Plugins -> Add new" menu in the admin panel. You can find it using plugin search)
+1. Download a plugin and copy it to 'site-root-dir/wp-content/plugins/donate-with-robokassa' folder (or install it from "Plugins -> Add new" menu in the admin panel. You can find it using plugin search.).
 2. In admin panel of the site, activate the plugin (You can do it under "Plugins -> Installed Plugins" menu).
 3. Go to Settings -> Donate With Robokassa (DWR) page and fill in all the required fields (more details on this here).
 4. Add [dwr_payment_widget] shortcode anywhere on the website where you would like to see robokassa donation widget.
@@ -102,6 +104,13 @@ There's a checkbox on the parameters page of the plugin to force delete the tabl
 2. Compact button.
 
 == Changelog ==
+
+= 1.0.3 =
+* Fix issue with screenshots don't display on the Screenshots section of the plugin page in WP plugin repository.
+
+= 1.0.2 =
+* Fix issue with wrong version displaying on the WP plugin repository page.
+* Fix few misspellings in readme files
 
 = 1.0.1 =
 * Update README.md file
