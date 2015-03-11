@@ -4,20 +4,11 @@
  * Plugin URI: https://github.com/Malgin/dwr-wp-plugin
  * Description:
  *     A plugin which will help you integrate robokassa into your website to accept donations.
- *
- *     The plugin requires at least two pages (one of them can be replaced with widget) to work:
- *         - one page (or a widget) displays donation form
- *         - second (confirmation) page displays info about payment before user will be redirected to robokassa
- *
- *     The plugin provides complete log of all donations.
- * Version: 0.0.1
+ * 
+ * Version: 1.0.2
  * Author: Malgin
- * Author URI: malgin.name
- * License: GPL2
- *
- * TODO LIST:
- * - Use proper functions to work with numbers with floating point
- *
+ * Author URI: https://github.com/Malgin
+ * License: MIT
 **/
 
 /**
