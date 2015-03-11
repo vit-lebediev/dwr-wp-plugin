@@ -4,7 +4,7 @@ Donate link: http://vertdider.com/pomoshh-proektu/
 Tags: donation, robokassa
 Requires at least: 3.6.1
 Tested up to: 3.6.1
-Stable tag: trunk
+Stable tag: 1.0.2
 License: MIT
 License URI: http://opensource.org/licenses/MIT
 
@@ -20,7 +20,7 @@ Robokassa is a payment aggregator, which helps you accept payment via a wide var
 With this plugin, you will be able to add a robokassa widget with a field for arbitrary amount of donation, or you can add a compact button to your pages/sidebars which will lead to the robokassa payment page with default donation value, which could be set on plugin settings page!
 
 = Donations =
-I do not accept donations, but I would be very gratitude if you will donate to [science populatization project](http://vertdider.com/pomoshh-proektu/ "Vert Dider") I work on as a volunteer.
+I do not accept donations, but I would be very gratitude if you will donate to [science popularization project](http://vertdider.com/pomoshh-proektu/ "Vert Dider") I work on as a volunteer.
 
 = Bugs & Feature requests =
 If you like my plugin, but find a bug in it, please create a bugreport on it's [official Github repository page](https://github.com/Malgin/dwr-wp-plugin/issues)
@@ -34,14 +34,14 @@ Also, if you have an idea how to improve the project further, please create feat
 = Shortcodes =
 This plugin supports one shortcode: **[dwr_payment_widget]**. Inserting just this shortcode in an article, or on a page, will result in a widget with a field for arbitrary donation to appear on the page.
 
-In order to insert **compact widget button**, you should add an empty 'compact' parameter to the shortcode, like this: [dwr_payment_widget compact].
+In order to insert **compact widget button**, you should add an empty 'compact' parameter to the shortcode, like this: **[dwr_payment_widget compact]**.
 
 **Warning!** If required (which are all) options are not set in the plugin settings page, a warning message will be displayed instead of a widget.
 
 == Installation ==
 You need to follow these FIVE (*one of two* at the end is optional) simple steps:
 
-1. Download a plugin and copy it to 'site-root-dir/wp-content/plugins/donate-with-robokassa' folder.
+1. Download a plugin and copy it to 'site-root-dir/wp-content/plugins/donate-with-robokassa' folder (or install it from "Plugins -> Add new" menu in the admin panel. You can find it using plugin search)
 2. In admin panel of the site, activate the plugin (You can do it under "Plugins -> Installed Plugins" menu).
 3. Go to Settings -> Donate With Robokassa (DWR) page and fill in all the required fields (more details on this here).
 4. Add [dwr_payment_widget] shortcode anywhere on the website where you would like to see robokassa donation widget.
